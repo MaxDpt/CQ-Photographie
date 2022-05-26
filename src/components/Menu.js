@@ -1,15 +1,23 @@
 
     import styled from "styled-components"; 
+    import * as React from 'react';
+    import { Link } from "react-router-dom";
 
 
     export default function Menu() {
+
+        var urlcourante = document.location.href;
+        var urlAccueil = 'http://localhost:3000/';
+        var urlGalerie = 'http://localhost:3000/Galerie';
+        var urlPrestations = 'http://localhost:3000/Prestations';
+        var urlContact = 'http://localhost:3000/Contact';
     
         return (
         <Wrapper>
-            <div className="Btn-Menu"><p>Accueil</p></div>
-            <div className="Btn-Menu"><p>Galerie</p></div>
-            <div className="Btn-Menu"><p>Prestations</p></div>
-            <div className="Btn-Menu"><p>Contact</p></div>
+            <Link className={`link ${urlcourante === urlAccueil ? "show-link" : "hide-link"} `} to ="/"> Accueil </Link>
+            <Link className={`link ${urlcourante === urlGalerie ? "show-link" : "hide-link"} `} to ="/Galerie"> Galerie </Link>
+            <Link className={`link ${urlcourante === urlPrestations ? "show-link" : "hide-link"} `} to ="/Prestations"> Prestations </Link>
+            <Link className={`link ${urlcourante === urlContact ? "show-link" : "hide-link"} `} to ="/Contact"> Contact </Link>
         </Wrapper>
         );
     };
@@ -20,11 +28,16 @@
     width: 100%;
     height: 6rem;
 
-    .Btn-Menu {
+    .link {
+        color: #FFFFFF;
         font-size: 32px;
         letter-spacing: 1px;
         margin: 2rem;
+        text-decoration: none;
 
+    }
+    .show-link {
+        color: grey;
     }
     `;
 
