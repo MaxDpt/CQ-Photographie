@@ -20,7 +20,7 @@ export default function Posts() {
             var data = Array.from(res.data);
             setPosts(data);
             setIsLoading(false)
-        }, 2000)
+        }, 500)
         })
     }, [])
 

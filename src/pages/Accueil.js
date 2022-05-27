@@ -1,14 +1,14 @@
 
     import * as React from 'react';
     import styled from "styled-components"; 
-
+    import HomPage from 'components/HomePage';
 
     export default function Accueil() {
     
         return (
         <Wrapper>
             
-             <p>Acceuil</p>
+        <HomPage />
             
         </Wrapper>
         );
