@@ -1,13 +1,12 @@
 
     import styled from "styled-components"; 
-
+    import Posts from "components/Posts";
 
     export default function Galerie() {
     
         return (
         <Wrapper>
-            <h1>Galerie !  
-            </h1>
+            <Posts/>
         </Wrapper>
         );
     };

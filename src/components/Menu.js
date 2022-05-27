@@ -11,6 +11,8 @@
         var urlGalerie = 'http://localhost:3000/Galerie';
         var urlPrestations = 'http://localhost:3000/Prestations';
         var urlContact = 'http://localhost:3000/Contact';
+
+        
     
         return (
         <Wrapper>
@@ -29,7 +31,7 @@
     height: 6rem;
 
     .link {
-        color: #FFFFFF;
+        color: inerit;
         font-size: 32px;
         letter-spacing: 1px;
         margin: 2rem;

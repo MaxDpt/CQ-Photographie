@@ -1,4 +1,5 @@
 
+    import * as React from 'react';
     import styled from "styled-components"; 
 
 
@@ -6,7 +7,9 @@
     
         return (
         <Wrapper>
-            <h1>Accueil</h1>
+            
+             <p>Acceuil</p>
+            
         </Wrapper>
         );
     };
