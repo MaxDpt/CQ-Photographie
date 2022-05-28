@@ -2,6 +2,8 @@
     import styled from "styled-components"; 
     import React, {useState, useEffect} from 'react';
     import Image from "./Image";
+    import FbLogo from "./FacebookLogo";
+    import InstaLogo from "./InstagramLogo";
 
     export default function Header() {
 
@@ -35,9 +37,12 @@
 
             <div className="right">
                 <>
-                    <div className="fb"> <img src=""/> </div>
-                    <div className="insta"> <img src=""/> </div>
-                    <div className="lang"> <img src=""/> </div>
+                <div className="links">
+                    <div className="fb"> <div className="box"><FbLogo/> <a href="#">CharleQuentin</a></div>  </div>
+                    <div className="insta"> <div className="box"><InstaLogo/> <a href="#">@CharleQuentin</a></div> </div>
+                </div>
+
+                <div className="lang"> <img src=""/> </div>
                 </>
             </div>
             
@@ -49,6 +54,7 @@
     const HeaderWrapper = styled.div`
 
     background-color: #212838;
+    box-shadow: 0px 2px 10px 2px #393E46;
     display: flex; 
     justify-content: space-between;
     width: 100%;
@@ -66,24 +72,41 @@
         justify-content: space-between;
         width: 25%;
     }
+
+    .links {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        flex-direction: row;
+    }
+    .box {
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+    }
+    .box a {
+        color: white;
+        text-decoration: none;
+    }
     
     .logo img {
         display: flex; 
         border: 2px solid white;
         margin: 0.5rem;
-        width: 5rem;
+        width: 6rem;
+        border-radius: 10px;
         height: 5rem;
     }
     .fb {
         display: flex; 
-        border: 2px solid white;
+        justify-content: center;
         margin: 0.5rem;
         width: 5rem;
         height: 5rem;
     }
     .insta {
         display: flex; 
-        border: 2px solid white;
+        justify-content: center;
         margin: 0.5rem;
         width: 5rem;
         height: 5rem;
