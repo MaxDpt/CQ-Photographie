@@ -30,7 +30,7 @@ export default function Posts() {
       
             {isLoading ? 'Loading...' : posts.map(post => (
             <div className="post">
-                <Post {...post.attributes}/>
+                <Post {...post.attributes} {...post}/>
             </div>
             ) )}
 

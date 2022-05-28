@@ -2,8 +2,8 @@
     import styled from "styled-components"; 
     import React, {useState, useEffect} from 'react';
     import Image from "./Image";
-    import FbLogo from "./FacebookLogo";
-    import InstaLogo from "./InstagramLogo";
+    import FbLogo from "./Icons/FacebookLogo";
+    import InstaLogo from "./Icons/InstagramLogo";
 
     export default function Header() {
 

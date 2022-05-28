@@ -31,7 +31,7 @@
     height: 6rem;
 
     .link {
-        color: inerit;
+        color: white;
         font-size: 32px;
         letter-spacing: 1px;
         margin: 2rem;

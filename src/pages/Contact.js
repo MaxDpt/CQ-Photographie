@@ -1,11 +1,11 @@
 import styled from "styled-components"; 
-
-
+import React from "react";
+import Formulaire from "components/Formulaire";
 export default function Contact() {
 
     return (
     <Wrapper>
-        <h1>Contact</h1>
+        <Formulaire/>
     </Wrapper>
     );
 };

@@ -7,7 +7,8 @@
     const Image = ({
         image = '',
     }) => {
-    
+
+
     return (
     <Wrapper>
 
