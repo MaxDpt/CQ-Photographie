@@ -12,14 +12,12 @@
         var urlPrestations = 'http://localhost:3000/Prestations';
         var urlContact = 'http://localhost:3000/Contact';
 
-        
-    
         return (
         <Wrapper>
-            <Link className={`link ${urlcourante === urlAccueil ? "show-link" : "hide-link"} `} to ="/"> Accueil </Link>
-            <Link className={`link ${urlcourante === urlGalerie ? "show-link" : "hide-link"} `} to ="/Galerie"> Galerie </Link>
-            <Link className={`link ${urlcourante === urlPrestations ? "show-link" : "hide-link"} `} to ="/Prestations"> Prestations </Link>
-            <Link className={`link ${urlcourante === urlContact ? "show-link" : "hide-link"} `} to ="/Contact"> Contact </Link>
+            <Link className={`link ${urlcourante === urlAccueil ? "show-link" : "hide-link"} `} to ="/"> <h1>Accueil</h1> </Link>
+            <Link className={`link ${urlcourante === urlGalerie ? "show-link" : "hide-link"} `} to ="/Galerie"> <h1>Galerie</h1>  </Link>
+            <Link className={`link ${urlcourante === urlPrestations ? "show-link" : "hide-link"} `} to ="/Prestations"> <h1>Prestations</h1> </Link>
+            <Link className={`link ${urlcourante === urlContact ? "show-link" : "hide-link"} `} to ="/Contact"> <h1>Contact</h1>  </Link>
         </Wrapper>
         );
     };
@@ -32,7 +30,7 @@
 
     .link {
         color: white;
-        font-size: 32px;
+        font-size: 42px;
         letter-spacing: 1px;
         margin: 2rem;
         text-decoration: none;
