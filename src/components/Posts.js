@@ -16,25 +16,56 @@ export default function Posts() {
     var pageNext = pageSelect + 1;
 
 // Appel à la liste des posts -----------------------------------------
-useEffect(() => {
-    fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]=12',
-    {
-        method: 'GET',
-        headers: {'Accept': 'Application/json'}
-    })
-.then(res => res.json())
-.then(res => {
-    setTimeout(() => {
-        var data = Array.from(res.data);
-        var pageCurrent = Number(res.meta.pagination.page);
-        var pageCount = Number(res.meta.pagination.pageCount);
-        setPosts(data);
-        setPageCount(pageCount);
-        setPageCurrent(pageCurrent);
-        setIsLoading(false)
-    }, 500)
-    })
-}, [])
+    useEffect(() => {
+        fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]=12',
+        {
+            method: 'GET',
+            headers: {'Accept': 'Application/json'}
+        })
+    .then(res => res.json())
+    .then(res => {
+        setTimeout(() => {
+            var data = Array.from(res.data);
+            var pageCurrent = Number(res.meta.pagination.page);
+            var pageCount = Number(res.meta.pagination.pageCount);
+            setPosts(data);
+            setPageCount(pageCount);
+            setPageCurrent(pageCurrent);
+            setIsLoading(false)
+        }, 500)
+        })      }, []) 
+
+
+ 
+
+
+
+ 
+              
+  
+
+        
+    const categorieClicked = () => {
+        console.log('clicked')
+        if (categorie !== '') {
+            fetch('http://localhost:1337/api/posts?populate=*&pagination[pageSize]=100', 
+            {
+                method: 'GET',
+                headers: {'Accept': 'Application/json'}
+            })
+        .then(res => res.json())
+        .then(res => {
+            setTimeout(() => {
+                var data = Array.from(res.data);
+                var pageCurrent = Number(res.meta.pagination.page);
+                var pageCount = Number(res.meta.pagination.pageCount);
+                setPosts(data);
+                setPageCount(pageCount);
+                setPageCurrent(pageCurrent);
+                setIsLoading(false)
+            }, 500)
+            })      
+    }}  
 // -------------------------------------------------------------------------
     
 
@@ -132,7 +163,7 @@ const handleOnChangeCategorie = (e) => {
 
         <div className="menuList">
         <label for="select">filtre : </label>
-        <select id="select" value={categorie} onChange={handleOnChangeCategorie}>
+        <select id="select" value={categorie} onChange={handleOnChangeCategorie} onClick={categorieClicked}>
         <option value="">--catégories--</option>
         {isLoading2 ? 'Loading...' : categories.map(categorie => (
             <option value={categorie.attributes.name}>{categorie.attributes.name}</option>
