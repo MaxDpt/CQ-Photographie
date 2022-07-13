@@ -31,8 +31,8 @@
     height: 6rem;
 
     .containerLink {
-        background-color: #212838;
-        box-shadow: 0px 2px 10px 2px #393E46;
+        background-color: #02111f;
+        box-shadow: 0px 2px 10px 2px #02111f;
         height: 4rem;
         margin: auto;
         display: flex; 

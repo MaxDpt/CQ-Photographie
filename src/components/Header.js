@@ -53,8 +53,9 @@
     
     const HeaderWrapper = styled.div`
 
-    background-color: #212838;
-    box-shadow: 0px 2px 10px 2px #393E46;
+    background: rgb(71,85,94);
+    background: linear-gradient(90deg, rgba(71,85,94,1) 0%, rgba(2,17,31,1) 25%, rgba(2,17,31,1) 75%, rgba(71,85,94,1) 100%);
+    box-shadow: 0px 2px 10px 2px #02111f;
     display: flex; 
     justify-content: space-between;
     width: 100%;

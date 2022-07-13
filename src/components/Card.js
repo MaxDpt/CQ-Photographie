@@ -39,7 +39,7 @@
     const Wrapper = styled.div`
 
     .container {
-        border: 2px solid white;
+        box-shadow: 0px 2px 12px 2px #02111f;
         border-radius: 2px;
         display: flex;
         width: 20rem; 
@@ -49,6 +49,7 @@
 
     .container:hover {
         cursor: pointer;
+        box-shadow: 0px 2px 4px 2px #02111f;
     }
     .card { 
         z-index: 1;}

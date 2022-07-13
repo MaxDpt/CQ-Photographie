@@ -19,7 +19,7 @@
     };
     
     const Wrapper = styled.div`
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.75);
     dislay: flex; 
     position: fixed;
     width: 100%;

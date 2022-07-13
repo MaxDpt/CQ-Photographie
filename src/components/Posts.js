@@ -130,26 +130,29 @@ const handleOnChangeCategorie = (e) => {
 
     return (
     <Wrapper>
-        <div className="navPages">
-            <div className="pageCount">
-                <a className={`prevPage ${ pageSelect === 1 ? 'prevPageHide' : 'prevPageShow'}`} onClick={prevPage}>  <p> precedent </p> </a>
-                {pagePrev > 0 ? (<p className="pagePrev">{pagePrev}</p>) : null }
-                <p className='pageCurrent'>{pageSelect}</p>
-                {pageNext < pageCount + 1 ? (<p className="pageNext">{pageNext}</p>) : null}
-                <p>. . .</p>
-                <p>{pageCount} </p>
-                <a className={`nextPage ${pageSelect === pageCount ? 'nextPageHide' : 'nextPageShow'}`} onClick={nextPage}> <p> suivant </p> </a>
-            </div>
+        <div className="containerNav">
+            <div className="navPages">
+                <div className="pageCount">
+                    <a className={`prevPage ${ pageSelect === 1 ? 'prevPageHide' : 'prevPageShow'}`} onClick={prevPage}>  <p> precedent </p> </a>
+                    {pagePrev > 0 ? (<p className="pagePrev">{pagePrev}</p>) : null }
+                    <p className='pageCurrent'>{pageSelect}</p>
+                    {pageNext < pageCount + 1 ? (<p className="pageNext">{pageNext}</p>) : null}
+                    <p>. . .</p>
+                    <p>{pageCount} </p>
+                    <a className={`nextPage ${pageSelect === pageCount ? 'nextPageHide' : 'nextPageShow'}`} onClick={nextPage}> <p> suivant </p> </a>
+                </div>
 
-            <div className="menuList">
-                <label for="select">filtre : </label>
-                <select id="select" value={categorie} onChange={handleOnChangeCategorie} onClick={categorieClicked}>
-                <option value="">--catégories--</option>
-                {isLoading2 ? 'Loading...' : categories.map(categorie => (
-                <option value={categorie.attributes.name}>{categorie.attributes.name}</option> ) )}
-                </select>
+                <div className="menuList">
+                    <label for="select">filtre : </label>
+                    <select id="select" value={categorie} onChange={handleOnChangeCategorie} onClick={categorieClicked}>
+                    <option value="">--catégories--</option>
+                    {isLoading2 ? 'Loading...' : categories.map(categorie => (
+                    <option value={categorie.attributes.name}>{categorie.attributes.name}</option> ) )}
+                    </select>
+                </div>
             </div>
         </div>
+
 
         <div className="containerGrille">
             {isLoading ? 'Loading...' : posts.map(post => (
@@ -172,32 +175,49 @@ const Wrapper = styled.div`
 .pageCurrent {
     color: gray; }
 
-.navPages {
+.containerNav {
     display: flex; 
+    justify-content: end;
     flex-direction: row;
     width: 80%;
     margin: auto; }
+}
+.navPages {
+    background-color: #02111f;
+    box-shadow: 0px 2px 10px 2px #02111f;
+    border-radius: 10px;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    display: flex; 
+    justify-content: end;
+    flex-direction: row;
+    width: 45%; }
 
 .pageCount {
     display: flex; 
     font-size: 1.2rem;
     flex-direction: row;
-    justify-content: end;
-    margin: auto;
-    width: 80%;
+    justify-content: center;
+    margin-top: 0.2rem;
+    width: 50%;
     height: 1.6rem; }
 
 .pageCount p {
-    margin 0 0.5rem; }
+    margin: 0 0.5rem; }
 
 .nextPage {
     cursor: pointer; }
+.nextPage:hover {
+    color: gray; }
 
 .nextPageHide {
     pointer-events: none; }
 
 .prevPage {
     cursor: pointer; }
+.prevPage:hover {
+    color: gray; }
 
 .prevPageHide {
     pointer-events: none; }
@@ -205,11 +225,12 @@ const Wrapper = styled.div`
 .menuList {
     display: flex;
     justify-content: end;
-    width: 20%;
+    width: 50%;
     margin: auto; }
 
 .menuList select {
-    width: 80%;
+    border-radius: 10px;
+    width: 85%;
     margin: auto 0;
     font-size: 1.2rem; }
 

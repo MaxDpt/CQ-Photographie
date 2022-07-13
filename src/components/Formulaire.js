@@ -2,7 +2,7 @@
     import styled from "styled-components"; 
     import * as React from 'react';
     import { useEffect, useState }from "react";
-
+    import DeleteLogo from "./Icons/DeleteLogo";
 
     export default function Formulaire() {
     
@@ -28,6 +28,10 @@
         const link = () => {
             window.location.href='/Prestations';
         }
+        const DeletePrestation = () => {
+            localStorage.clear();
+            window.location.reload();
+        }
 
         return (
         <Wrapper>
@@ -37,6 +41,7 @@
             <form className="form">
                 <div className="container0">
                     <div className="container1">
+                        <div className="EmailObject">
                         <div className="row">
                             <label className="label">Email :</label>
                             <input className="email" type='text' placeholder='email@exemple.com' />
@@ -45,6 +50,8 @@
                             <label className="label">Object :</label>
                             <input className="object" type='text' placeholder='' value={prestationName} />
                         </div>
+                        </div>
+
                     </div>
 
                     <div className="container2">
@@ -58,7 +65,10 @@
                         <div>
                             <p className="line"> Préstation :  {presta.attributes.title} </p>
                             <p className="line"> Au prix : {presta.attributes.prix} euro/TTC</p>
+                            <a className="Delete" onClick={DeletePrestation}><DeleteLogo/></a>
                             <img className="image" src={'http://localhost:1337'+presta.attributes.image.data.attributes.url}/>
+                
+                            
                         </div>
                         ) )}                       
                         </div>
@@ -80,26 +90,28 @@
     justify-content: center;
     flex-direction: column;
     margin: auto;
-    width: 50%;
+    max-width: 60rem;
 
     .container0 {
-        border: 1px solid white;
+        border: 2px solid white;
+        border-radius: 10px;
         display: flex; 
         justify-content: center;
         flex-direction: row;
         width: 100%;
         height: 10rem;
+        overflow: hidden;
     }
     .container1 {
-        border: 1px solid white;
+        background-color: #02111f;
         display: flex;
         flex-direction: column; 
         width: 50%;
         
     }
     .container2 {
+        background-color: #02111f;
         overflow: hidden;
-        border: 1px solid white;
         display: flex; 
         width: 50%;
 
@@ -117,6 +129,14 @@
     .Prestation a:hover {
         cursor: pointer;
     }
+    .Delete {
+        display: flex; 
+        position: relative;
+        bottom: 4.5rem;
+        left: 25rem;
+        z-index: 3;
+        
+    }
     .line {
         background-color: rgba(0,0,0,0.4);
         display: flex;
@@ -129,17 +149,22 @@
         font-size 1.2rem;
         z-index: 2;
     }
+    .link {
+        border: dashed 2px white;
+        padding: 0.5rem;
+        margin-left: 3rem;
+    }
     .image {
         display: flex;
         position: relative;
-        margin-top: -6.5rem;
+        margin-top: -8rem;
         margin-left: -8rem;
         width: 40rem;
         z-index: 0;
     }
     .title {
         margin: 2rem auto;
-        font-size: 38px;
+        font-size: 58px;
     }
 
     .form {
@@ -147,11 +172,17 @@
         flex-direction: column;
         width: 100%;
     }
+    .EmailObject {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        margin: auto;
+    }
     .row {
         display: flex; 
         width: 100%;
         flex-direction: row;
-        margin-top: 0.5rem;
+        padding-bottom: 1rem;
     }
     .label {
         display: flex; 
@@ -160,9 +191,8 @@
         font-size: 20px;
     }
     .email, .object {
-        background-color: #47555E;
+        background-color: white;
         border: 2px solid white;
-        color: white;
         font-size: 16px;
         width: 75%;
         border-radius: 0.4rem;
@@ -170,15 +200,15 @@
         padding-left: 0.5rem;
     }
     .text-area {
-        background-color: #47555E;
-        color: white;
+        background-color: white;
         border: 2px solid white;
         font-size: 16px;
+        width: 99%;
         margin-top: 0.5rem;
         padding-bottom: 19.5rem;
         padding-top: 0.5rem;
         padding-left: 0.5rem;
-        border-radius: 0.4rem;
+        border-radius: 10px;
     }
     .Send {
         display: flex;
@@ -192,6 +222,9 @@
     .Send p {
         margin: auto;
         font-size: 28px;
+    }
+    .Send:hover {
+        cursor: pointer;
     }
     `;
 

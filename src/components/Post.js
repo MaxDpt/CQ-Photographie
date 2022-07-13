@@ -79,7 +79,11 @@
         overflow: hidden; 
         flex-direction: column;
         cursor: pointer;
-        border: solid 1px white;
+        box-shadow: 0px 2px 12px 2px #02111f;
+        trasition: 0.5s;
+    }
+    .container:hover {
+        box-shadow: 0px 2px 4px 2px #02111f;
     }
 
     .container .image {
