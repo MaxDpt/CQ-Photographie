@@ -19,30 +19,25 @@
         var idNumber = String(id);
         var urlId = 'http://localhost:1337/api/posts/'+ idNumber +'?populate=*'
 // -------------------------------------------------------------------------------------
-// Appel du post selectionné -----------------------------------------------------------
-        useEffect(() => {
-            fetch(urlId,
-            {
-                method: 'GET',
-                headers: {'Accept': 'Application/json'}
-            })
-        .then(res => res.json())
-        .then(res => {
-            setTimeout(() => {
-                var data = Array(res.data);
-                setPosts(data);
-                setIsLoading(false)
-            }, 500)
-            })
-        }, [])
-// ------------------------------------------------------------------------------------
+
 // Ouverture/Fermeture de l'image -----------------------------------------------------
-        const ClickImage = () => {
-            setOpenImage(true);
-        }
-        const ClickBack = () => {
-            setOpenImage(false);
-        }
+    const ClickImage = () => {
+        setOpenImage(true);
+        fetch(urlId,
+        {
+            method: 'GET',
+            headers: {'Accept': 'Application/json'}
+        })
+            .then(res => res.json())
+            .then(res => {      
+            var data = Array(res.data);
+            setPosts(data);
+            setIsLoading(false)   
+        })}
+
+    const ClickBack = () => {
+        setOpenImage(false);
+    }
 // ------------------------------------------------------------------------------------
     return (
     <Wrapper>
@@ -62,7 +57,7 @@
             <a className="BackIcon" onClick={ClickBack}> <BackLogo/> </a>
         </div>
 
-        {isLoading ? 'Loading...' : posts.map(post => (
+        {isLoading ? '' : posts.map(post => (
             <div className="openImage">
                 <ImageFullScreen {...post.attributes} {...post}/>
             </div>
