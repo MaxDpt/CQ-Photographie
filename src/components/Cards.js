@@ -20,7 +20,7 @@ export default function Cards() {
             var data = Array.from(res.data);
             setCards(data);
             setIsLoading(false)
-        }, 500)
+        }, 100)
         })
     }, [])
 
@@ -30,7 +30,7 @@ export default function Cards() {
       
             {isLoading ? 'Loading...' : cards.map(card => (
             <div className="card">
-                <Card {...card.attributes}/>
+                <Card {...card.attributes} {...card}/>
             </div>
             ) )}
 
@@ -43,12 +43,13 @@ const Wrapper = styled.div`
 
 .container1 {
     display: flex;
+    margin: auto;
     flex-wrap: wrap;
     justify-content: center;
-    width: 100%;
+    width: 70%;
     
 }
 .card {
-    margin: 1rem;
+    margin: 1.5rem;
 }
 `;
