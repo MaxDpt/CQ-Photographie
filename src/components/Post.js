@@ -77,23 +77,33 @@
     display: flex;
     justify-content: center;
     .container {
+        margin: 1rem;
         display: flex;
-        width: 50rem; 
-        height: 30rem;
+        width: 24rem; 
+        height: 18rem;
         overflow: hidden; 
         flex-direction: column;
         cursor: pointer;
+        border: solid 1px white;
+    }
+
+    .container .image {
+        width: 28rem; 
+        height: 22rem;
+        display: flex; 
+        top: -1.2rem;
+        position: relative;
     }
 
     .row {
         display: flex;
         width: 100%;
-        font-size: 1.1rem;
-        background-color: rgba(0,0,0,0.6); 
+        font-size: 0.8rem;
+        background-color: rgba(0,0,0,0.4); 
         position: relative;
-        top: 1.1rem;
         flex-direction: row;
         justify-content: space-between;
+        z-index: 1;
     }
     .titre {
     margin: auto 1rem;
@@ -113,12 +123,12 @@
         position: fixed; 
         left: 5rem;
         top: 10rem;
-        z-index: 2;
+        z-index: 3;
         cursor: pointer;
     }
 
     .openImage {
-        z-index: 1;
+        z-index: 2;
     }
 
 

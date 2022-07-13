@@ -14,10 +14,12 @@
 
         return (
         <Wrapper>
+            <div className="containerLink">
             <Link className={`link ${urlcourante === urlAccueil ? "show-link" : "hide-link"} `} to ="/"> <h1>Accueil</h1> </Link>
             <Link className={`link ${urlcourante === urlGalerie ? "show-link" : "hide-link"} `} to ="/Galerie"> <h1>Galerie</h1>  </Link>
             <Link className={`link ${urlcourante === urlPrestations ? "show-link" : "hide-link"} `} to ="/Prestations"> <h1>Prestations</h1> </Link>
             <Link className={`link ${urlcourante === urlContact ? "show-link" : "hide-link"} `} to ="/Contact"> <h1>Contact</h1>  </Link>
+            </div>
         </Wrapper>
         );
     };
@@ -28,16 +30,24 @@
     width: 100%;
     height: 6rem;
 
+    .containerLink {
+        background-color: #212838;
+        box-shadow: 0px 2px 10px 2px #393E46;
+        height: 4rem;
+        margin: auto;
+        display: flex; 
+        flex-direction: row; 
+        border-radius: 8px;
+    }
     .link {
         color: white;
-        font-size: 42px;
+        font-size: 32px;
         letter-spacing: 1px;
-        margin: 2rem;
+        margin: auto 2rem;
         text-decoration: none;
-
     }
     .show-link {
-        color: grey;
+        color: gray;
     }
     `;
 
