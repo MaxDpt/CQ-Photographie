@@ -134,11 +134,19 @@ const handleOnChangeCategorie = (e) => {
             <div className="navPages">
                 <div className="pageCount">
                     <a className={`prevPage ${ pageSelect === 1 ? 'prevPageHide' : 'prevPageShow'}`} onClick={prevPage}>  <p> precedent </p> </a>
-                    {pagePrev > 0 ? (<p className="pagePrev">{pagePrev}</p>) : null }
-                    <p className='pageCurrent'>{pageSelect}</p>
-                    {pageNext < pageCount + 1 ? (<p className="pageNext">{pageNext}</p>) : null}
-                    <p>. . .</p>
-                    <p>{pageCount} </p>
+                    <div className="pageCountNumber">
+                        {pageNext === pageCount + 1 ? (<p className="pageNext">{(pagePrev -1)}</p>) : null}
+                        {pageNext === pageCount + 1  ? (<p className="pageNext"><p className="bar">-</p></p>) : null}
+                        {pagePrev > 0 ? (<p className="pagePrev">{pagePrev}</p>) : null }
+                        {pagePrev > 0 ? (<p className="pagePrev"><p className="bar">-</p></p>) : null }
+                        <p className='pageCurrent'>{pageSelect}</p>
+                        {pageNext < pageCount + 1  ? (<p className="pageNext"><p className="bar">-</p></p>) : null}
+                        {pageNext < pageCount + 1 ? (<p className="pageNext">{pageNext}</p>) : null}
+                        {pagePrev < 1  ? (<p className="pageNext"><p className="bar">-</p></p>) : null}
+                        {pagePrev < 1 ? (<p className="pageNext">{(pageNext + 1)}</p>) : null}
+                        <p>&ensp;. . .&ensp;</p>
+                        <p>{pageCount} </p>
+                    </div>
                     <a className={`nextPage ${pageSelect === pageCount ? 'nextPageHide' : 'nextPageShow'}`} onClick={nextPage}> <p> suivant </p> </a>
                 </div>
 
@@ -204,7 +212,17 @@ const Wrapper = styled.div`
     height: 1.6rem; }
 
 .pageCount p {
-    margin: 0 0.5rem; }
+    margin: 0 0.6rem; }
+.bar {
+    padding-top: 0.4rem;
+    font-size: 0.9rem;
+}
+.pageCountNumber {
+    display: flex; 
+    flex-direction: row;}
+
+.pageCountNumber p {
+    margin: 0 0.15rem;}
 
 .nextPage {
     cursor: pointer; }
@@ -212,7 +230,8 @@ const Wrapper = styled.div`
     color: gray; }
 
 .nextPageHide {
-    pointer-events: none; }
+    pointer-events: none;
+    color: gray; }
 
 .prevPage {
     cursor: pointer; }
@@ -220,7 +239,8 @@ const Wrapper = styled.div`
     color: gray; }
 
 .prevPageHide {
-    pointer-events: none; }
+    pointer-events: none;
+    color: gray; }
 
 .menuList {
     display: flex;

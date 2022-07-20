@@ -32,6 +32,8 @@
                 <>
                     {isLoading ? '' : logos.map(logo => (
                     <div className="logo"> <Image {...logo.attributes}/> </div> ) )}
+
+                    <h1>Charle Quentin Photographie</h1>
                 </>               
             </div>
 
@@ -66,6 +68,12 @@
         
         display: flex; 
         width: 75%;
+    }
+
+    .left h1 {
+        margin: auto 4rem;
+        font-size: 2.4rem;
+        letter-spacing: 2px;
     }
     .right {
         
