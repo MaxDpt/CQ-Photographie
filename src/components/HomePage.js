@@ -29,9 +29,9 @@
         return (
         <Wrapper>
         <div>
-        {isLoading ? '' : couverture.map(data => (
+        {isLoading ? '' : couverture.map(image => (
             <>
-                <Image {...data.attributes}/>
+                <Image {...image.attributes}/>
             </>
             ) )}
         </div>

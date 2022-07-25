@@ -133,21 +133,35 @@ const handleOnChangeCategorie = (e) => {
         <div className="containerNav">
             <div className="navPages">
                 <div className="pageCount">
+
                     <a className={`prevPage ${ pageSelect === 1 ? 'prevPageHide' : 'prevPageShow'}`} onClick={prevPage}>  <p> precedent </p> </a>
+
                     <div className="pageCountNumber">
+                        {pageCount >= 2 ? ( <>
                         {pageNext === pageCount + 1 ? (<p className="pageNext">{(pagePrev -1)}</p>) : null}
                         {pageNext === pageCount + 1  ? (<p className="pageNext"><p className="bar">-</p></p>) : null}
+
                         {pagePrev > 0 ? (<p className="pagePrev">{pagePrev}</p>) : null }
                         {pagePrev > 0 ? (<p className="pagePrev"><p className="bar">-</p></p>) : null }
+                        </>) : null }
+
                         <p className='pageCurrent'>{pageSelect}</p>
+
+                        {pageCount >= 2 ? ( <>
                         {pageNext < pageCount + 1  ? (<p className="pageNext"><p className="bar">-</p></p>) : null}
                         {pageNext < pageCount + 1 ? (<p className="pageNext">{pageNext}</p>) : null}
+
                         {pagePrev < 1  ? (<p className="pageNext"><p className="bar">-</p></p>) : null}
                         {pagePrev < 1 ? (<p className="pageNext">{(pageNext + 1)}</p>) : null}
+                        </>) : null }
+
                         <p>&ensp;. . .&ensp;</p>
+
                         <p>{pageCount} </p>
                     </div>
+
                     <a className={`nextPage ${pageSelect === pageCount ? 'nextPageHide' : 'nextPageShow'}`} onClick={nextPage}> <p> suivant </p> </a>
+
                 </div>
 
                 <div className="menuList">
@@ -189,7 +203,7 @@ const Wrapper = styled.div`
     flex-direction: row;
     width: 80%;
     margin: auto; }
-}
+
 .navPages {
     background-color: #02111f;
     box-shadow: 0px 2px 10px 2px #02111f;
@@ -201,7 +215,6 @@ const Wrapper = styled.div`
     justify-content: end;
     flex-direction: row;
     width: 45%; }
-
 .pageCount {
     display: flex; 
     font-size: 1.2rem;
