@@ -7,47 +7,25 @@ import DeleteLogo from "./Icons/DeleteLogo";
 
 export default function Formulaire() {
     
-    var idPrestation = localStorage.getItem('idPrestation');
+    var [idPrestation, setIdprestation] = useState(localStorage.getItem('idPrestation'));
     const [isLoading, setIsLoading] = useState(true);
     const [prestation, setPrestation] = useState (null);
-    const [prestationName, setPrestationName] = useState();
+    const [prestationName, setPrestationName] = useState('');
     const [emailPerso,setEmailPerso] = useState('');
-    const [error, setError] = useState('');
 
-    const inputs  = useRef([]);
+    const [error, setError] = useState('');
+    const [confirm, setConfirm] = useState('');
+
+    const [name, setName] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [ville, setCity] = useState('');
+    const [email, setEmail] = useState('');
+    const [date, setDate] = useState('');
+    const [object, setObject] = useState('');
+
     const formRef = useRef();
 
-    // ADD INPUT IN USER TAB -------------------------
-    const addInputs = el => {
-        if(el && !inputs.current.includes(el)) {
-            inputs.current.push(el)
-        };
-    };
-    // -----------------------------------------------
 
-    // SUBMIT FORM -----------------------------------
-    const handleForm = async (e) => {
-        e.preventDefault()
-
-        if (inputs.current[0].value != '', inputs.current[2].value != '',
-         inputs.current[5].value != '' , inputs.current[6].value != '') {
-                
-                emailjs.sendForm('service_wxfo1z1', 'template_aizkfyt', 'form', 'DOBj7QKzN7GIKHnxR')
-                .then((result) => {
-                    console.log(result.text);
-                }, (error) => {
-                    console.log(error.text);
-                });
-        
-                formRef.current.reset();
-                localStorage.clear();
-                window.location.reload();
-            } else {
-                console.log('Champs incomplet')
-                setError('ATTENTION : tous les champs requis ne sont pas remplis.')
-            }
-    };
-    // -----------------------------------------------
     // Load data prestation --------------------------
     if (idPrestation) {
         useEffect(() => {
@@ -60,6 +38,9 @@ export default function Formulaire() {
                 var prestationName = Array(res.data.attributes.title);
                 setPrestation(data);
                 setPrestationName(prestationName); 
+                if (prestationName) {
+                    setObject(prestationName)
+                };
                 setIsLoading(false)
                 }) }, [])
     }
@@ -84,45 +65,95 @@ export default function Formulaire() {
         window.location.reload();
     }
     // ----------------------------------------------
+    // SUBMIT FORM -----------------------------------
+    const handleForm = async (e) => {
+        e.preventDefault()
+
+        if (name !== '' & object !== '' & ville !== ''  & email !== '') {
+              
+            setError('')
+            emailjs.sendForm('service_wxfo1z1', 'template_aizkfyt', 'form', 'DOBj7QKzN7GIKHnxR')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+    
+            formRef.current.reset();
+            setName('');
+            setFirstName('');
+            setCity('');
+            setDate('');
+            setEmail('');
+            setObject('');
+            setPrestationName('')
+            setConfirm('CONFIRMATION : Votre fortmulaire a bien été transmit. Un email de confirmation vous à également été envoyé. ')
+            setTimeout(() => {
+                setConfirm('')
+              }, 4000)
+
+            } else {
+                console.log('Champs incomplet')
+                setError('ATTENTION : tous les champs requis ne sont pas remplis.')
+            }
+    };
+
+    // -----------------------------------------------
 
         return (
         <Wrapper>
 
             <h2 className="title">Contact</h2>
 
+            {error ?(
+                <div className="errorMessage">
+                    <p>{error}</p>
+                </div> ) : null}
+
+            {confirm ?(
+            <div className="confirmMessage">
+                <p>{confirm}</p>
+            </div> ) : null}
+
             <form className="form" method="POST" ref={formRef} onSubmit={handleForm} id='form'> 
 
-                <div className="container0">
-                    <div className="container1">
-                        <div className="containerA">
+                <div className="containerA">
+                    <div className="containerB">
+                    <p className="titleText">Transmetez-nous vôtre choix par se formulaire.</p>
                         <div className="row">
                                 <label className="label">Nom* :</label>
-                                <input className="nom" type='text' name="nom" placeholder='Nom' ref={addInputs} />
+                                <input className={`nom ${name === '' & error !== '' ? 'vide' : 'nom' }`} type='text' name="nom" placeholder='Nom' onChange={input => setName(input.target.value)} />
                             </div>
                             <div className="row">
                                 <label className="label">Prenom :</label>
-                                <input className="prenom" type='text' name="prenom" placeholder='prenom' ref={addInputs} />
+                                <input className="prenom" type='text' name="prenom" placeholder='Prenom' onChange={input => setFirstName(input.target.value)} />
                             </div>
                             <div className="row">
                                 <label className="label">Ville* :</label>
-                                <input className="ville" type='text' name="ville" placeholder='ville' ref={addInputs} />
+                                <input className={`ville ${ville === '' & error !== '' ? 'vide' : 'ville' }`} type='text' name="ville" placeholder='ville' onChange={input => setCity(input.target.value)} />
                             </div>
                             <div className="row">
                                 <label className="label">Date souhaité :</label>
-                                <input className="date" type='date' name="date" ref={addInputs} />
+                                <input className="date" type='date' name="date" onChange={input => setDate(input.target.value)} />
                             </div>
-                        </div>
+                </div>
+                    </div>
+
+
+                <div className="container0">
+                    <div className="container1">
+
                         <div className="EmailObject">
                         <div className="row1">
                             <input className="email" type='email' name="emailPerso" value={emailPerso} />
                         </div>
                         <div className="row">
                             <label className="label">Email* :</label>
-                            <input className="email" type='email' name="email" placeholder='email@exemple.com' ref={addInputs} />
+                            <input className={`email ${ email === '' & error !== '' ? 'vide' : 'email' }`} type='email' name="email" placeholder='email@exemple.com' onChange={input => setEmail(input.target.value)} />
                         </div>
                         <div className="row">
                             <label className="label">Object* :</label>
-                            <input className="object" type='text' name="object" placeholder='' value={prestationName} ref={addInputs} />
+                            <input className={`object ${ object === '' & error !== '' ? 'vide' : 'object' }`} type='text' name="object" placeholder='' defaultValue={object} onChange={input => setObject(input.target.value)} />
                         </div>
                         </div>
                         <p className="error"> Les champs portant le sympole *, sont obligatoire.</p>
@@ -149,15 +180,16 @@ export default function Formulaire() {
                     </div>
 
                 </div>
+                <div className="containerX">
+                    <div className="containerY">
+                        <textarea className="text-area" type='text'  name="message" placeholder='Ecrivez ici' onChange={input => setMessage(input.target.value)} />
+                    </div>
+                    <div className="containerZ">
+                        <button className="Send" type="submit" ><p>Envoyer</p></button>
+                    </div>
+                </div>
+                
 
-                {error ?(
-                <div className="errorMessage">
-                    <p>{error}</p>
-                </div> ) : null}
-                
-                    <input className="text-area" type='text-area'  name="message" placeholder='Ecrivez ici' ref={addInputs} />
-                
-                <button className="Send" type="submit" ><p>Envoyer</p></button>
             </form>
         </Wrapper>
         );
@@ -172,10 +204,25 @@ export default function Formulaire() {
 
 
     .containerA {
+        background-color: #02111f;
+        border: 2px solid white;
+        border-radius: 10px;
         display: flex;
         flex-direction: column; 
+        margin: auto;
+        width: 100%;
+    }
+    .containerB {
+        display: flex;
+        flex-direction: column; 
+        width: 65%;
+        margin: auto;
+        
+    }
+
+    .titleText {
         margin: 1rem auto;
-        width: 95%;
+        font-size: 1.2rem;;
     }
 
     .container0 {
@@ -185,22 +232,41 @@ export default function Formulaire() {
         justify-content: center;
         flex-direction: row;
         width: 100%;
-        height: 24rem;
+        height: 12rem;
         overflow: hidden;
+        margin: 0.5rem auto;
     }
     .container1 {
         background-color: #02111f;
         display: flex;
         flex-direction: column; 
-        width: 50%;
+        width: 60%;
         
     }
     .container2 {
         background-color: #02111f;
         overflow: hidden;
         display: flex; 
-        width: 50%;
+        width: 40%;
 
+    }
+
+    .containerX {
+        background-color: #02111f;
+        border: 2px solid white;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row; 
+        width: 100%;
+        overflow: hidden;
+    }
+    .containerY {
+        display: flex;
+        width: 80%;
+    }
+    .containerZ {
+        display: flex;
+        width: 20%;
     }
     .Prestation {
         display: flex;
@@ -220,33 +286,35 @@ export default function Formulaire() {
         display: flex; 
         position: relative;
         bottom: 4.5rem;
-        left: 25rem;
+        left: 19rem;
         z-index: 3;
         
     }
     .line {
         background-color: rgba(0,0,0,0.4);
         display: flex;
+        justify-content: center;
         width: 30rem;
         height: 2rem;
-        margin-left: -3rem;
+        margin-left: -7rem;
         padding-left: 1rem;
-        padding-top: 0.5rem;
+        padding-top: 1rem;
         position: relative;
         font-size : 1.4rem;
         z-index: 2;
     }
     .link {
         border: dashed 2px white;
-        padding: 0.5rem;
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
         margin-left: 3rem;
     }
     .image {
         display: flex;
         position: relative;
         margin-top: -8rem;
-        margin-left: -8rem;
-        width: 40rem;
+        margin-left: -5rem;
+        width: 30rem;
         z-index: 0;
     }
     .title {
@@ -262,7 +330,7 @@ export default function Formulaire() {
     .EmailObject {
         display: flex;
         flex-direction: column;
-        width: 95%;
+        width: 90%;
         margin: auto;
     }
     .row {
@@ -304,7 +372,7 @@ export default function Formulaire() {
         width: 25%;
     }
     .error {
-        margin: auto;
+        margin-bottom: 1rem;
         text-align: center;
     }
     .errorMessage {
@@ -316,25 +384,36 @@ export default function Formulaire() {
         width: auto;
         text-align: center;
     }
+    .confirmMessage {
+        background-color: #7bd0a1;
+        border-radius: 10px;
+        box-shadow: 0px 2px 10px 2px #02111f;
+        margin: 1rem auto;
+        padding: 1rem 0.5rem;;
+        width: auto;
+        text-align: center;  
+    }
+    .vide {
+        border: solid red 2px;
+        box-shadow: 0px 2px 10px 2px #d07b8c;
+    }
     .text-area {
         background-color: white;
         border: 2px solid white;
         font-size: 16px;
-        width: 99%;
-        margin-top: 0.5rem;
-        padding-bottom: 10.5rem;
+        width: 100%;
+        padding-bottom: 7rem;
         padding-top: 0.5rem;
         padding-left: 0.5rem;
-        border-radius: 10px;
     }
     .Send {
         display: flex;
-        height: 4rem; 
-        width: 10rem; 
-        background-color: #212838;
-        margin: 2rem auto;
-        border-radius: 0.4rem;
-        border: solid 2px white;
+        color: white;
+        height: 10rem; 
+        width: 12rem; 
+        background-color: #02111f;
+        margin: auto;
+        border: none;
     }
     .Send p {
         margin: auto;
@@ -342,6 +421,7 @@ export default function Formulaire() {
     }
     .Send:hover {
         cursor: pointer;
+        background-color:#323d44;
     }
     `;
 
