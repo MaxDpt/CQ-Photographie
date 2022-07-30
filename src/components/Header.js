@@ -9,7 +9,7 @@
 
         const [isLoading, setIsLoading] = useState(true);
         const [logos, setLogo] = useState(null);
-
+        
         useEffect(() => {
             fetch('http://localhost:1337/api/logos?populate=*',
             {
@@ -25,6 +25,7 @@
             })
         }, [])
 
+
         return (
         <HeaderWrapper>
             
@@ -33,15 +34,16 @@
                     {isLoading ? '' : logos.map(logo => (
                     <div className="logo"> <Image {...logo.attributes}/> </div> ) )}
 
-                    <h1>Charle Quentin Photographie</h1>
+                    <h1 >Charle Quentin Photographie</h1>
+                    
                 </>               
             </div>
 
             <div className="right">
                 <>
                 <div className="links">
-                    <div className="fb"> <div className="box"><FbLogo/> <a href="#">CharleQuentin</a></div>  </div>
-                    <div className="insta"> <div className="box"><InstaLogo/> <a href="#">@CharleQuentin</a></div> </div>
+                    <div className="fb"> <div className="box"><FbLogo/> <a href="#"><p>CharleQuentin</p></a></div>  </div>
+                    <div className="insta"> <div className="box"><InstaLogo/> <a href="#"><p>@CharleQuentin</p></a></div> </div>
                 </div>
 
                 <div className="lang"> <img src=""/> </div>
@@ -63,13 +65,10 @@
     width: 100%;
     height: 6.5rem;
     
-    
     .left {
-        
         display: flex; 
         width: 75%;
     }
-
     .left h1 {
         margin: auto 4rem;
         font-size: 2.4rem;
@@ -127,6 +126,66 @@
     margin: 0.5rem;
     width: 5rem;
     height: 5rem;
+}
+
+@media screen and (max-width: 450px) { 
+
+    background: #02111f;
+    height: 4rem;
+    width: 100%;
+
+    .left h1 {
+        visibility: hidden;
+        font-size: 0rem;
+    }
+
+    .left {
+        display: flex; 
+        width: 40%;
+    }
+    .logo img {
+        border: 1px solid white;
+        margin: 0.5rem;
+        width: 4rem;
+        height: 3rem;
+    }
+    .right {
+        
+        display: flex; 
+        justify-content: space-between;
+        width: 85%;
+    }
+
+    .links {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        flex-direction: row;
+    }
+    .links p {
+        visibility: hidden;
+    }
+    .fb {
+        display: flex; 
+        justify-content: center;
+        margin-top: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+    }
+    .insta {
+        display: flex; 
+        justify-content: center;
+        margin-top: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+    }
+    .lang {
+    display: flex; 
+    border: 2px solid white;
+    margin: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+}
 }
     `;
 

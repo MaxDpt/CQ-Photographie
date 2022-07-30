@@ -73,7 +73,7 @@
         height: 4rem;
         font-size: 2.2rem;}
 
-    }
+    
     .row4 {
         background-color: rgba(0,0,0,0.4);
         margin-top: 2rem;
@@ -83,7 +83,7 @@
         height: 4rem;
         font-size: 2.2rem;}
 
-    }
+    
     .description {
         margin-top: 6rem;
         height: 20rem;}
@@ -98,6 +98,52 @@
         position: relative;
         top: -22rem;
         left: -8rem;}
+
+@media screen and (max-width: 450px) { 
+    .container {
+        width: 10rem; 
+        height: 18rem;
+ }
+ .row1 {
+        position: relative;
+        margin-top: 0rem;
+        height: 2rem;
+        font-size: 1.6rem;}
+
+    .row2 {
+        height: 2rem;
+        font-size: 0.9rem;}
+
+    .row3 {
+        height: 1rem;
+        font-size: 1.2rem;}
+
+    
+    .row4 {
+        background-color: rgba(0,0,0,0.4);
+        margin-top: 10rem;
+        padding-top: 0.5rem;
+        margin-left: -1.5rem;
+        width: 150%;
+        height: 2rem;
+        font-size: 1.2rem;}
+
+    
+    .description {
+        margin-top: 2rem;
+        height: 10rem;}
+
+    .prix {
+        margin-top: 9.5rem;
+        margin-bottom: 1rem;}
+
+    .image {
+        opacity: 65%;
+        width: 30rem;
+        position: relative;
+        top: -9.5rem;
+        left: -4.5rem;}
+}
 
     `;
     export default Card;

@@ -52,4 +52,13 @@ const Wrapper = styled.div`
 .card {
     margin: 1.5rem;
 }
+
+@media screen and (max-width: 450px) { 
+    .container1 {
+    width: 100%;
+}
+.card {
+    margin: 0.5rem;
+}
+}
 `;

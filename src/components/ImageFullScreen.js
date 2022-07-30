@@ -30,14 +30,26 @@
     .openImage {
         display: flex; 
         position: fixed; 
-        width: 90%;
-        height: 90%;
+        max-width: 90%;
+        height: auto;
         right: 0;
-        bottom: 3rem;
+        bottom: 0rem;
         z-index: 1;
     }
     .openImage img {
-        width: 90%;
+        width: 100%;
     }
+    @media screen and (max-width: 450px) {
+        .openImage {
+        max-width: 100%;
+        height: auto;
+        right: 0rem;
+        bottom: 9.5rem;
+        z-index: 1;
+    }
+    .openImage img {
+        width: 100%;
+    }
+     }
     `;
     export default ImageFullScreen;

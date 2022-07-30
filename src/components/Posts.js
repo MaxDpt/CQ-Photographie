@@ -269,4 +269,42 @@ const Wrapper = styled.div`
 
 .menuList label {
     font-size: 1.2rem; }
+
+@media screen and (max-width: 450px) {
+.containerGrille {
+margin-top: 1rem; }
+
+.containerNav {
+    margin: 0;
+    margin-top: -3rem;
+    flex-direction: column;
+    width: 100%;
+ }
+
+.navPages {
+    flex-direction: column;
+    border-radius: 0px;
+    width: 100%;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 1rem; }
+ }
+
+ .pageCount {
+    font-size: 0.9rem;
+    width: 100%; }
+
+.menuList {
+    width: 80%;
+}
+
+.menuList select {
+    border-radius: 10px;
+    width: 80%;
+    margin: auto 0rem;
+    font-size: 0.9rem; }
+
+.menuList label {
+    margin: auto;
+    font-size: 0.9rem; }
 `;

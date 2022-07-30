@@ -9,7 +9,7 @@ export default function Contact() {
     return (
     <Wrapper>
         <div className="Envelope"><Envelope/></div>
-        <div className="HatLogo"><HatLogo/></div>
+        <div className="HatLogo" ><HatLogo/></div>
         <div className="SendLogo"><Send/></div>
         <div className="Formulaire"><Formulaire/></div>
         
@@ -49,5 +49,9 @@ const Wrapper = styled.div`
     display: flex;
     position: relative;
     z-index: 2;
+}
+
+@media screen and (max-width: 450px) { 
+
 }
 `;

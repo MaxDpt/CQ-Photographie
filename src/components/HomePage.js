@@ -30,9 +30,9 @@
         <Wrapper>
         <div>
         {isLoading ? '' : couverture.map(image => (
-            <>
+            <div className="containerImage">
                 <Image {...image.attributes}/>
-            </>
+            </div>
             ) )}
         </div>
 
@@ -41,8 +41,10 @@
     };
     
     const Wrapper = styled.div`
-    display: flex;
-    width: 100%;
-    justify-content: center;
+
+    .containerImage {
+
+    }
+
     `;
 

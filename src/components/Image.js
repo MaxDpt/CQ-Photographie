@@ -20,6 +20,16 @@
     };
     
     const Wrapper = styled.div`
+    @media screen and (max-width: 450px) {
 
+        .container {
+            margin: auto;
+        }
+        .image {
+
+            display: flex;
+            width: 20rem;
+        }
+    }
     `;
     export default Image;

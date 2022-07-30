@@ -49,5 +49,22 @@
     .show-link {
         color: gray;
     }
+
+    @media screen and (max-width: 450px) { 
+        width: 100%;
+        .containerLink {
+            
+        width: 100%;
+        height: 3rem;
+        margin-top: 0;
+        border-radius: 0px;
+    }
+        .link {
+        color: white;
+        font-size: 16px;
+        letter-spacing: 1px;
+        margin: auto 0.5rem;
+    }
+    }
     `;
 

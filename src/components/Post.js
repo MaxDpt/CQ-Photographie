@@ -80,7 +80,7 @@
         flex-direction: column;
         cursor: pointer;
         box-shadow: 0px 2px 12px 2px #02111f;
-        trasition: 0.5s;
+        transition: 0.5s;
     }
     .container:hover {
         box-shadow: 0px 2px 4px 2px #02111f;
@@ -128,6 +128,29 @@
 
     .openImage {
         z-index: 2;
+    }
+
+    @media screen and (max-width: 450px) { 
+        .container {
+        margin: 0.5rem;
+        width: 6.5rem; 
+        height: 6.5rem;
+    }
+    .container .image {
+        width: 14rem; 
+        height: 14rem;
+        display: flex; 
+        top: -2.5rem;
+        left: -4.5rem;
+        position: relative;
+    }
+    .row {
+        visibility: hidden;
+    }
+    .Back {
+        left: 1rem;
+        top: 12rem;
+    }
     }
 
 
