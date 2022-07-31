@@ -9,9 +9,14 @@
 
         const [isLoading, setIsLoading] = useState(true);
         const [logos, setLogo] = useState(null);
+
+        const [instaName, setInstaName] = useState();
+        const [instaLink, setInstaLink] = useState();
+        const [fbName, setFBName] = useState();
+        const [fbLink, setFBLink] = useState();
         
         useEffect(() => {
-            fetch('http://localhost:1337/api/logos?populate=*',
+            fetch('http://localhost:1337/api/couvertures/3?populate=*',
             {
                 method: 'GET',
                 headers: {'Accept': 'Application/json'}
@@ -19,11 +24,34 @@
         .then(res => res.json())
         .then(res => {
             
-            var data = Array.from(res.data);
+            var data = Array(res.data);
             setLogo(data);
             setIsLoading(false);
             })
         }, [])
+
+        useEffect(() => {
+            fetch('http://localhost:1337/api/socials/1?populate=*',
+            {
+                method: 'GET',
+                headers: {'Accept': 'Application/json'}})
+        .then(res => res.json())
+        .then(res => {
+            var title = Array(res.data.attributes.title);
+            var link = Array(res.data.attributes.lien);
+            setInstaName(title);
+            setInstaLink(link);}) }, [])
+        useEffect(() => {
+            fetch('http://localhost:1337/api/socials/2?populate=*',
+            {
+                method: 'GET',
+                headers: {'Accept': 'Application/json'}})
+        .then(res => res.json())
+        .then(res => {
+            var title = Array(res.data.attributes.title);
+            var link = Array(res.data.attributes.lien);
+            setFBName(title);
+            setFBLink(link);}) }, [])
 
 
         return (
@@ -39,15 +67,18 @@
                 </>               
             </div>
 
-            <div className="right">
-                <>
-                <div className="links">
-                    <div className="fb"> <div className="box"><FbLogo/> <a href="#"><p>CharleQuentin</p></a></div>  </div>
-                    <div className="insta"> <div className="box"><InstaLogo/> <a href="#"><p>@CharleQuentin</p></a></div> </div>
-                </div>
-
-                </>
-            </div>
+<div className="right">
+    <>
+    <div className="links">
+        <div className="fb"> <div className="box">
+            <FbLogo/> <a href={fbLink}> <p>{fbName}</p> </a></div>  
+        </div>
+        <div className="insta"> <div className="box">
+            <InstaLogo/> <a href={instaLink}> <p>{instaName}</p> </a></div> 
+        </div>
+    </div>
+    </>
+</div>
             
         </HeaderWrapper>
         );

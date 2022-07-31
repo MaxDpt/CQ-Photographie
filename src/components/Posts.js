@@ -8,20 +8,21 @@ export default function Posts() {
     const [isLoading, setIsLoading] = useState(true);
     const [isLoading2, setIsLoading2] = useState(true);
     const [posts, setPosts] = useState(null);
+    const [categorie, setCategorie] = useState('');
+    const [categories, setCategories] = useState(null);
     var [pageSelect, setPageSelect] = useState(1);
     const [pageCount, setPageCount] = useState(null);
     const [pageCurrent, setPageCurrent] = useState(null);
-    const [categorie, setCategorie] = useState('');
-    const [categories, setCategories] = useState(null);
     var pagePrev = pageSelect - 1;
     var pageNext = pageSelect + 1;
 // --------------------------------------------------------------------
 
 // Appel à la liste des posts -----------------------------------------
     useEffect(() => {
-        fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]=12',
+        fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]=12&sort=id%3Adesc',
         { method: 'GET',
-          headers: {'Accept': 'Application/json'} })
+          headers: {'Accept': 'Application/json'}, 
+          sort: {id: 'desc'}})
     .then(res => res.json())
     .then(res => {
         setTimeout(() => {
@@ -38,7 +39,7 @@ export default function Posts() {
 // Categorie page ------------------------------------------------------      
     const categorieClicked = () => {
     if (categorie !== '') {
-            fetch('http://localhost:1337/api/posts?populate=*&pagination[pageSize]=100', 
+            fetch('http://localhost:1337/api/posts?populate=*&pagination[pageSize]=100&sort=id%3Adesc', 
             { method: 'GET',
               headers: {'Accept': 'Application/json'} })
         .then(res => res.json())
@@ -52,7 +53,7 @@ export default function Posts() {
             setIsLoading(false);
             setPageSelect(1); }) } 
     else {
-        fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]=12',
+        fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]=12&sort=id%3Adesc',
         { method: 'GET',
           headers: {'Accept': 'Application/json'} })
         .then(res => res.json())
@@ -90,7 +91,7 @@ const handleOnChangeCategorie = (e) => {
     const nextPage = () => {
         pageSelect ++
         setPageSelect(pageSelect)  
-        fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]=12',
+        fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]=12&sort=id%3Adesc',
         { method: 'GET',
           headers: {'Accept': 'Application/json'} })
     .then(res => res.json())
@@ -110,7 +111,7 @@ const handleOnChangeCategorie = (e) => {
     const prevPage = () => {
         pageSelect --
         setPageSelect(pageSelect)
-        fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]=12',
+        fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]=12&sort=id%3Adesc',
         { method: 'GET',
           headers: {'Accept': 'Application/json'}
         })
