@@ -16,11 +16,15 @@
         const [openImage, setOpenImage] = useState (false);
 
 // Conversion URL du post selectionné --------------------------------------------------
-        var idNumber = String(id);
-        var urlId = 'http://localhost:1337/api/posts/'+ idNumber +'?populate=*'
-// -------------------------------------------------------------------------------------
+    var idNumber = String(id);
+    var urlId = 'http://localhost:1337/api/posts/'+ idNumber +'?populate=*'
 
-// Ouverture/Fermeture de l'image -----------------------------------------------------
+// Conversion Date ---------------------------------------------------------------------
+    function formatMyDate(value, locale = 'en-GB') {
+        return new Date(value).toLocaleDateString(locale);}
+    var date = formatMyDate(createdAt);
+
+// Ouverture/Fermeture de l'image ------------------------------------------------------
     const ClickImage = () => {
         setOpenImage(true);
         fetch(urlId,
@@ -45,8 +49,7 @@
         <div className="container" onClick={ClickImage}>
           <div className="row">
             <p className="titre"> {title} </p>
-            <p className="titre"> {} </p>
-            <p className="createdAt"> {createdAt} </p>
+            <p className="createdAt">publié le {date} </p>
           </div>
             <img className="image" src={'http://localhost:1337'+image.data.attributes.url} />
         </div>
@@ -106,9 +109,11 @@
     }
     .titre {
     margin: auto 1rem;
+    font-size: 1.1rem;
     }
     .createdAt {
     margin: auto 1rem;
+    font-size: 1.1rem;
     }
     .container img {
         transition: all .6s ease-in-out;
@@ -122,12 +127,12 @@
         position: fixed; 
         left: 5rem;
         top: 10rem;
-        z-index: 3;
+        z-index: 4;
         cursor: pointer;
     }
 
     .openImage {
-        z-index: 2;
+        z-index: 3;
     }
 
     @media screen and (max-width: 450px) { 

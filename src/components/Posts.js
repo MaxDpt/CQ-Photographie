@@ -217,7 +217,7 @@ const Wrapper = styled.div`
     width: 45%; }
 .pageCount {
     display: flex; 
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     flex-direction: row;
     justify-content: center;
     margin-top: 0.2rem;
@@ -287,12 +287,11 @@ margin-top: 1rem; }
     width: 100%;
     padding-right: 0;
     padding-top: 0;
-    padding-bottom: 1rem; }
- }
-
- .pageCount {
-    font-size: 0.9rem;
-    width: 100%; }
+    padding-bottom: 1rem;
+    z-index: 2; }
+.pageCount {
+    width: 100%;
+    font-size: 0.9rem; }
 
 .menuList {
     width: 80%;
@@ -307,4 +306,4 @@ margin-top: 1rem; }
 .menuList label {
     margin: auto;
     font-size: 0.9rem; }
-`;
+}`;

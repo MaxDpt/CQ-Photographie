@@ -1,16 +1,41 @@
 import styled from "styled-components"; 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Formulaire from "components/Formulaire";
-import Envelope from "components/Icons/Envelope";
-import HatLogo from "components/Icons/HatLogo";
-import Send from "components/Icons/Send";
+import Image from "components/Image";
 export default function Contact() {
+
+    const [isLoading, setIsLoading] = useState(true);
+    const [couverture, setCouverture] = useState(null);
+
+// Appel API ---------------------------------------------------------------
+useEffect(() => {
+    fetch('http://localhost:1337/api/couvertures/2?populate=*',
+    {
+        method: 'GET',
+        headers: {'Accept': 'Application/json'}
+    })
+.then(res => res.json())
+.then(res => {
+    
+    var data = Array(res.data);
+    setCouverture(data);
+    setIsLoading(false)
+    
+    })
+}, [])
+// -------------------------------------------------------------------------
 
     return (
     <Wrapper>
-        <div className="Envelope"><Envelope/></div>
-        <div className="HatLogo" ><HatLogo/></div>
-        <div className="SendLogo"><Send/></div>
+        <div className="containerImage">
+        {isLoading ? '' : couverture.map(image => (
+        <div className="image">
+            <Image {...image.attributes}/>
+        </div>
+        ) )}
+        </div>
+   
+
         <div className="Formulaire"><Formulaire/></div>
         
     </Wrapper>
@@ -18,32 +43,15 @@ export default function Contact() {
 };
 
 const Wrapper = styled.div`
-.Envelope {
+.containerImage {
     display: flex;
     position: absolute;
-    color: #323d44;
-    top: 10rem;
-    left: 8rem;
-    z-index: 0;
-    transform: rotate(-45deg);
+    top: 4rem;
+    width: 100%;
 }
-.HatLogo {
-    display: flex;
-    position: absolute;
-    color: #323d44;
-    top: 30rem;
-    left: 90rem;
-    z-index: 0;
-    transform: rotate(45deg);
-}
-.SendLogo {
-    display: flex;
-    position: absolute;
-    color: #323d44;
-    top: 50rem;
-    left: 10rem;
-    z-index: 0;
-    transform: rotate(18deg);
+.image {
+    margin: auto;
+    width: 95%;
 }
 .Formulaire {
     display: flex;
@@ -52,6 +60,13 @@ const Wrapper = styled.div`
 }
 
 @media screen and (max-width: 450px) { 
+    .containerImage {
+    top: 4rem;
 
+}
+    .image {
+        display: flex;
+        z-index: 0;
+    }
 }
 `;

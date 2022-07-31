@@ -11,7 +11,7 @@
 
 // Appel API ---------------------------------------------------------------
         useEffect(() => {
-            fetch('http://localhost:1337/api/couvertures?populate=*',
+            fetch('http://localhost:1337/api/couvertures/1?populate=*',
             {
                 method: 'GET',
                 headers: {'Accept': 'Application/json'}
@@ -19,7 +19,7 @@
         .then(res => res.json())
         .then(res => {
             
-            var data = Array.from(res.data);
+            var data = Array(res.data);
             setCouverture(data);
             setIsLoading(false)
             

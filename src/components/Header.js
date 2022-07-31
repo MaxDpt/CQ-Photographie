@@ -46,7 +46,6 @@
                     <div className="insta"> <div className="box"><InstaLogo/> <a href="#"><p>@CharleQuentin</p></a></div> </div>
                 </div>
 
-                <div className="lang"> <img src=""/> </div>
                 </>
             </div>
             
@@ -64,6 +63,7 @@
     justify-content: space-between;
     width: 100%;
     height: 6.5rem;
+    z-index: 2;
     
     .left {
         display: flex; 
@@ -77,7 +77,7 @@
     .right {
         
         display: flex; 
-        justify-content: space-between;
+        justify-content: end;
         width: 25%;
     }
 
@@ -85,6 +85,7 @@
         display: flex;
         justify-content: space-between;
         width: 50%;
+        margin-right: 3rem;
         flex-direction: row;
     }
     .box {
@@ -120,13 +121,6 @@
         height: 5rem;
     }
 
-.lang {
-    display: flex; 
-    border: 2px solid white;
-    margin: 0.5rem;
-    width: 5rem;
-    height: 5rem;
-}
 
 @media screen and (max-width: 450px) { 
 
@@ -152,7 +146,7 @@
     .right {
         
         display: flex; 
-        justify-content: space-between;
+        justify-content: end;
         width: 85%;
     }
 
@@ -179,13 +173,6 @@
         width: 2rem;
         height: 2rem;
     }
-    .lang {
-    display: flex; 
-    border: 2px solid white;
-    margin: 0.5rem;
-    width: 2rem;
-    height: 2rem;
-}
 }
     `;
 

@@ -29,6 +29,7 @@
     justify-content: center;
     width: 100%;
     height: 6rem;
+    z-index: 2;
 
     .containerLink {
         background-color: #02111f;
@@ -38,6 +39,7 @@
         display: flex; 
         flex-direction: row; 
         border-radius: 8px;
+        
     }
     .link {
         color: white;

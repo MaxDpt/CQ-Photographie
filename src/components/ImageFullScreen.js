@@ -30,25 +30,25 @@
     .openImage {
         display: flex; 
         position: fixed; 
-        max-width: 90%;
-        height: auto;
-        right: 0;
-        bottom: 0rem;
-        z-index: 1;
+        width: 80%;
+        max-height: 90%;
+        right: 10rem;
+        bottom: 2rem;
+        z-index: 3;
     }
     .openImage img {
         width: 100%;
     }
     @media screen and (max-width: 450px) {
         .openImage {
-        max-width: 100%;
-        height: auto;
+        width: 100%;
         right: 0rem;
         bottom: 9.5rem;
-        z-index: 1;
+        z-index: 3;
     }
     .openImage img {
         width: 100%;
+        z-index: 3;
     }
      }
     `;
