@@ -13,13 +13,26 @@ export default function Posts() {
     var [pageSelect, setPageSelect] = useState(1);
     const [pageCount, setPageCount] = useState(null);
     const [pageCurrent, setPageCurrent] = useState(null);
+    const mobileSizePx = 450;
     var pagePrev = pageSelect - 1;
     var pageNext = pageSelect + 1;
 // --------------------------------------------------------------------
 
+const [width,setWidth] = useState(); 
+const [pageSize, SetPageSize] = useState(12);
+useEffect(() => {
+    var CurrentWidth = (screen.width);
+    setWidth(CurrentWidth);
+    if (CurrentWidth >= mobileSizePx) {
+        SetPageSize(12)
+    } else {
+        SetPageSize(21)
+    }
+}, [width])
+
 // Appel à la liste des posts -----------------------------------------
     useEffect(() => {
-        fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]=12&sort=id%3Adesc',
+        fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]='+pageSize+'&sort=id%3Adesc',
         { method: 'GET',
           headers: {'Accept': 'Application/json'}, 
           sort: {id: 'desc'}})
@@ -53,7 +66,7 @@ export default function Posts() {
             setIsLoading(false);
             setPageSelect(1); }) } 
     else {
-        fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]=12&sort=id%3Adesc',
+        fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]='+pageSize+'&sort=id%3Adesc',
         { method: 'GET',
           headers: {'Accept': 'Application/json'} })
         .then(res => res.json())
@@ -91,7 +104,7 @@ const handleOnChangeCategorie = (e) => {
     const nextPage = () => {
         pageSelect ++
         setPageSelect(pageSelect)  
-        fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]=12&sort=id%3Adesc',
+        fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]='+pageSize+'&sort=id%3Adesc',
         { method: 'GET',
           headers: {'Accept': 'Application/json'} })
     .then(res => res.json())
@@ -111,7 +124,7 @@ const handleOnChangeCategorie = (e) => {
     const prevPage = () => {
         pageSelect --
         setPageSelect(pageSelect)
-        fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]=12&sort=id%3Adesc',
+        fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]='+pageSize+'&sort=id%3Adesc',
         { method: 'GET',
           headers: {'Accept': 'Application/json'}
         })
@@ -177,13 +190,23 @@ const handleOnChangeCategorie = (e) => {
         </div>
 
 
-        <div className="containerGrille">
-            {isLoading ? 'Loading...' : posts.map(post => (
-            <div className="post">
-                {post.attributes.section === categorie ? (<Post {...post.attributes} {...post}/>) : null }
-                {categorie === '' ? (<Post {...post.attributes} {...post}/>) : null }
-            </div> ) )}
-        </div>
+    <div className="containerGrille">
+        {isLoading ? 'Loading...' : posts.map(post => (
+        <div className="post">
+            {post.attributes.section === categorie ? (<Post {...post.attributes} {...post}/>) : null }
+            {categorie === '' ? (<Post {...post.attributes} {...post}/>) : null }
+        </div> ) )}
+    </div>
+
+    {width <= mobileSizePx ? (
+                <div className="NavPageBottom">
+                <a className={`prevPage ${ pageSelect === 1 ? 'prevPageHide' : 'prevPageShow'}`} onClick={prevPage}>  <p> precedent </p> </a>
+                <p className="separation"> | </p>
+                <a className={`nextPage ${pageSelect === pageCount ? 'nextPageHide' : 'nextPageShow'}`} onClick={nextPage}> <p> suivant </p> </a>
+                </div>
+    ) : null}
+
+
     </Wrapper>
     );
 };
@@ -307,4 +330,20 @@ margin-top: 1rem; }
 .menuList label {
     margin: auto;
     font-size: 0.9rem; }
+.nextPage:hover {
+    color: white; }
+.prevPage:hover {
+    color: white; }
+.NavPageBottom {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+.NavPageBottom a, .NavPageBottom p {
+    margin: 0.5rem 1rem;
+}
+.NavPageBottom .separation {
+    margin-top: 1rem;
+}
 }`;

@@ -457,7 +457,7 @@ const Wrapper = styled.div`
     padding-left: 0rem;
     padding-top: 0.5rem; 
     position: relative;
-    font-size : 0.9rem; 
+    font-size : 1.1rem; 
     z-index: 2;}
 .imagePresta {
     overflow: hidden;

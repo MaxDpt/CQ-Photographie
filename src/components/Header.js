@@ -14,7 +14,13 @@
         const [instaLink, setInstaLink] = useState();
         const [fbName, setFBName] = useState();
         const [fbLink, setFBLink] = useState();
-        
+        const mobileSizePx = 450;
+
+        const [width,setWidth] = useState(); 
+        useEffect(() => {
+            setWidth(screen.width);
+        }, [width])
+
         useEffect(() => {
             fetch('http://localhost:1337/api/couvertures/3?populate=*',
             {
@@ -53,6 +59,7 @@
             setFBName(title);
             setFBLink(link);}) }, [])
 
+            console.log(width)
 
         return (
         <HeaderWrapper>
@@ -61,8 +68,7 @@
                 <>
                     {isLoading ? '' : logos.map(logo => (
                     <div className="logo"> <Image {...logo.attributes}/> </div> ) )}
-
-                    <h1 >Charle Quentin Photographie</h1>
+                    {width > mobileSizePx ?(<h1 >Charle Quentin Photographie</h1>) : null}
                     
                 </>               
             </div>
@@ -71,10 +77,10 @@
     <>
     <div className="links">
         <div className="fb"> <div className="box">
-            <FbLogo/> <a href={fbLink}> <p>{fbName}</p> </a></div>  
+             <a href={fbLink}> <FbLogo/> {width >= mobileSizePx ?(<p>{fbName}</p>) : null} </a></div>  
         </div>
         <div className="insta"> <div className="box">
-            <InstaLogo/> <a href={instaLink}> <p>{instaName}</p> </a></div> 
+             <a href={instaLink}> <InstaLogo/> {width >= mobileSizePx ?(<p>{instaName}</p>) : null} </a></div> 
         </div>
     </div>
     </>
@@ -178,12 +184,13 @@
         
         display: flex; 
         justify-content: end;
-        width: 85%;
+        width: 60%;
     }
 
     .links {
         display: flex;
         justify-content: space-between;
+        margin-right: 0.5rem;
         width: 50%;
         flex-direction: row;
     }
