@@ -28,23 +28,35 @@
 // -------------------------------------------------------------------------
         return (
         <Wrapper>
-        <div>
+        
         {isLoading ? '' : couverture.map(image => (
             <div className="containerImage">
                 <Image {...image.attributes}/>
             </div>
             ) )}
-        </div>
+        
 
         </Wrapper>
         );
     };
     
     const Wrapper = styled.div`
-
+@media screen and (max-width: 450px) {
+    @media screen and (max-height: 850px) {
     .containerImage {
+        margin: auto;}
+    .containerImage img {
+        display: flex;
+        width: 20rem;}
+    }}
+@media screen and (max-width: 850px) {
+    @media screen and (max-height: 450px) { 
+    .containerImage {
+        margin: auto;}
+    .containerImage img {
+        display: flex;
+        width: 30rem;}}}
 
-    }
 
     `;
 

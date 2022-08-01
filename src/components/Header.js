@@ -14,12 +14,14 @@
         const [instaLink, setInstaLink] = useState();
         const [fbName, setFBName] = useState();
         const [fbLink, setFBLink] = useState();
-        const mobileSizePx = 450;
+        const mobileSizeWidth = 450;
 
         const [width,setWidth] = useState(); 
+        const [height,setHeight] = useState(); 
         useEffect(() => {
             setWidth(screen.width);
-        }, [width])
+            setHeight(screen.height);
+        }, [width, height])
 
         useEffect(() => {
             fetch('http://localhost:1337/api/couvertures/3?populate=*',
@@ -68,7 +70,7 @@
                 <>
                     {isLoading ? '' : logos.map(logo => (
                     <div className="logo"> <Image {...logo.attributes}/> </div> ) )}
-                    {width > mobileSizePx ?(<h1 >Charle Quentin Photographie</h1>) : null}
+                    {width > mobileSizeWidth & height >= mobileSizeWidth ?(<h1 >Charle Quentin Photographie</h1>) : null}
                     
                 </>               
             </div>
@@ -76,11 +78,11 @@
 <div className="right">
     <>
     <div className="links">
-        <div className="fb"> <div className="box">
-             <a href={fbLink}> <FbLogo/> {width >= mobileSizePx ?(<p>{fbName}</p>) : null} </a></div>  
+        <div className="fb"> <div className="box"> 
+             <a href={fbLink}> <FbLogo/> {width >= mobileSizeWidth & height >= mobileSizeWidth ?(<p>{fbName}</p>) : null} </a></div>  
         </div>
         <div className="insta"> <div className="box">
-             <a href={instaLink}> <InstaLogo/> {width >= mobileSizePx ?(<p>{instaName}</p>) : null} </a></div> 
+             <a href={instaLink}> <InstaLogo/> {width >= mobileSizeWidth & height >= mobileSizeWidth ?(<p>{instaName}</p>) : null} </a></div> 
         </div>
     </div>
     </>
@@ -104,7 +106,7 @@
     
     .left {
         display: flex; 
-        width: 75%;
+        width: auto;
     }
     .left h1 {
         margin: auto 4rem;
@@ -128,13 +130,13 @@
     .box {
         display: flex; 
         flex-direction: column;
-        justify-content: center;
     }
     .box a {
+        margin: auto;
         color: white;
         text-decoration: none;
     }
-    
+
     .logo img {
         display: flex; 
         border: 2px solid white;
@@ -160,8 +162,8 @@
 
 
 @media screen and (max-width: 450px) { 
-
-    background: #02111f;
+    @media screen and (max-height: 850px) {
+        background: #02111f;
     height: 4rem;
     width: 100%;
 
@@ -200,17 +202,63 @@
     .fb {
         display: flex; 
         justify-content: center;
-        margin-top: 1.5rem;
         width: 2rem;
         height: 2rem;
     }
     .insta {
         display: flex; 
         justify-content: center;
-        margin-top: 1.5rem;
         width: 2rem;
         height: 2rem;
     }
+    }
+
+}
+@media screen and (max-width: 850px) {
+    @media screen and (max-height: 450px) {
+        background: #02111f;
+    height: 4rem;
+    width: 100%;
+    .left h1 {
+        font-size: 1.2rem;
+    }
+    .logo img {
+        border: 1px solid white;
+        margin: 0.5rem;
+        width: 4rem;
+        height: 3rem;
+    }
+    .right {
+        
+        display: flex; 
+        justify-content: end;
+        width: 30%;
+    }
+
+    .links {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 0.5rem;
+        width: 50%;
+        flex-direction: row;
+    }
+    .links p {
+        visibility: hidden;
+    }
+    .fb {
+        display: flex; 
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+    }
+    .insta {
+        display: flex; 
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+    }
+    }
+
 }
     `;
 

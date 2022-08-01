@@ -26,7 +26,15 @@ const Wrapper = styled.div`
     font-size: 2.2rem;
 }
 @media screen and (max-width: 450px) { 
-    .C-Title {
+    @media screen and (max-height: 450px) {
+        .C-Title {
         margin-top: -3rem;
 }
-}`;
+    }
+}
+@media screen and (max-width: 850px) {
+        @media screen and (max-height: 450px) { 
+            .C-Title {
+        margin-top: -3rem;
+}    
+        }}`;

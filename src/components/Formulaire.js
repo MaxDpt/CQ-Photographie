@@ -498,5 +498,129 @@ const Wrapper = styled.div`
         margin: auto;
         font-size: 1.1rem;}
     }
+// MOBILE FORMAT HORIZONTAL ----------------------- HORIZONTAL FORMAT MOBILE \\
+    @media screen and (max-width: 850px) {
+        @media screen and (max-height: 450px) { 
+// GLOBAL -----------------------------------------------------------
+.form {
+    background-color: #02111f;}
+.title {
+    margin-top: -2rem;
+    font-size: 58px;}
+.label {
+    display: flex; 
+    margin: auto 0.5rem;
+    width: 15%;
+    font-size: 1rem;}
+// Bloc 1 -----------------------------------------------------------
+.containerA {
+    border: none;
+    border-radius: 0px;
+    margin: 0 auto;}
+.containerB {
+    width: 90%; }
+.titleText {
+    margin: 1rem auto;
+    font-size: 0.9rem;;}
+.nom, .prenom, .date, .ville {
+    background-color: white;
+    border: 2px solid white;
+    font-size: 0.9rem;
+    width: 70%;
+    border-radius: 0.4rem;
+    height: 1.5rem;
+    padding-left: 0.5rem;}
+.date {
+    width: 20%;}
+// BLOC 2 ------------------------------------------------------------
+.container0 {
+    margin: 0 auto;
+    border: none;
+    border-radius: 0px;
+    flex-direction: column;
+    width: 100%;
+    height: 18rem;}
+.container1 {
+    padding: 0.5 0rem;
+    width: 100%;}
+.email, .object {
+    background-color: white;
+    border: 2px solid white;
+    font-size: 0.9rem;
+    width: 70%;
+    border-radius: 0.4rem;
+    height: 1.5rem;
+    padding-left: 0.5rem;} 
+.container2 {        
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    width: 100%;} 
+// PRESTATION -----------------------------------------------------------
+.link {
+    border: dashed 2px white;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    margin-left: 15rem;}
+.Prestation {
+    display: flex;
+    margin: auto;
+    font-size: 0.9rem;}
+.Prestation a {
+    display: flex;
+    flex-direction: column;}
+.line {
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    width: 22rem;
+    height: 2rem;
+    margin-left: 12rem;
+    padding-left: 0rem;
+    padding-top: 0.5rem; 
+    position: relative;
+    font-size : 1.1rem; 
+    z-index: 2;}
+.imagePresta {
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    margin-top: -8rem;
+    margin-left: 12rem;
+    width: 22rem;
+    z-index: 0;}
+.Delete {
+    left: 31.5rem;}
+// BLOC 3 -----------------------------------------------------------------
+.containerX {
+    margin-top: 0.5rem;
+    border: 1px solid white;
+    border-radius: 0px;}
+.containerY {
+    display: flex;
+    width: 75%;}
+.containerZ {
+    display: flex;
+    width: 25%;}
+// TEXT AREA ---------------------------------------------------------------
+.text-area {
+    background-color: white;
+    border: 2px solid white;
+    font-size: 0.9rem;
+    width: 100%;
+    padding-bottom: 6rem;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;}
+// SEND BUTTON --------------------------------------------------------------
+    .Send {
+        height: 6rem; 
+        width: 100%; 
+        border: none;}
+    .Send p {
+        margin: auto;
+        font-size: 1.1rem;}
+    }            
+        }
     `;
 

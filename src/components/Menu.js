@@ -2,7 +2,7 @@
     import styled from "styled-components"; 
     import * as React from 'react';
     import { Link } from "react-router-dom";
-
+    import { useState, useEffect } from "react";
 
     export default function Menu() {
 
@@ -11,6 +11,13 @@
         var urlGalerie = 'http://localhost:3000/Galerie';
         var urlPrestations = 'http://localhost:3000/Prestations';
         var urlContact = 'http://localhost:3000/Contact';
+
+        const [width,setWidth] = useState(); 
+        const [height,setHeight] = useState(); 
+        useEffect(() => {
+            setWidth(screen.width);
+            setHeight(screen.height);
+        }, [width, height])
 
         return (
         <Wrapper>
@@ -53,7 +60,8 @@
     }
 
     @media screen and (max-width: 450px) { 
-        width: 100%;
+        @media screen and (max-height: 850px) {
+            width: 100%;
         .containerLink {
             
         width: 100%;
@@ -67,6 +75,26 @@
         letter-spacing: 1px;
         margin: auto 0.5rem;
     }
+        }
     }
+    @media screen and (max-width: 850px) {
+        @media screen and (max-height: 450px) {
+            width: 100%;
+        .containerLink {
+            justify-content: center;
+            width: 100%;
+            height: 3rem;
+            margin-top: 0;
+            border-radius: 0px;
+        }
+        .link {
+        color: white;
+        font-size: 18px;
+        letter-spacing: 1px;
+        margin: auto 0.5rem;
+    }
+        }
+
+     }
     `;
 

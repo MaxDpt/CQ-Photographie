@@ -39,17 +39,34 @@
     .openImage img {
         width: 100%;
     }
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 450px)    {
+        @media screen and (max-height: 850px) {
         .openImage {
         width: 100%;
         right: 0rem;
-        bottom: 9.5rem;
+        bottom: 30%;
         z-index: 3;
-    }
-    .openImage img {
+        }
+        .openImage img {
         width: 100%;
         z-index: 3;
-    }
+        }
+        }
+     }
+     @media screen and (max-width: 850px) { 
+        @media screen and (max-height: 450px) {
+        .openImage {
+        width: 100%;
+        right: 0rem;
+        bottom: 10%;
+        z-index: 3;
+        }
+        .openImage img {
+        margin: auto;
+        max-width: 80%;
+        z-index: 3;
+        }
+        }
      }
     `;
     export default ImageFullScreen;

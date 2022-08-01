@@ -54,11 +54,20 @@ const Wrapper = styled.div`
 }
 
 @media screen and (max-width: 450px) { 
-    .container1 {
+.container1 {
     width: 100%;
 }
 .card {
     margin: 0.5rem;
 }
 }
+@media screen and (max-width: 850px) {
+        @media screen and (max-height: 450px) { 
+.container1 {
+    width: 100%;
+}
+.card {
+    margin: 0.5rem;
+}
+        }}
 `;

@@ -13,5 +13,10 @@ export default function InstaLogo() {
 };
 
 const Wrapper = styled.div`
-margin: auto;
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem;
+    @media screen and (max-width: 450px) { 
+    margin: 0rem;
+    }
 `;

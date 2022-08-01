@@ -136,7 +136,8 @@
     }
 
     @media screen and (max-width: 450px) { 
-        .container {
+        @media screen and (max-height: 850px) {
+    .container {
         margin: 0.3rem;
         width: 6.5rem; 
         height: 6.5rem;
@@ -145,7 +146,7 @@
         width: 14rem; 
         height: 14rem;
         display: flex; 
-        top: -2.5rem;
+        top: -3.5rem;
         left: -4.5rem;
         position: relative;
     }
@@ -154,8 +155,34 @@
     }
     .Back {
         left: 1rem;
-        top: 12rem;
+        top: 10%;
     }
+        }
+
+    }
+    @media screen and (max-width: 850px) {
+        @media screen and (max-height: 450px) {
+    .container {
+        margin: 0.3rem;
+        width: 10rem; 
+        height: 10rem;
+    }
+    .container .image {
+        width: 18rem; 
+        height: 18rem;
+        display: flex; 
+        top: -3.5rem;
+        left: -4.5rem;
+        position: relative;
+    }
+    .row {
+        visibility: hidden;
+    }
+    .Back {
+        left: 1rem;
+        top: 10%;
+    }
+        }
     }
 
 
