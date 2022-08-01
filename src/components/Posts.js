@@ -17,7 +17,7 @@ export default function Posts() {
     var pagePrev = pageSelect - 1;
     var pageNext = pageSelect + 1;
 // --------------------------------------------------------------------
-
+// CALCUL TAILLE ECRAN & NOMBRE DE POST PAR PAGE ----------------------
 const [width,setWidth] = useState(); 
 const [height,setHeight] = useState(); 
 const [pageSize, SetPageSize] = useState(12);
@@ -31,10 +31,9 @@ useEffect(() => {
     } else if (CurrentWidth >= mobileSizePx & CurrentHeight >= mobileSizePx) {
         SetPageSize(21)
     } else {
-        SetPageSize(24)
-    }
-}, [width])
-
+        SetPageSize(24) }
+}, [width, height])
+// --------------------------------------------------------------------
 // Appel à la liste des posts -----------------------------------------
     useEffect(() => {
         fetch('http://localhost:1337/api/posts?populate=*&pagination[page]='+pageSelect+'&pagination[pageSize]='+pageSize+'&sort=id%3Adesc',
@@ -53,7 +52,6 @@ useEffect(() => {
             setIsLoading(false)
         }, 500) }) }, []) 
 // ---------------------------------------------------------------------  
-
 // Categorie page ------------------------------------------------------      
     const categorieClicked = () => {
     if (categorie !== '') {
@@ -84,7 +82,6 @@ useEffect(() => {
             setPageCurrent(pageCurrent);
             setIsLoading(false) }) }}; 
 // -------------------------------------------------------------------------
-    
 // Appel à la liste des categories -----------------------------------------
 useEffect(() => {
     fetch('http://localhost:1337/api/categories?populate=*',
@@ -98,13 +95,11 @@ useEffect(() => {
         setIsLoading2(false)
     }, 500) }) }, [])
 // -------------------------------------------------------------------------
-
 // Lecture categorie -------------------------------------------------------
 const handleOnChangeCategorie = (e) => {
     try { setCategorie(e.target.value) } 
     catch { console.log("error") }};
 // -------------------------------------------------------------------------
-
 //Button Page Suivante------------------------------------------------------
     const nextPage = () => {
         pageSelect ++
@@ -124,7 +119,6 @@ const handleOnChangeCategorie = (e) => {
             setIsLoading(false)
         }, 100) }) }
 // ---------------------------------------------------------------------------
-
 //Button Page Precedente------------------------------------------------------
     const prevPage = () => {
         pageSelect --
@@ -145,8 +139,7 @@ const handleOnChangeCategorie = (e) => {
             setIsLoading(false)
         }, 100) }) }
  // ------------------------------------------------------------------------    
-
-
+ // RENDU ------------------------------------------------------------------
     return (
     <Wrapper>
         <div className="containerNav">
@@ -194,7 +187,6 @@ const handleOnChangeCategorie = (e) => {
             </div>
         </div>
 
-
     <div className="containerGrille">
         {isLoading ? 'Loading...' : posts.map(post => (
         <div className="post">
@@ -211,28 +203,23 @@ const handleOnChangeCategorie = (e) => {
                 </div>
     ) : null}
 
-
-    </Wrapper>
-    );
+    </Wrapper> );
 };
-
+// STYLE CSS ---------------------------------------------------------------------
 const Wrapper = styled.div`
 .containerGrille {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%; }
-
 .pageCurrent {
     color: gray; }
-
 .containerNav {
     display: flex; 
     justify-content: end;
     flex-direction: row;
     width: 80%;
     margin: auto; }
-
 .navPages {
     background-color: #02111f;
     box-shadow: 0px 2px 10px 2px #02111f;
@@ -252,65 +239,52 @@ const Wrapper = styled.div`
     margin-top: 0.2rem;
     width: 50%;
     height: 1.6rem; }
-
 .pageCount p {
     margin: 0 0.6rem; }
 .bar {
     padding-top: 0.4rem;
-    font-size: 0.9rem;
-}
+    font-size: 0.9rem; }
 .pageCountNumber {
     display: flex; 
     flex-direction: row;}
-
 .pageCountNumber p {
     margin: 0 0.15rem;}
-
 .nextPage {
     cursor: pointer; }
 .nextPage:hover {
     color: gray; }
-
 .nextPageHide {
     pointer-events: none;
     color: gray; }
-
 .prevPage {
     cursor: pointer; }
 .prevPage:hover {
     color: gray; }
-
 .prevPageHide {
     pointer-events: none;
     color: gray; }
-
 .menuList {
     display: flex;
     justify-content: end;
     width: 50%;
     margin: auto; }
-
 .menuList select {
     border-radius: 10px;
     width: 85%;
     margin: auto 0;
     font-size: 1.2rem; }
-
 .menuList label {
     font-size: 1.2rem; }
-
+// MOBILE FORMAT ----------------------------------- FORMAT MOBILE \\
 @media screen and (max-width: 450px) {
     @media screen and (max-height: 850px) {
-        .containerGrille {
+.containerGrille {
 margin-top: 1rem; }
-
 .containerNav {
     margin: 0;
     margin-top: -3rem;
     flex-direction: column;
-    width: 100%;
- }
-
+    width: 100%;}
 .navPages {
     flex-direction: column;
     border-radius: 0px;
@@ -322,17 +296,13 @@ margin-top: 1rem; }
 .pageCount {
     width: 100%;
     font-size: 0.9rem; }
-
 .menuList {
-    width: 80%;
-}
-
+    width: 80%;}
 .menuList select {
     border-radius: 10px;
     width: 80%;
     margin: auto 0rem;
     font-size: 0.9rem; }
-
 .menuList label {
     margin: auto;
     font-size: 0.9rem; }
@@ -344,29 +314,21 @@ margin-top: 1rem; }
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: center;
-}
+    justify-content: center;}
 .NavPageBottom a, .NavPageBottom p {
-    margin: 0.5rem 1rem;
-}
+    margin: 0.5rem 1rem;}
 .NavPageBottom .separation {
-    margin-top: 1rem;
-}
-    }
-
-}
+    margin-top: 1rem;} }}
+// MOBILE FORMAT HORIZONTAL ----------------------- HORIZONTAL FORMAT MOBILE \\   
 @media screen and (max-width: 850px) {
     @media screen and (max-height: 450px) {
-        .containerGrille {
+.containerGrille {
 margin-top: 1rem; }
-
 .containerNav {
     margin: 0;
     margin-top: -3rem;
     flex-direction: column;
-    width: 100%;
- }
-
+    width: 100%;}
 .navPages {
     flex-direction: column;
     border-radius: 0px;
@@ -378,17 +340,13 @@ margin-top: 1rem; }
 .pageCount {
     width: 100%;
     font-size: 0.9rem; }
-
 .menuList {
-    width: 40%;
-}
-
+    width: 40%;}
 .menuList select {
     border-radius: 10px;
     width: 80%;
     margin: auto 0rem;
     font-size: 0.9rem; }
-
 .menuList label {
     margin: auto;
     font-size: 0.9rem; }
@@ -400,14 +358,9 @@ margin-top: 1rem; }
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: center;
-}
+    justify-content: center;}
 .NavPageBottom a, .NavPageBottom p {
-    margin: 0.5rem 1rem;
-}
+    margin: 0.5rem 1rem;}
 .NavPageBottom .separation {
-    margin-top: 1rem;
-}
-    }
-}
+    margin-top: 1rem;} }}
 `;

@@ -7,6 +7,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300&display=swap');
 
+body {
+	background-color: #47555e;
+	color: white;
+}
 
 h1 {
 	font-family: 'Cormorant SC', serif;
@@ -15,6 +19,7 @@ h1 {
 	border: 0;
 	font-size: 100%;
 	vertical-align: baseline;
+	letter-spacing: 1px;
 }
 h2 {
 	font-family: 'Dancing Script', cursive;

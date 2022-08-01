@@ -26,7 +26,7 @@ export default function Formulaire() {
     const formRef = useRef();
 
 
-// Load data prestation --------------------------
+// Load data prestation --------------------------------------------------
 if (idPrestation) {
     useEffect(() => {
         fetch('http://localhost:1337/api/prestations/'+idPrestation+'?populate=*',
@@ -44,8 +44,8 @@ if (idPrestation) {
             setIsLoading(false)
             }) }, [])
 }
-// -----------------------------------------------
-// Load data email -------------------------------
+// -----------------------------------------------------------------------
+// Load data email -------------------------------------------------------
 useEffect(() => {
     fetch('http://localhost:1337/api/email',
     { method: 'GET',
@@ -55,8 +55,8 @@ useEffect(() => {
         var email = Array(res.data.attributes.email);   
         setEmailPerso(email);
         }) }, [])
-// -----------------------------------------------
-// Prestation link & delete ----------------------
+// ------------------------------------------------------------------------
+// Prestation link & delete -----------------------------------------------
 const link = () => {
     window.location.href='/Prestations';
 }
@@ -64,8 +64,8 @@ const DeletePrestation = () => {
     localStorage.clear();
     window.location.reload();
 }
-// ----------------------------------------------
-// SUBMIT FORM -----------------------------------
+// -------------------------------------------------------------------------
+// SUBMIT FORM -------------------------------------------------------------
 const handleForm = async (e) => {
     e.preventDefault()
     if (name !== '' & object !== '' & ville !== ''  & email !== '') {       
@@ -91,7 +91,7 @@ const handleForm = async (e) => {
             console.log('Champs incomplet')
             setError('ATTENTION : tous les champs requis ne sont pas remplis.')}
 };
-// -----------------------------------------------
+// RENDU --------------------------------------------------------------------
 return (
 <Wrapper>
 
@@ -179,7 +179,7 @@ return (
         </Wrapper>
         );
     };
-    
+// STYLE CSS --------------------------------------------------------------------------
 const Wrapper = styled.div`
     display: flex; 
     justify-content: center;
@@ -378,6 +378,7 @@ const Wrapper = styled.div`
 
 // MOBILE FORMAT ----------------------------------- FORMAT MOBILE \\
 @media screen and (max-width: 450px) { 
+    @media screen and (max-height: 850px) {
 // GLOBAL -----------------------------------------------------------
 .form {
     background-color: #02111f;}
@@ -490,17 +491,16 @@ const Wrapper = styled.div`
     padding-top: 0.5rem;
     padding-left: 0.5rem;}
 // SEND BUTTON --------------------------------------------------------------
-    .Send {
-        height: 6rem; 
-        width: 100%; 
-        border: none;}
-    .Send p {
-        margin: auto;
-        font-size: 1.1rem;}
-    }
+.Send {
+    height: 6rem; 
+    width: 100%; 
+    border: none;}
+.Send p {
+    margin: auto;
+    font-size: 1.1rem;} } }
 // MOBILE FORMAT HORIZONTAL ----------------------- HORIZONTAL FORMAT MOBILE \\
-    @media screen and (max-width: 850px) {
-        @media screen and (max-height: 450px) { 
+@media screen and (max-width: 850px) {
+    @media screen and (max-height: 450px) { 
 // GLOBAL -----------------------------------------------------------
 .form {
     background-color: #02111f;}
@@ -613,14 +613,12 @@ const Wrapper = styled.div`
     padding-top: 0.5rem;
     padding-left: 0.5rem;}
 // SEND BUTTON --------------------------------------------------------------
-    .Send {
-        height: 6rem; 
-        width: 100%; 
-        border: none;}
-    .Send p {
-        margin: auto;
-        font-size: 1.1rem;}
-    }            
-        }
+.Send {
+    height: 6rem; 
+    width: 100%; 
+    border: none;}
+.Send p {
+    margin: auto;
+    font-size: 1.1rem;}}}
     `;
 
