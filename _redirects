@@ -1,4 +1,4 @@
 [[redirects]]
-  from = "https://charlequentin-photographie.netlify.app/"
+  from = "/*"
   to = "/public/index.html"
   status = 200
