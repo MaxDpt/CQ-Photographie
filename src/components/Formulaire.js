@@ -62,6 +62,15 @@ useEffect(() => {
         setEmailPerso(email);
         }) }, [])
 // ------------------------------------------------------------------------
+// Prestation link & delete -----------------------------------------------
+const link = () => {
+    window.location.href='/Prestations';
+}
+const DeletePrestation = () => {
+    localStorage.clear();
+    window.location.reload();
+} 
+// -------------------------------------------------------------------------
 // Load data prestation --------------------------------------------------
 if (idPrestation) {
     useEffect(() => {
@@ -82,15 +91,6 @@ if (idPrestation) {
 }
 // -----------------------------------------------------------------------
 
-// Prestation link & delete -----------------------------------------------
-const link = () => {
-    window.location.href='/Prestations';
-}
-const DeletePrestation = () => {
-    localStorage.clear();
-    window.location.reload();
-} 
-// -------------------------------------------------------------------------
 
 // RENDU --------------------------------------------------------------------
 return (
