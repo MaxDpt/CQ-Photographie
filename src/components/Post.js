@@ -1,5 +1,5 @@
 import styled from "styled-components"; 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ImageFullScreen from "./ImageFullScreen";
 import BackLogo from "./Icons/BackLogo";
 // DONNEES DU POST ---------------------------------------------------------------------
@@ -51,7 +51,7 @@ return (
     {openImage === true ? (
     <>
         <div className="Back">
-            <a href="#" className="BackIcon" onClick={ClickBack}> <BackLogo/> </a>
+            <button type="button" className="BackIcon" onClick={ClickBack}> <BackLogo/> </button>
         </div>
         {isLoading ? '' : posts.map(post => (
             <div className="openImage">
@@ -113,6 +113,11 @@ justify-content: center;
     left: 5rem;
     top: 10rem;
     z-index: 4;
+    cursor: pointer;}
+.BackIcon {
+    background-color: transparent;
+    border: none;}
+.BackIcon:hover {
     cursor: pointer;}
 .openImage {
     z-index: 3;}

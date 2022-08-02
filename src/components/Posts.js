@@ -135,7 +135,7 @@ const handleOnChangeCategorie = (e) => {
             <div className="navPages">
                 <div className="pageCount">
 
-                    <a className={`prevPage ${ pageSelect === 1 ? 'prevPageHide' : 'prevPageShow'}`} href="#" onClick={prevPage}>  <p> precedent </p> </a>
+                    <button className={`prevPage ${ pageSelect === 1 ? 'prevPageHide' : 'prevPageShow'}`} type='button' onClick={prevPage}>  <p> precedent </p> </button>
 
                     <div className="pageCountNumber">
                         {pageCount >= 2 ? ( <>
@@ -161,7 +161,7 @@ const handleOnChangeCategorie = (e) => {
                         <p>{pageCount} </p>
                     </div>
 
-                    <a className={`nextPage ${pageSelect === pageCount ? 'nextPageHide' : 'nextPageShow'}`} href="#" onClick={nextPage}> <p> suivant </p> </a>
+                    <button className={`nextPage ${pageSelect === pageCount ? 'nextPageHide' : 'nextPageShow'}`} type='button' onClick={nextPage}> <p> suivant </p> </button>
 
                 </div>
 
@@ -186,9 +186,9 @@ const handleOnChangeCategorie = (e) => {
 
 
                 <div className="NavPageBottom">
-                <a className={`prevPage ${ pageSelect === 1 ? 'prevPageHide' : 'prevPageShow'}`} href="#" onClick={prevPage}>  <p> precedent </p> </a>
-                <p className="separation"> | </p>
-                <a className={`nextPage ${pageSelect === pageCount ? 'nextPageHide' : 'nextPageShow'}`} href="#" onClick={nextPage}> <p> suivant </p> </a>
+                    <button className={`prevPage ${ pageSelect === 1 ? 'prevPageHide' : 'prevPageShow'}`} type='button' onClick={prevPage}>  <p> precedent </p> </button>
+                    <p className="separation"> | </p>
+                    <button className={`nextPage ${pageSelect === pageCount ? 'nextPageHide' : 'nextPageShow'}`} type='button' onClick={nextPage}> <p> suivant </p> </button>
                 </div>
 
 
@@ -232,7 +232,7 @@ const Wrapper = styled.div`
 .pageCount p {
     margin: 0 0.6rem; }
 .bar {
-    padding-top: 0.4rem;
+    margin-top: -0.5rem;
     font-size: 0.9rem; }
 .pageCurrent {
     color: gray; }
@@ -240,7 +240,8 @@ const Wrapper = styled.div`
     display: flex; 
     flex-direction: row;}
 .pageCountNumber p {
-    margin: 0 0.15rem;}
+    margin: 0 0.15rem;
+    margin-top: 0.5rem;}
 .nextPage {
     cursor: pointer; }
 .nextPage:hover {
@@ -255,6 +256,13 @@ const Wrapper = styled.div`
 .prevPageHide {
     pointer-events: none;
     color: gray; }
+.prevPage, .nextPage  {
+    background-color: transparent;
+    font-size: 1rem;
+    color: white;
+    border: none; }
+.containerNav button:hover {
+    cursor: pointer; }
 // NAVIGATION DES CATEGORIES --------------------------------------------
 .menuList {
     display: flex;

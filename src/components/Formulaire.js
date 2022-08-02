@@ -140,15 +140,15 @@ return (
         <div className="container2">
             <div className="Prestation">
                 {!prestation ? (<div>
-                    <a className="link" href="#" onClick={link}><h1> Cliquer ici</h1> <p>pour choisir une préstation.</p><br/>
+                    <button className="link" type="button" onClick={link}><h1> Cliquer ici</h1> <p>pour choisir une préstation.</p><br/>
                     <p>Afin de préciser le service souhaité.</p>
-                    <p>Ce choix n'est en aucun cas définitif.</p></a>
+                    <p>Ce choix n'est en aucun cas définitif.</p></button>
                 </div>) 
                 : prestation.map(presta => (
                 <div>
                     <p className="line"> Préstation :  {presta.attributes.title} </p>
                     <p className="line"> Au prix : {presta.attributes.prix} euro/TTC</p>
-                    <a className="Delete" href="#" onClick={DeletePrestation}><DeleteLogo/></a>
+                    <button className="Delete" type="button" onClick={DeletePrestation}><DeleteLogo/></button>
                     <img className="imagePresta" alt="" src={'http://localhost:1337'+presta.attributes.image.data.attributes.url}/>                
                 </div>
                 ) )}                       
@@ -289,6 +289,9 @@ const Wrapper = styled.div`
     padding: 0.5rem 1rem;
     margin-left: 3rem;
     margin-top: 3rem;}
+.link:hover {
+    cursor: pointer;
+}
 .imagePresta {
     overflow: hidden;
     display: flex;
@@ -298,11 +301,16 @@ const Wrapper = styled.div`
     width: 40rem;
     z-index: 0;}
 .Delete {
+    background-color: transparent;
+    border: none;
     display: flex; 
     position: relative;
     bottom: 4.5rem;
     left: 21rem;
     z-index: 3;}
+.Delete:hover {
+    cursor: pointer;
+}
 //BLOC 3 ---------------------------------------------------------
 .containerX {
     background-color: #02111f;
