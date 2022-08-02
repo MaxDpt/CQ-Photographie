@@ -63,7 +63,7 @@ const link = () => {
 const DeletePrestation = () => {
     localStorage.clear();
     window.location.reload();
-}
+} 
 // -------------------------------------------------------------------------
 // SUBMIT FORM -------------------------------------------------------------
 const handleForm = async (e) => {
