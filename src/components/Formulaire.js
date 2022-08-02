@@ -95,7 +95,7 @@ return (
     <p>{confirm}</p>
 </div> ) : null}
 
-<form className="form" method="POST" ref={formRef} onSubmit={handleForm} name='form' data-netlify="true"> 
+<form className="form" method="POST" ref={formRef} onSubmit='submit' name='form' data-netlify="true"> 
     <input type='hidden' name='form-name' value='form'/>
     <div className="containerA">
         <div className="containerB">
@@ -161,7 +161,7 @@ return (
             <textarea className="text-area" type='text'  name="message" placeholder='Ecrivez ici' />
         </div>
         <div className="containerZ">
-            <button className="Send" type="submit" ><p>Envoyer</p></button>
+            <button className="Send" type="submit" onClick={handleForm} ><p>Envoyer</p></button>
         </div>
     </div>
 </form>
