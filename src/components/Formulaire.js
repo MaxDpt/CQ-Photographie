@@ -2,7 +2,7 @@
 import styled from "styled-components"; 
 import * as React from 'react';
 import { useEffect, useState, useRef }from "react";
-import emailjs from '@emailjs/browser';
+//import emailjs from '@emailjs/browser';
 import DeleteLogo from "./Icons/DeleteLogo";
 
 export default function Formulaire() {
