@@ -64,8 +64,8 @@ useEffect(() => {
 // ------------------------------------------------------------------------
 
 // Load data prestation --------------------------------------------------
-if (idPrestation) {
     useEffect(() => {
+        if (idPrestation) {
         fetch('http://localhost:1337/api/prestations/'+idPrestation+'?populate=*',
         { method: 'GET',
             headers: {'Accept': 'Application/json'} })
@@ -79,8 +79,7 @@ if (idPrestation) {
                 setObject(prestationName)
             };
             setIsLoading(false)
-            }) }, [])
-}
+            }) }}, [])
 // -----------------------------------------------------------------------
 // Prestation link & delete -----------------------------------------------
 const link = () => {
