@@ -551,15 +551,9 @@ const Wrapper = styled.div`
 @media screen and (max-width: 950px) {
 @media screen and (min-height: 850px) {
 @media screen and (max-height: 1450px) {
+// Bloc 1 -----------------------------------------------------------
 .containerA { 
-        width: 99%;
-    }
-.container0 { 
-        width: 99%;
-    }
-.containerX { 
-        width: 99.5%;
-    }
+    width: 99%;}
 .containerB {
     width: 75%;
     margin: auto;}
@@ -568,19 +562,24 @@ const Wrapper = styled.div`
     font-size: 16px;
     width: 85%;
     height: 1.5rem;
-    padding-left: 0.5rem;}   
-    }
+    padding-left: 0.5rem;}
+// Bloc 2 -----------------------------------------------------------
+.container0 { 
+        width: 99%;}
 .email, .object {
     margin: 0.5rem 0;} 
 .link {
     font-size: 1.1rem;
     margin-top: 2.5rem;
     margin-left: 0.5rem;}
+// Bloc 3 -----------------------------------------------------------
+.containerX { 
+    width: 99.5%;}
 .containerY {
     display: flex;
     width: 75%;}
 .containerZ {
     display: flex;
-    width: 25%;}}}
+    width: 25%;}}}}
     `;
 
