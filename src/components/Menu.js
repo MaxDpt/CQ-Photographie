@@ -11,13 +11,7 @@ var urlAccueil = 'http://localhost:3000/';
 var urlGalerie = 'http://localhost:3000/Galerie';
 var urlPrestations = 'http://localhost:3000/Prestations';
 var urlContact = 'http://localhost:3000/Contact';
-// CALCUL LA TAILLE DE L'ECRAN -------------------------------------------
-const [width,setWidth] = useState(); 
-const [height,setHeight] = useState(); 
-useEffect(() => {
-    setWidth(screen.width);
-    setHeight(screen.height);
-}, [width, height]);
+
 // RENDU -----------------------------------------------------------------
 return (
 <Wrapper>

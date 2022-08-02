@@ -22,8 +22,8 @@ const [width,setWidth] = useState();
 const [height,setHeight] = useState(); 
 const [pageSize, SetPageSize] = useState(12);
 useEffect(() => {
-    var CurrentWidth = (screen.width);
-    var CurrentHeight = (screen.height);
+    var CurrentWidth = (window.screen.width);
+    var CurrentHeight = (window.screen.height);
     setWidth(CurrentWidth);
     setHeight(CurrentHeight);
     if (CurrentWidth >= mobileSizePx & CurrentHeight >= mobileSizePx ) {
