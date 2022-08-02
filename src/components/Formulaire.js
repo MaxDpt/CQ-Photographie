@@ -10,8 +10,8 @@ export default function Formulaire() {
     var idPrestation = localStorage.getItem('idPrestation');
     const [prestation, setPrestation] = useState (null);
     const [emailPerso,setEmailPerso] = useState('');
-    const [error, setError] = useState('');
-    const [confirm, setConfirm] = useState('');
+    //const [error, setError] = useState('');
+    //const [confirm, setConfirm] = useState('');
     const [name, setName] = useState('');
     const [ville, setCity] = useState('');
     const [email, setEmail] = useState('');
