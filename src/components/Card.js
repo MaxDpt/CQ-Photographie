@@ -27,7 +27,7 @@ return (
         </div>
         
         <div className="image">
-            <img className="image" src={'http://localhost:1337'+image.data.attributes.url} />
+            <img className="image" alt="" src={'http://localhost:1337'+image.data.attributes.url}/>
         </div>
     </div>
 </Wrapper>

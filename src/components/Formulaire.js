@@ -7,22 +7,16 @@ import DeleteLogo from "./Icons/DeleteLogo";
 
 export default function Formulaire() {
     
-    var [idPrestation, setIdprestation] = useState(localStorage.getItem('idPrestation'));
-    const [isLoading, setIsLoading] = useState(true);
+    var idPrestation = localStorage.getItem('idPrestation');
     const [prestation, setPrestation] = useState (null);
-    const [prestationName, setPrestationName] = useState('');
     const [emailPerso,setEmailPerso] = useState('');
-
     const [error, setError] = useState('');
     const [confirm, setConfirm] = useState('');
-
     const [name, setName] = useState('');
-    const [firstName, setFirstName] = useState('');
     const [ville, setCity] = useState('');
     const [email, setEmail] = useState('');
-    const [date, setDate] = useState('');
     const [object, setObject] = useState('');
-    const [message, setMessage] = useState('');
+    
 
     const formRef = useRef();
 // SUBMIT FORM -------------------------------------------------------------
@@ -37,12 +31,10 @@ const handleForm = async (e) => {
             console.log(error.text);});
         formRef.current.reset();
         setName('');
-        setFirstName('');
         setCity('');
-        setDate('');
         setEmail('');
         setObject('');
-        setPrestationName('')
+        
         setConfirm('CONFIRMATION : Votre fortmulaire a bien été transmit. Un email de confirmation vous à également été envoyé. ')
         setTimeout(() => {
             setConfirm('')
@@ -74,12 +66,10 @@ useEffect(() => {
             var data = Array(res.data);
             var prestationName = Array(res.data.attributes.title);
             setPrestation(data);
-            setPrestationName(prestationName); 
             if (prestationName) {
                 setObject(prestationName)
             };
-            setIsLoading(false)
-            }) }}, [])
+            }) }}, [idPrestation])
 // -----------------------------------------------------------------------
 // Prestation link & delete -----------------------------------------------
 const link = () => {
@@ -116,7 +106,7 @@ return (
             </div>
             <div className="row">
                 <label className="label">Prenom :</label>
-                <input className="prenom" type='text' name="prenom" placeholder='Prenom' onChange={input => setFirstName(input.target.value)} />
+                <input className="prenom" type='text' name="prenom" placeholder='Prenom'  />
             </div>
             <div className="row">
                 <label className="label">Ville* :</label>
@@ -124,7 +114,7 @@ return (
             </div>
             <div className="row">
                 <label className="label">Date souhaité :</label>
-                <input className="date" type='date' name="date" onChange={input => setDate(input.target.value)} />
+                <input className="date" type='date' name="date"  />
             </div>
         </div>
     </div>
@@ -150,7 +140,7 @@ return (
         <div className="container2">
             <div className="Prestation">
                 {!prestation ? (<div>
-                    <a className="link" onClick={link}><h1> Cliquer ici</h1> <p>pour choisir une préstation.</p><br/>
+                    <a className="link" href="#" onClick={link}><h1> Cliquer ici</h1> <p>pour choisir une préstation.</p><br/>
                     <p>Afin de préciser le service souhaité.</p>
                     <p>Ce choix n'est en aucun cas définitif.</p></a>
                 </div>) 
@@ -158,8 +148,8 @@ return (
                 <div>
                     <p className="line"> Préstation :  {presta.attributes.title} </p>
                     <p className="line"> Au prix : {presta.attributes.prix} euro/TTC</p>
-                    <a className="Delete" onClick={DeletePrestation}><DeleteLogo/></a>
-                    <img className="imagePresta" src={'http://localhost:1337'+presta.attributes.image.data.attributes.url}/>                
+                    <a className="Delete" href="#" onClick={DeletePrestation}><DeleteLogo/></a>
+                    <img className="imagePresta" alt="" src={'http://localhost:1337'+presta.attributes.image.data.attributes.url}/>                
                 </div>
                 ) )}                       
             </div>
@@ -168,7 +158,7 @@ return (
 
     <div className="containerX">
         <div className="containerY">
-            <textarea className="text-area" type='text'  name="message" placeholder='Ecrivez ici' onChange={input => setMessage(input.target.value)} />
+            <textarea className="text-area" type='text'  name="message" placeholder='Ecrivez ici' />
         </div>
         <div className="containerZ">
             <button className="Send" type="submit" ><p>Envoyer</p></button>

@@ -46,12 +46,12 @@ return (
         <p className="titre"> {title} </p>
         <p className="createdAt">publié le {date} </p>
         </div>
-        <img className="image" src={'http://localhost:1337'+image.data.attributes.url} />
+        <img className="image" alt="" src={'http://localhost:1337'+image.data.attributes.url} />
     </div>
     {openImage === true ? (
     <>
         <div className="Back">
-            <a className="BackIcon" onClick={ClickBack}> <BackLogo/> </a>
+            <a href="#" className="BackIcon" onClick={ClickBack}> <BackLogo/> </a>
         </div>
         {isLoading ? '' : posts.map(post => (
             <div className="openImage">

@@ -12,7 +12,6 @@ export default function Posts() {
     const [categories, setCategories] = useState(null);
     var [pageSelect, setPageSelect] = useState(1);
     const [pageCount, setPageCount] = useState(null);
-    const [pageCurrent, setPageCurrent] = useState(null);
     const mobileSizePx = 450;
     var pagePrev = pageSelect - 1;
     var pageNext = pageSelect + 1;
@@ -48,9 +47,8 @@ useEffect(() => {
             var pageCount = Number(res.meta.pagination.pageCount);
             setPosts(data);
             setPageCount(pageCount);
-            setPageCurrent(pageCurrent);
             setIsLoading(false)
-        }, 500) }) }, []) 
+        }, 500) }) }, [pageSelect, pageSize ]) 
 // ---------------------------------------------------------------------  
 // Categorie page ------------------------------------------------------      
     const categorieClicked = () => {
@@ -146,7 +144,7 @@ const handleOnChangeCategorie = (e) => {
             <div className="navPages">
                 <div className="pageCount">
 
-                    <a className={`prevPage ${ pageSelect === 1 ? 'prevPageHide' : 'prevPageShow'}`} onClick={prevPage}>  <p> precedent </p> </a>
+                    <a className={`prevPage ${ pageSelect === 1 ? 'prevPageHide' : 'prevPageShow'}`} href="#" onClick={prevPage}>  <p> precedent </p> </a>
 
                     <div className="pageCountNumber">
                         {pageCount >= 2 ? ( <>
@@ -172,7 +170,7 @@ const handleOnChangeCategorie = (e) => {
                         <p>{pageCount} </p>
                     </div>
 
-                    <a className={`nextPage ${pageSelect === pageCount ? 'nextPageHide' : 'nextPageShow'}`} onClick={nextPage}> <p> suivant </p> </a>
+                    <a className={`nextPage ${pageSelect === pageCount ? 'nextPageHide' : 'nextPageShow'}`} href="#" onClick={nextPage}> <p> suivant </p> </a>
 
                 </div>
 
@@ -197,9 +195,9 @@ const handleOnChangeCategorie = (e) => {
 
 
                 <div className="NavPageBottom">
-                <a className={`prevPage ${ pageSelect === 1 ? 'prevPageHide' : 'prevPageShow'}`} onClick={prevPage}>  <p> precedent </p> </a>
+                <a className={`prevPage ${ pageSelect === 1 ? 'prevPageHide' : 'prevPageShow'}`} href="#" onClick={prevPage}>  <p> precedent </p> </a>
                 <p className="separation"> | </p>
-                <a className={`nextPage ${pageSelect === pageCount ? 'nextPageHide' : 'nextPageShow'}`} onClick={nextPage}> <p> suivant </p> </a>
+                <a className={`nextPage ${pageSelect === pageCount ? 'nextPageHide' : 'nextPageShow'}`} href="#" onClick={nextPage}> <p> suivant </p> </a>
                 </div>
 
 
