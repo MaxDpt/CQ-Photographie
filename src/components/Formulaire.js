@@ -2,7 +2,7 @@
 import styled from "styled-components"; 
 import * as React from 'react';
 import { useEffect, useState, useRef }from "react";
-//import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 import DeleteLogo from "./Icons/DeleteLogo";
 
 export default function Formulaire() {
@@ -24,11 +24,11 @@ const handleForm = async (e) => {
     e.preventDefault()
     if (name !== '' & object !== '' & ville !== ''  & email !== '') {       
         setError('')
-        //emailjs.sendForm('service_wxfo1z1', 'template_aizkfyt', 'form', 'DOBj7QKzN7GIKHnxR')
-        //.then((result) => {
-           // console.log(result.text);}, 
-           // (error) => {
-           // console.log(error.text);});
+        emailjs.sendForm('service_wxfo1z1', 'template_aizkfyt', 'form', 'DOBj7QKzN7GIKHnxR')
+        .then((result) => {
+            console.log(result.text);}, 
+            (error) => {
+            console.log(error.text);});
         formRef.current.reset();
         setName('');
         setCity('');
@@ -95,7 +95,7 @@ return (
     <p>{confirm}</p>
 </div> ) : null}
 
-<form className="form" method="POST" ref={formRef} onSubmit='submit' name='form' data-netlify="true"> 
+<form className="form" method="POST" ref={formRef} onSubmit={handleForm} name='form' data-netlify="true"> 
     <input type='hidden' name='form-name' value='form'/>
     <div className="containerA">
         <div className="containerB">
@@ -161,7 +161,7 @@ return (
             <textarea className="text-area" type='text'  name="message" placeholder='Ecrivez ici' />
         </div>
         <div className="containerZ">
-            <button className="Send" type="submit" onClick={handleForm} ><p>Envoyer</p></button>
+            <button className="Send" type="submit" ><p>Envoyer</p></button>
         </div>
     </div>
 </form>
