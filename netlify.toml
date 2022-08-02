@@ -1,11 +1,8 @@
 [build]
   command = "npm run build"
-  publish = "/build"
-  base = "/"
-[build]
   command = "npm run develop"
   publish = "/build"
-  base = "/strapi"
+  base = "/"
 [[redirects]]
   from = "/*"
   to = "/public/index.html"
