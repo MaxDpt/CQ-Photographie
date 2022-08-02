@@ -10,8 +10,8 @@ export default function Formulaire() {
     var idPrestation = localStorage.getItem('idPrestation');
     const [prestation, setPrestation] = useState (null);
     const [emailPerso,setEmailPerso] = useState('');
-    //const [error, setError] = useState('');
-    //const [confirm, setConfirm] = useState('');
+    const [error, setError] = useState('');
+    const [confirm, setConfirm] = useState('');
     const [name, setName] = useState('');
     const [ville, setCity] = useState('');
     const [email, setEmail] = useState('');
@@ -20,29 +20,28 @@ export default function Formulaire() {
 
     const formRef = useRef();
 // SUBMIT FORM -------------------------------------------------------------
-//const handleForm = async (e) => {
-    //e.preventDefault()
-    //if (name !== '' & object !== '' & ville !== ''  & email !== '') {       
-        //setError('')
+const handleForm = async (e) => {
+    e.preventDefault()
+    if (name !== '' & object !== '' & ville !== ''  & email !== '') {       
+        setError('')
         //emailjs.sendForm('service_wxfo1z1', 'template_aizkfyt', 'form', 'DOBj7QKzN7GIKHnxR')
         //.then((result) => {
            // console.log(result.text);}, 
            // (error) => {
            // console.log(error.text);});
-        //formRef.current.reset();
-        //setName('');
-        //setCity('');
-        //setEmail('');
-        //setObject('');
+        formRef.current.reset();
+        setName('');
+        setCity('');
+        setEmail('');
+        setObject('');
         
-        //setConfirm('CONFIRMATION : Votre fortmulaire a bien été transmit. Un email de confirmation vous à également été envoyé. ')
-        //setTimeout(() => {
-            //setConfirm('')
-            //}, 4000)
-        //} else {
-            //console.log('Champs incomplet')
-            //setError('ATTENTION : tous les champs requis ne sont pas remplis.')}
-//};
+        setConfirm('CONFIRMATION : Votre fortmulaire a bien été transmit. Un email de confirmation vous à également été envoyé. ')
+        setTimeout(() => {
+            setConfirm('')
+            }, 4000)
+        } else {
+            setError('ATTENTION : tous les champs requis ne sont pas remplis.')}
+};
 // Load data email -------------------------------------------------------
 useEffect(() => {
     fetch('http://localhost:1337/api/email',
@@ -96,7 +95,7 @@ return (
     <p>{confirm}</p>
 </div> ) : null}
 
-<form className="form" method="POST" ref={formRef} onSubmit='submit' name='form' data-netlify="true"> 
+<form className="form" method="POST" ref={formRef} onSubmit={handleForm} name='form' data-netlify="true"> 
     <input type='hidden' name='form-name' value='form'/>
     <div className="containerA">
         <div className="containerB">
