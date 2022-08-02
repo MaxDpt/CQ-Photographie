@@ -17,9 +17,8 @@
         const mobileSizeWidth = 450;
 
 // CALCUL TAILLE DE L'ECRAN -------------------------------------------------------
-
-    var width = (screen.width);
-    var height = (screen.height);
+    var width = (window.screen.width);
+    var height = (window.screen.height);
 
 // APPEL API DU LOGO --------------------------------------------------------------
         useEffect(() => {
