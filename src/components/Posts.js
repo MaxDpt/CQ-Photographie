@@ -43,7 +43,6 @@ useEffect(() => {
     .then(res => {
         setTimeout(() => {
             var data = Array.from(res.data);
-            var pageCurrent = Number(res.meta.pagination.page);
             var pageCount = Number(res.meta.pagination.pageCount);
             setPosts(data);
             setPageCount(pageCount);
@@ -59,11 +58,9 @@ useEffect(() => {
         .then(res => res.json())
         .then(res => {
             var data = Array.from(res.data);
-            var pageCurrent = Number(res.meta.pagination.page);
             var pageCount = Number(res.meta.pagination.pageCount);
             setPosts(data);
             setPageCount(pageCount);
-            setPageCurrent(pageCurrent);
             setIsLoading(false);
             setPageSelect(1); }) } 
     else {
@@ -73,11 +70,9 @@ useEffect(() => {
         .then(res => res.json())
         .then(res => {
             var data = Array.from(res.data);
-            var pageCurrent = Number(res.meta.pagination.page);
             var pageCount = Number(res.meta.pagination.pageCount);
             setPosts(data);
             setPageCount(pageCount);
-            setPageCurrent(pageCurrent);
             setIsLoading(false) }) }}; 
 // -------------------------------------------------------------------------
 // Appel à la liste des categories -----------------------------------------
@@ -109,11 +104,9 @@ const handleOnChangeCategorie = (e) => {
     .then(res => {
         setTimeout(() => {
             var data = Array.from(res.data);
-            var pageCurrent = Number(res.meta.pagination.page);
             var pageCount = Number(res.meta.pagination.pageCount);
             setPosts(data);
             setPageCount(pageCount);
-            setPageCurrent(pageCurrent);
             setIsLoading(false)
         }, 100) }) }
 // ---------------------------------------------------------------------------
@@ -129,11 +122,9 @@ const handleOnChangeCategorie = (e) => {
     .then(res => {
         setTimeout(() => {
             var data = Array.from(res.data);
-            var pageCurrent = Number(res.meta.pagination.page);
             var pageCount = Number(res.meta.pagination.pageCount);
             setPosts(data);
             setPageCount(pageCount);
-            setPageCurrent(pageCurrent);
             setIsLoading(false)
         }, 100) }) }
  // ------------------------------------------------------------------------    
