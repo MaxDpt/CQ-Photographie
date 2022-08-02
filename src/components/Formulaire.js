@@ -22,49 +22,9 @@ export default function Formulaire() {
     const [email, setEmail] = useState('');
     const [date, setDate] = useState('');
     const [object, setObject] = useState('');
+    const [message, setMessage] = useState('');
 
     const formRef = useRef();
-
-
-// Load data prestation --------------------------------------------------
-if (idPrestation) {
-    useEffect(() => {
-        fetch('http://localhost:1337/api/prestations/'+idPrestation+'?populate=*',
-        { method: 'GET',
-            headers: {'Accept': 'Application/json'} })
-    .then(res => res.json())
-    .then(res => {
-            var data = Array(res.data);
-            var prestationName = Array(res.data.attributes.title);
-            setPrestation(data);
-            setPrestationName(prestationName); 
-            if (prestationName) {
-                setObject(prestationName)
-            };
-            setIsLoading(false)
-            }) }, [])
-}
-// -----------------------------------------------------------------------
-// Load data email -------------------------------------------------------
-useEffect(() => {
-    fetch('http://localhost:1337/api/email',
-    { method: 'GET',
-        headers: {'Accept': 'Application/json'} })
-.then(res => res.json())
-.then(res => {
-        var email = Array(res.data.attributes.email);   
-        setEmailPerso(email);
-        }) }, [])
-// ------------------------------------------------------------------------
-// Prestation link & delete -----------------------------------------------
-const link = () => {
-    window.location.href='/Prestations';
-}
-const DeletePrestation = () => {
-    localStorage.clear();
-    window.location.reload();
-} 
-// -------------------------------------------------------------------------
 // SUBMIT FORM -------------------------------------------------------------
 const handleForm = async (e) => {
     e.preventDefault()
@@ -91,6 +51,47 @@ const handleForm = async (e) => {
             console.log('Champs incomplet')
             setError('ATTENTION : tous les champs requis ne sont pas remplis.')}
 };
+// Load data email -------------------------------------------------------
+useEffect(() => {
+    fetch('http://localhost:1337/api/email',
+    { method: 'GET',
+        headers: {'Accept': 'Application/json'} })
+.then(res => res.json())
+.then(res => {
+        var email = Array(res.data.attributes.email);   
+        setEmailPerso(email);
+        }) }, [])
+// ------------------------------------------------------------------------
+// Load data prestation --------------------------------------------------
+if (idPrestation) {
+    useEffect(() => {
+        fetch('http://localhost:1337/api/prestations/'+idPrestation+'?populate=*',
+        { method: 'GET',
+            headers: {'Accept': 'Application/json'} })
+    .then(res => res.json())
+    .then(res => {
+            var data = Array(res.data);
+            var prestationName = Array(res.data.attributes.title);
+            setPrestation(data);
+            setPrestationName(prestationName); 
+            if (prestationName) {
+                setObject(prestationName)
+            };
+            setIsLoading(false)
+            }) }, [])
+}
+// -----------------------------------------------------------------------
+
+// Prestation link & delete -----------------------------------------------
+const link = () => {
+    window.location.href='/Prestations';
+}
+const DeletePrestation = () => {
+    localStorage.clear();
+    window.location.reload();
+} 
+// -------------------------------------------------------------------------
+
 // RENDU --------------------------------------------------------------------
 return (
 <Wrapper>

@@ -15,13 +15,12 @@
         const [fbName, setFBName] = useState();
         const [fbLink, setFBLink] = useState();
         const mobileSizeWidth = 450;
-        const [width,setWidth] = useState(); 
-        const [height,setHeight] = useState(); 
+
 // CALCUL TAILLE DE L'ECRAN -------------------------------------------------------
-        useEffect(() => {
-            setWidth(screen.width);
-            setHeight(screen.height);
-        }, [width, height])
+
+    var width = (screen.width);
+    var height = (screen.height);
+
 // APPEL API DU LOGO --------------------------------------------------------------
         useEffect(() => {
             fetch('http://localhost:1337/api/couvertures/3?populate=*',
