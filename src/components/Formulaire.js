@@ -96,7 +96,7 @@ return (
     <p>{confirm}</p>
 </div> ) : null}
 
-<form className="form" method="POST" ref={formRef} onSubmit={handleForm} id='form'> 
+<form className="form" method="POST" ref={formRef} onSubmit={handleForm} name='form' data-netlify="true" id="form"> 
     <div className="containerA">
         <div className="containerB">
             <p className="titleText">Transmetez-nous vôtre choix par se formulaire.</p>
