@@ -88,7 +88,6 @@ const Wrapper = styled.div`
     width: 10rem; 
     height: 18rem;}
 .row1 {
-    position: relative;
     margin-top: 0rem;
     height: 2rem;
     font-size: 1.6rem;}
@@ -99,10 +98,7 @@ const Wrapper = styled.div`
     height: 1rem;
     font-size: 1.2rem;}
 .row4 {
-    background-color: rgba(0,0,0,0.4);
     margin-top: 10rem;
-    padding-top: 0.5rem;
-    margin-left: -1.5rem;
     width: 150%;
     height: 2rem;
     font-size: 1.2rem;}
@@ -113,9 +109,7 @@ const Wrapper = styled.div`
     margin-top: 9.5rem;
     margin-bottom: 1rem;}
 .image {
-    opacity: 65%;
     width: 30rem;
-    position: relative;
     top: -9.5rem;
     left: -4.5rem;}}
 // MOBILE FORMAT HORIZONTAL ----------------------- HORIZONTAL FORMAT MOBILE \\
@@ -125,7 +119,6 @@ const Wrapper = styled.div`
     width: 12rem; 
     height: 18rem;}
 .row1 {
-    position: relative;
     margin-top: 0rem;
     height: 2rem;
     font-size: 1.6rem;}
@@ -136,10 +129,7 @@ const Wrapper = styled.div`
     height: 1rem;
     font-size: 1.2rem;}
 .row4 {
-    background-color: rgba(0,0,0,0.4);
     margin-top: 10rem;
-    padding-top: 0.5rem;
-    margin-left: -1.5rem;
     width: 150%;
     height: 2rem;
     font-size: 1.2rem;}
@@ -150,10 +140,49 @@ const Wrapper = styled.div`
     margin-top: 9.5rem;
     margin-bottom: 1rem;}
 .image {
-    opacity: 65%;
     width: 30rem;
-    position: relative;
     top: -9.5rem;
     left: -4.5rem;}}}
+// TABLETTE FORMAT HORIZONTAL ----------------------- HORIZONTAL FORMAT TABLETTE \\
+@media screen and (max-width: 1450px) {
+    @media screen and (min-width: 850px) {
+    @media screen and (max-height: 950px) {
+.container {
+    width: 18rem; 
+    height: 28rem;}  
+.row1 {
+    margin-top: 0rem;
+    font-size: 3.5rem;}
+.row2 {
+    height: 14rem;
+    font-size: 1.4rem;}
+.row3 {
+    font-size: 2.1rem;}
+.row4 {
+    font-size: 2.1rem;}
+.image {
+    width: 50rem;;
+    top: -16rem;} 
+    }}}
+// TABLETTE FORMAT ----------------------- FORMAT TABLETTE \\
+@media screen and (max-width: 950px) {
+    @media screen and (min-height: 850px) {
+    @media screen and (max-height: 1450px) {
+.container {
+    width: 18rem; 
+    height: 28rem;}  
+.row1 {
+    margin-top: 0rem;
+    font-size: 3.5rem;}
+.row2 {
+    height: 14rem;
+    font-size: 1.4rem;}
+.row3 {
+    font-size: 2.1rem;}
+.row4 {
+    font-size: 2.1rem;}
+.image {
+    width: 50rem;;
+    top: -16rem;} }}}       
     `;
     export default Card;

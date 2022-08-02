@@ -193,6 +193,7 @@ const Wrapper = styled.div`
 .form {
     display: flex; 
     flex-direction: column;
+    margin-bottom: 2rem ;
     width: 100%;}
 .row {
     display: flex; 
@@ -205,8 +206,9 @@ const Wrapper = styled.div`
     visibility: hidden;}
 .label {
     display: flex; 
+    font-family: 'Nunito', sans-serif;
     margin: auto 0.5rem;
-    width: 20%;
+    width: 25%;
     font-size: 20px;}
 // BLOC 1 --------------------------------------------------------
 .containerA {
@@ -386,9 +388,6 @@ const Wrapper = styled.div`
     margin-top: -2rem;
     font-size: 58px;}
 .label {
-    display: flex; 
-    margin: auto 0.5rem;
-    width: 20%;
     font-size: 1rem;}
 // Bloc 1 -----------------------------------------------------------
 .containerA {
@@ -401,13 +400,8 @@ const Wrapper = styled.div`
     margin: 1rem auto;
     font-size: 0.9rem;;}
 .nom, .prenom, .date, .ville {
-    background-color: white;
-    border: 2px solid white;
     font-size: 0.9rem;
-    width: 75%;
-    border-radius: 0.4rem;
-    height: 1.5rem;
-    padding-left: 0.5rem;}
+    width: 75%;}
 .date {
     width: 40%;}
 // BLOC 2 ------------------------------------------------------------
@@ -416,54 +410,31 @@ const Wrapper = styled.div`
     border: none;
     border-radius: 0px;
     flex-direction: column;
-    width: 100%;
     height: 18rem;}
 .container1 {
     padding: 0.5 0rem;
     width: 100%;}
 .email, .object {
-    background-color: white;
-    border: 2px solid white;
-    font-size: 0.9rem;
-    width: 75%;
-    border-radius: 0.4rem;
-    height: 1.5rem;
-    padding-left: 0.5rem;} 
+    font-size: 0.9rem;} 
 .container2 {        
-    display: flex;
     justify-content: center;
     padding: 0.5rem;
     width: 100%;} 
 // PRESTATION -----------------------------------------------------------
 .link {
-    border: dashed 2px white;
-    border-radius: 10px;
-    padding: 0.5rem 1rem;
-    margin-top: 0.5rem;
-    margin-left: 3rem;}
+    margin-top: 0.5rem;}
 .Prestation {
-    display: flex;
     margin: auto;
     font-size: 0.9rem;}
-.Prestation a {
-    display: flex;
-    flex-direction: column;}
 .line {
-    background-color: rgba(0,0,0,0.4);
-    display: flex;
-    justify-content: center;
     width: 21.5rem;
     height: 2rem;
     margin-left: 0rem;
     padding-left: 0rem;
     padding-top: 0.5rem; 
-    position: relative;
     font-size : 1.1rem; 
     z-index: 2;}
 .imagePresta {
-    overflow: hidden;
-    display: flex;
-    position: relative;
     margin-top: -8rem;
     margin-left: -0.5rem;
     width: 22rem;
@@ -483,20 +454,12 @@ const Wrapper = styled.div`
     width: 25%;}
 // TEXT AREA ---------------------------------------------------------------
 .text-area {
-    background-color: white;
-    border: 2px solid white;
     font-size: 0.9rem;
-    width: 100%;
-    padding-bottom: 6rem;
-    padding-top: 0.5rem;
-    padding-left: 0.5rem;}
+    padding-bottom: 6rem;}
 // SEND BUTTON --------------------------------------------------------------
 .Send {
-    height: 6rem; 
-    width: 100%; 
-    border: none;}
+    height: 6rem;}
 .Send p {
-    margin: auto;
     font-size: 1.1rem;} } }
 // MOBILE FORMAT HORIZONTAL ----------------------- HORIZONTAL FORMAT MOBILE \\
 @media screen and (max-width: 850px) {
@@ -508,8 +471,6 @@ const Wrapper = styled.div`
     margin-top: -2rem;
     font-size: 58px;}
 .label {
-    display: flex; 
-    margin: auto 0.5rem;
     width: 15%;
     font-size: 1rem;}
 // Bloc 1 -----------------------------------------------------------
@@ -523,13 +484,8 @@ const Wrapper = styled.div`
     margin: 1rem auto;
     font-size: 0.9rem;;}
 .nom, .prenom, .date, .ville {
-    background-color: white;
-    border: 2px solid white;
     font-size: 0.9rem;
-    width: 70%;
-    border-radius: 0.4rem;
-    height: 1.5rem;
-    padding-left: 0.5rem;}
+    width: 70%;}
 .date {
     width: 20%;}
 // BLOC 2 ------------------------------------------------------------
@@ -538,54 +494,33 @@ const Wrapper = styled.div`
     border: none;
     border-radius: 0px;
     flex-direction: column;
-    width: 100%;
     height: 18rem;}
 .container1 {
     padding: 0.5 0rem;
     width: 100%;}
 .email, .object {
-    background-color: white;
-    border: 2px solid white;
     font-size: 0.9rem;
-    width: 70%;
-    border-radius: 0.4rem;
-    height: 1.5rem;
-    padding-left: 0.5rem;} 
+    width: 70%;} 
 .container2 {        
-    display: flex;
     justify-content: center;
     padding: 0.5rem;
     width: 100%;} 
 // PRESTATION -----------------------------------------------------------
 .link {
-    border: dashed 2px white;
-    border-radius: 10px;
-    padding: 0.5rem 1rem;
     margin-top: 0.5rem;
     margin-left: 15rem;}
 .Prestation {
-    display: flex;
     margin: auto;
     font-size: 0.9rem;}
-.Prestation a {
-    display: flex;
-    flex-direction: column;}
 .line {
-    background-color: rgba(0,0,0,0.4);
-    display: flex;
-    justify-content: center;
     width: 22rem;
     height: 2rem;
     margin-left: 12rem;
     padding-left: 0rem;
     padding-top: 0.5rem; 
-    position: relative;
     font-size : 1.1rem; 
     z-index: 2;}
 .imagePresta {
-    overflow: hidden;
-    display: flex;
-    position: relative;
     margin-top: -8rem;
     margin-left: 12rem;
     width: 22rem;
@@ -605,20 +540,47 @@ const Wrapper = styled.div`
     width: 25%;}
 // TEXT AREA ---------------------------------------------------------------
 .text-area {
-    background-color: white;
-    border: 2px solid white;
     font-size: 0.9rem;
-    width: 100%;
-    padding-bottom: 6rem;
-    padding-top: 0.5rem;
-    padding-left: 0.5rem;}
+    padding-bottom: 6rem;}
 // SEND BUTTON --------------------------------------------------------------
 .Send {
-    height: 6rem; 
-    width: 100%; 
-    border: none;}
+    height: 6rem;}
 .Send p {
-    margin: auto;
     font-size: 1.1rem;}}}
+// TABLETTE FORMAT ----------------------- FORMAT TABLETTE \\
+@media screen and (max-width: 950px) {
+@media screen and (min-height: 850px) {
+@media screen and (max-height: 1450px) {
+.containerA { 
+        width: 99%;
+    }
+.container0 { 
+        width: 99%;
+    }
+.containerX { 
+        width: 99.5%;
+    }
+.containerB {
+    width: 75%;
+    margin: auto;}
+.nom, .prenom, .date, .ville {
+    margin: 0.5rem 0;
+    font-size: 16px;
+    width: 85%;
+    height: 1.5rem;
+    padding-left: 0.5rem;}   
+    }
+.email, .object {
+    margin: 0.5rem 0;} 
+.link {
+    font-size: 1.1rem;
+    margin-top: 2.5rem;
+    margin-left: 0.5rem;}
+.containerY {
+    display: flex;
+    width: 75%;}
+.containerZ {
+    display: flex;
+    width: 25%;}}}
     `;
 

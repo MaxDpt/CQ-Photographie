@@ -80,9 +80,9 @@ justify-content: center;
     box-shadow: 0px 2px 4px 2px #02111f;}
 .container .image {
     width: 28rem; 
-    height: 22rem;
+    height: auto;
     display: flex; 
-    top: -1.2rem;
+    top: -2.5rem;
     position: relative;}
 .row {
     display: flex;
@@ -94,9 +94,12 @@ justify-content: center;
     justify-content: space-between;
     z-index: 1;}
 .titre {
+    padding: 0.5rem 0;
     margin: auto 1rem;
+    font-family: 'Cormorant SC', serif;
     font-size: 1.1rem;}
 .createdAt {
+    font-family: 'Cormorant SC', serif;
     margin: auto 1rem;
     font-size: 1.1rem;}
 .container img {
@@ -122,11 +125,8 @@ justify-content: center;
     height: 6.5rem;}
 .container .image {
     width: 14rem; 
-    height: 14rem;
-    display: flex; 
     top: -3.5rem;
-    left: -4.5rem;
-    position: relative;}
+    left: -4.5rem;}
 .row {
     visibility: hidden;}
 .Back {
@@ -140,16 +140,39 @@ justify-content: center;
     width: 10rem; 
     height: 10rem;}
 .container .image {
-    width: 18rem; 
-    height: 18rem;
-    display: flex; 
+    width: 18rem;  
     top: -3.5rem;
-    left: -4.5rem;
-    position: relative;}
+    left: -4.5rem;}
 .row {
     visibility: hidden;}
 .Back {
     left: 1rem;
     top: 10%;} }}
+// TABLETTE FORMAT HORIZONTAL ----------------------- HORIZONTAL FORMAT TABLETTE \\
+@media screen and (max-width: 1450px) {
+    @media screen and (min-width: 850px) {
+    @media screen and (max-height: 950px) {
+.container {
+    margin: 0.3rem;
+    width: 16rem; 
+    height: 16rem;}  
+.container .image {
+    width: 28rem; 
+    top: -3.5rem;
+    left: -4.5rem;}     
+    }}}
+// TABLETTE FORMAT ----------------------- FORMAT TABLETTE \\
+@media screen and (max-width: 950px) {
+    @media screen and (min-height: 850px) {
+    @media screen and (max-height: 1450px) {
+.container {
+    margin: 0.3rem;
+    width: 16rem; 
+    height: 16rem;}  
+.container .image {
+    width: 28rem;  
+    top: -3.5rem;
+    left: -4.5rem;}     
+    }}}       
 `;
 export default Post;

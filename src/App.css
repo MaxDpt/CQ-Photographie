@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
 body {
 	background-color: #47555e;
 	color: white;
@@ -31,7 +31,7 @@ h2 {
 }
 
 p {
-	font-family: 'Cabin', sans-serif;
+	font-family: 'Nunito', sans-serif;
 	margin: 0;
 	padding: 0;
 	border: 0;

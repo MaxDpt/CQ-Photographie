@@ -195,31 +195,32 @@ const handleOnChangeCategorie = (e) => {
         </div> ) )}
     </div>
 
-    {width <= mobileSizePx || width >= mobileSizePx & height <= mobileSizePx  ? (
+
                 <div className="NavPageBottom">
                 <a className={`prevPage ${ pageSelect === 1 ? 'prevPageHide' : 'prevPageShow'}`} onClick={prevPage}>  <p> precedent </p> </a>
                 <p className="separation"> | </p>
                 <a className={`nextPage ${pageSelect === pageCount ? 'nextPageHide' : 'nextPageShow'}`} onClick={nextPage}> <p> suivant </p> </a>
                 </div>
-    ) : null}
+
 
     </Wrapper> );
 };
 // STYLE CSS ---------------------------------------------------------------------
 const Wrapper = styled.div`
+// GRILLE D'IMAGES --------------------------------------------------
 .containerGrille {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%; }
-.pageCurrent {
-    color: gray; }
+// BLOC NAVIGATION ---------------------------------------------------
 .containerNav {
     display: flex; 
     justify-content: end;
     flex-direction: row;
     width: 80%;
     margin: auto; }
+// NAVIGATION DES PAGES -----------------------------------------------
 .navPages {
     background-color: #02111f;
     box-shadow: 0px 2px 10px 2px #02111f;
@@ -244,6 +245,8 @@ const Wrapper = styled.div`
 .bar {
     padding-top: 0.4rem;
     font-size: 0.9rem; }
+.pageCurrent {
+    color: gray; }
 .pageCountNumber {
     display: flex; 
     flex-direction: row;}
@@ -263,6 +266,7 @@ const Wrapper = styled.div`
 .prevPageHide {
     pointer-events: none;
     color: gray; }
+// NAVIGATION DES CATEGORIES --------------------------------------------
 .menuList {
     display: flex;
     justify-content: end;
@@ -274,7 +278,19 @@ const Wrapper = styled.div`
     margin: auto 0;
     font-size: 1.2rem; }
 .menuList label {
+    font-family: 'Nunito', sans-serif;
+    margin: auto;
     font-size: 1.2rem; }
+// NAVIGATION PAGES BAS ------------------------------------------------
+.NavPageBottom {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;}
+.NavPageBottom a, .NavPageBottom p {
+    margin: 0.5rem 1rem;}
+.NavPageBottom .separation {
+    margin-top: 1rem;} 
 // MOBILE FORMAT ----------------------------------- FORMAT MOBILE \\
 @media screen and (max-width: 450px) {
     @media screen and (max-height: 850px) {
@@ -309,16 +325,7 @@ margin-top: 1rem; }
 .nextPage:hover {
     color: white; }
 .prevPage:hover {
-    color: white; }
-.NavPageBottom {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;}
-.NavPageBottom a, .NavPageBottom p {
-    margin: 0.5rem 1rem;}
-.NavPageBottom .separation {
-    margin-top: 1rem;} }}
+    color: white; }}}
 // MOBILE FORMAT HORIZONTAL ----------------------- HORIZONTAL FORMAT MOBILE \\   
 @media screen and (max-width: 850px) {
     @media screen and (max-height: 450px) {
@@ -363,4 +370,53 @@ margin-top: 1rem; }
     margin: 0.5rem 1rem;}
 .NavPageBottom .separation {
     margin-top: 1rem;} }}
+// TABLETTE FORMAT HORIZONTAL ----------------------- HORIZONTAL FORMAT TABLETTE \\
+@media screen and (max-width: 1450px) {
+    @media screen and (min-width: 850px) {
+    @media screen and (max-height: 950px) {
+.containerGrille {
+    margin-top: 1rem; }
+.containerNav {
+    justify-content: center;   
+    width: auto; } 
+.pageCount {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;} 
+.menuList label {
+    margin: auto;
+    font-size: 1rem; } 
+.menuList select {
+    width: 75%;
+    font-size: 1rem; }    
+    }}}
+// TABLETTE FORMAT ----------------------- FORMAT TABLETTE \\
+@media screen and (max-width: 950px) {
+    @media screen and (min-height: 850px) {
+    @media screen and (max-height: 1450px) {
+.containerGrille {
+    margin-top: 1rem; }
+.containerNav {
+    margin: 0.5rem auto;
+    flex-direction: column;
+    width: 60%;}
+.navPages {
+    flex-direction: column;
+    width: auto;
+    padding-right: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    z-index: 2; }
+.pageCount {
+    width: 100%;
+    font-size: 1.2rem; }
+.menuList label {
+    margin: auto;
+    font-size: 1.2rem; } 
+.menuList select {
+    width: 75%;
+    font-size: 1.2rem; } 
+.NavPageBottom a, .NavPageBottom p {
+    font-size: 1.2rem;}   
+    }}  }
+     
 `;

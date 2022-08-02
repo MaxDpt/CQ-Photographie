@@ -142,7 +142,6 @@ z-index: 2;
 // GLOBAL ------------------------------------------------------
 background: #02111f;
 height: 4rem;
-width: 100%;
 // LOGO & TITRE GAUCHE ----------------------------------------
 .left h1 {
     visibility: hidden;
@@ -152,30 +151,19 @@ width: 100%;
     width: 40%;}
 .logo img {
     border: 1px solid white;
-    margin: 0.5rem;
     width: 4rem;
     height: 3rem;}
 // LIEN RESEAUX SOCIAUX DROITE --------------------------------     
 .right {
-    display: flex; 
-    justify-content: end;
     width: 60%;}
 .links {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 0.5rem;
-    width: 50%;
-    flex-direction: row;}
+    margin-right: 0.5rem;}
 .links p {
     visibility: hidden;}
 .fb {
-    display: flex; 
-    justify-content: center;
     width: 2rem;
     height: 2rem;}
 .insta {
-    display: flex; 
-    justify-content: center;
     width: 2rem;
     height: 2rem;}} }
 // MOBILE FORMAT HORIZONTAL ----------------------- HORIZONTAL FORMAT MOBILE \\
@@ -184,37 +172,53 @@ width: 100%;
 // GLOBAL ------------------------------------------------------
 background: #02111f;
 height: 4rem;
-width: 100%;
 // LOGO & TITRE GAUCHE ----------------------------------------
 .left h1 {
     font-size: 1.2rem;}
 .logo img {
     border: 1px solid white;
-    margin: 0.5rem;
     width: 4rem;
     height: 3rem;}
 // LIEN RESEAUX SOCIAUX DROITE -------------------------------- 
 .right {
-    display: flex; 
-    justify-content: end;
     width: 30%;}
 .links {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 0.5rem;
-    width: 50%;
-    flex-direction: row;}
+    margin-right: 0.5rem;}
 .links p {
     visibility: hidden;}
 .fb {
-    display: flex; 
-    justify-content: center;
     width: 2rem;
     height: 2rem;}
 .insta {
-    display: flex; 
-    justify-content: center;
     width: 2rem;
     height: 2rem;}} }
+// TABLETTE FORMAT HORIZONTAL ----------------------- HORIZONTAL FORMAT TABLETTE \\
+@media screen and (max-width: 1450px) {
+@media screen and (min-width: 850px) {
+@media screen and (max-height: 950px) {
+// LOGO & TITRE GAUCHE ----------------------------------------
+.left h1 {
+    font-size: 1.5rem;}
+.left {
+    display: flex; 
+    width: 50%;}
+// LIEN RESEAUX SOCIAUX DROITE -------------------------------- 
+.right {
+    width: 50%;}       
+    }}}
+// TABLETTE FORMAT ----------------------- FORMAT TABLETTE \\
+@media screen and (max-width: 950px) {
+    @media screen and (min-height: 850px) {
+    @media screen and (max-height: 1450px) {
+// LOGO & TITRE GAUCHE ----------------------------------------
+.left h1 {
+    font-size: 1.2rem;}
+.left {
+    display: flex; 
+    width: 40%;}
+// LIEN RESEAUX SOCIAUX DROITE -------------------------------- 
+.right {
+    width: 60%;}       
+    }}}
     `;
 

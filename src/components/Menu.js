@@ -33,12 +33,13 @@ return (
 const Wrapper = styled.div`
 display: flex; 
 justify-content: center;
-width: 100%;
+width: auto;
 height: 6rem;
 z-index: 2;
 .containerLink {
     background-color: #02111f;
     box-shadow: 0px 2px 10px 2px #02111f;
+    padding: 0 1rem;
     height: 4rem;
     margin: auto;
     display: flex; 
@@ -62,9 +63,7 @@ width: 100%;
     margin-top: 0;
     border-radius: 0px;}
 .link {
-    color: white;
-    font-size: 16px;
-    letter-spacing: 1px;
+    font-size: 14px;
     margin: auto 0.5rem;} }}
 // MOBILE FORMAT HORIZONTAL ----------------------- HORIZONTAL FORMAT MOBILE \\
 @media screen and (max-width: 850px) {
@@ -77,9 +76,28 @@ width: 100%;
     margin-top: 0;
     border-radius: 0px;}
 .link {
-    color: white;
     font-size: 18px;
-    letter-spacing: 1px;
     margin: auto 0.5rem;} }}
+// TABLETTE FORMAT HORIZONTAL ----------------------- HORIZONTAL FORMAT TABLETTE \\
+@media screen and (max-width: 1450px) {
+    @media screen and (min-width: 850px) {
+    @media screen and (max-height: 950px) {
+.link {
+    font-size: 26px;;} }}}
+// TABLETTE FORMAT ----------------------- FORMAT TABLETTE \\
+@media screen and (max-width: 950px) {
+    @media screen and (min-height: 850px) {
+    @media screen and (max-height: 1450px) {
+width: auto;
+margin: auto;
+.containerLink { 
+    padding: 0.5rem 1.5rem;
+    justify-content: center; 
+    width: 100%;
+    height: 3rem;}
+.link {
+    font-size: 26px;
+    margin: auto 1rem;}         
+    }}}
 `;
 

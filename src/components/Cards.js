@@ -57,4 +57,21 @@ const Wrapper = styled.div`
     width: 100%;}
 .card {
     margin: 0.5rem;}}}
+// TABLETTE FORMAT HORIZONTAL ----------------------- HORIZONTAL FORMAT TABLETTE \\
+@media screen and (max-width: 1450px) {
+    @media screen and (min-width: 850px) {
+    @media screen and (max-height: 950px) {
+.container1 {
+    width: 100%;}
+.card {
+    margin: 0.5rem;} }}}
+// TABLETTE FORMAT ----------------------- FORMAT TABLETTE \\
+@media screen and (max-width: 950px) {
+    @media screen and (min-height: 850px) {
+    @media screen and (max-height: 1450px) {
+.container1 {
+    width: 100%;}
+.card {
+    margin: 0.5rem;}       
+    }}}
 `;
