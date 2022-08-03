@@ -1,6 +1,7 @@
 
 import styled from "styled-components"; 
 import React from "react";
+import { Link } from "react-router-dom";
 
 // DONNEES DE LA PRESTATION ----------------------------------------
 const Card = ({
@@ -12,20 +13,20 @@ const Card = ({
 }) => {
 // CLICK SUR LA PRESTATION ------------------------------------------
 const PrestationClicked = () => {
-     window.location.href='/Contact';
     localStorage.setItem('idPrestation', id) }
 // ------------------------------------------------------------------
 // RENDU ------------------------------------------------------------
 return (
 <Wrapper>
     <div className="container" onClick={PrestationClicked}>
+    <Link className='link' to ="/Contact"> 
         <div className="card">
             <div className="row1"><h2 className="titre">{title}</h2></div>
             <div className="row2"><p className="description">{description}</p></div>
             <div className="row3"><p className="prix">{prix} euro</p></div>
             <div className="row4"> <p>Choisir</p></div>
         </div>
-        
+    </Link>
         <div className="image">
             <img className="image" alt="" src={'http://localhost:1337'+image.data.attributes.url}/>
         </div>
@@ -45,21 +46,28 @@ const Wrapper = styled.div`
 .container:hover {
     cursor: pointer;
     box-shadow: 0px 2px 4px 2px #02111f;}
+.link {
+    display: flex;
+    width: 20rem;
+    height: 30rem;
+}
 .card { 
     z-index: 1;}
 .row1, .row2, .row3, .row4 {
-    display: flex; 
-    width: 100%; 
+    display: flex;  
     justify-content: center;}
 .row1 {
+    width: 17rem;
     position: relative;
     margin-top: -1rem;
     height: 4rem;
     font-size: 4rem;}
 .row2 {
+    width: 17rem;
     height: 16rem;
     font-size: 1.6rem;}
 .row3 {
+    width: 17rem;
     height: 4rem;
     font-size: 2.2rem;}
 .row4 {
@@ -67,7 +75,7 @@ const Wrapper = styled.div`
     margin-top: 2rem;
     padding-top: 0.5rem;
     margin-left: -1.5rem;
-    width: 120%;
+    width: 21rem;
     height: 4rem;
     font-size: 2.2rem;}
 .description {
@@ -88,18 +96,23 @@ const Wrapper = styled.div`
     width: 10rem; 
     height: 18rem;}
 .row1 {
+    width: 9rem;
     margin-top: 0rem;
     height: 2rem;
     font-size: 1.6rem;}
 .row2 {
+    display: flex;
+    justify-content: center;
+    width: 9rem;
     height: 2rem;
     font-size: 0.9rem;}
 .row3 {
+    width: 9rem;
     height: 1rem;
     font-size: 1.2rem;}
 .row4 {
     margin-top: 10rem;
-    width: 150%;
+    width: 12rem;
     height: 2rem;
     font-size: 1.2rem;}
 .description {
@@ -119,18 +132,21 @@ const Wrapper = styled.div`
     width: 12rem; 
     height: 18rem;}
 .row1 {
+    width: 11rem;
     margin-top: 0rem;
     height: 2rem;
     font-size: 1.6rem;}
 .row2 {
+    width: 11rem;
     height: 2rem;
     font-size: 0.9rem;}
 .row3 {
+    width: 11rem;
     height: 1rem;
     font-size: 1.2rem;}
 .row4 {
     margin-top: 10rem;
-    width: 150%;
+    width: 14rem;
     height: 2rem;
     font-size: 1.2rem;}
 .description {

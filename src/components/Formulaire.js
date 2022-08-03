@@ -4,6 +4,7 @@ import * as React from 'react';
 import { useEffect, useState, useRef }from "react";
 import emailjs from '@emailjs/browser';
 import DeleteLogo from "./Icons/DeleteLogo";
+import { Link } from "react-router-dom";
 
 export default function Formulaire() {
     
@@ -71,9 +72,6 @@ useEffect(() => {
             }) }}, [idPrestation])
 // -----------------------------------------------------------------------
 // Prestation link & delete -----------------------------------------------
-const link = () => {
-    window.location.href='/Prestations';
-}
 const DeletePrestation = () => {
     localStorage.clear();
     window.location.reload();
@@ -140,9 +138,11 @@ return (
         <div className="container2">
             <div className="Prestation">
                 {!prestation ? (<div>
-                    <button className="link" type="button" onClick={link}><h1> Cliquer ici</h1> <p>pour choisir une préstation.</p><br/>
+                    <Link className='links' to ="/Prestations"> 
+                    <button className="link" type="button"><h1> Cliquer ici</h1> <p>pour choisir une préstation.</p><br/>
                     <p>Afin de préciser le service souhaité.</p>
                     <p>Ce choix n'est en aucun cas définitif.</p></button>
+                    </Link>
                 </div>) 
                 : prestation.map(presta => (
                 <div>
@@ -264,6 +264,7 @@ const Wrapper = styled.div`
 // PRESTATION ----------------------------------------------------
 .Prestation {
     display: flex;
+    justify-content: center;
     overflow: hidden;
     width: 100%;}
 .Prestation a {
@@ -277,18 +278,22 @@ const Wrapper = styled.div`
     justify-content: center;
     width: 30rem; 
     height: 2rem;
-    margin-left: -5rem;
+    margin-left: 0rem;
     padding-left: 1rem;
     padding-top: 1rem;
     position: relative;
     font-size : 1.2rem;
     z-index: 2;}
+.links {
+    display: flex;
+    margin-top: 2rem;
+    width: 15rem;
+    height: 8rem;
+    }
 .link {
-    border: dashed 2px white;
+    border: none;
     border-radius: 10px;
-    padding: 0.5rem 1rem;
-    margin-left: 3rem;
-    margin-top: 3rem;}
+    padding: 0.5rem 1rem;}
 .link:hover {
     cursor: pointer;
 }
@@ -305,8 +310,8 @@ const Wrapper = styled.div`
     border: none;
     display: flex; 
     position: relative;
-    bottom: 4.5rem;
-    left: 21rem;
+    bottom: 5rem;
+    left: 26.5rem;
     z-index: 3;}
 .Delete:hover {
     cursor: pointer;
@@ -418,26 +423,26 @@ const Wrapper = styled.div`
     padding: 0.5rem;
     width: 100%;} 
 // PRESTATION -----------------------------------------------------------
-.link {
-    margin-top: 0.5rem;}
+.links {
+    margin-top: 0rem;}
 .Prestation {
     margin: auto;
     font-size: 0.9rem;}
 .line {
     width: 21.5rem;
     height: 2rem;
-    margin-left: 0rem;
+    margin-left: -1rem;
     padding-left: 0rem;
     padding-top: 0.5rem; 
     font-size : 1.1rem; 
     z-index: 2;}
 .imagePresta {
     margin-top: -8rem;
-    margin-left: -0.5rem;
+    margin-left: -1.5rem;
     width: 22rem;
     z-index: 0;}
 .Delete {
-    left: 19.5rem;}
+    left: 18rem;}
 // BLOC 3 -----------------------------------------------------------------
 .containerX {
     margin-top: 0.5rem;
@@ -503,27 +508,30 @@ const Wrapper = styled.div`
     padding: 0.5rem;
     width: 100%;} 
 // PRESTATION -----------------------------------------------------------
-.link {
-    margin-top: 0.5rem;
-    margin-left: 15rem;}
+.links {
+    display: flex;
+    margin-top: 0rem;
+    width: 15rem;
+    height: 8rem;
+    }
 .Prestation {
     margin: auto;
     font-size: 0.9rem;}
 .line {
     width: 22rem;
     height: 2rem;
-    margin-left: 12rem;
+    margin-left: 0rem;
     padding-left: 0rem;
     padding-top: 0.5rem; 
     font-size : 1.1rem; 
     z-index: 2;}
 .imagePresta {
     margin-top: -8rem;
-    margin-left: 12rem;
+    margin-left: 0rem;
     width: 22rem;
     z-index: 0;}
 .Delete {
-    left: 31.5rem;}
+    left: 19rem;}
 // BLOC 3 -----------------------------------------------------------------
 .containerX {
     margin-top: 0.5rem;
@@ -562,13 +570,16 @@ const Wrapper = styled.div`
     padding-left: 0.5rem;}
 // Bloc 2 -----------------------------------------------------------
 .container0 { 
-        width: 99%;}
+    width: 99%;
+    height: 13rem;}
 .email, .object {
     margin: 0.5rem 0;} 
 .link {
-    font-size: 1.1rem;
-    margin-top: 2.5rem;
-    margin-left: 0.5rem;}
+    font-size: 1rem;
+    margin: auto;
+    margin-top: -0.5rem;}
+.Delete {
+    left: 25rem;}
 // Bloc 3 -----------------------------------------------------------
 .containerX { 
     width: 99.5%;}
