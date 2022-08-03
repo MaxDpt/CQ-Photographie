@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export default function Formulaire() {
     
-    var idPrestation = localStorage.getItem('idPrestation');
+    var [idPrestation, setIdPrestation] = useState(localStorage.getItem('idPrestation'));
     const [prestation, setPrestation] = useState (null);
     const [emailPerso,setEmailPerso] = useState('');
     const [error, setError] = useState('');
@@ -74,7 +74,7 @@ useEffect(() => {
 // Prestation link & delete -----------------------------------------------
 const DeletePrestation = () => {
     localStorage.clear();
-} 
+}   
 // -------------------------------------------------------------------------
 // RENDU --------------------------------------------------------------------
 return (
@@ -143,14 +143,14 @@ return (
                     <p>Ce choix n'est en aucun cas définitif.</p></button>
                     </Link>
                 </div>) 
-                : prestation.map(presta => (
+                : (prestation.map(presta => (
                 <div>
                     <p className="line"> Préstation :  {presta.attributes.title} </p>
                     <p className="line"> Au prix : {presta.attributes.prix} euro/TTC</p>
                     <button className="Delete" type="button" onClick={DeletePrestation}><DeleteLogo/></button>
                     <img className="imagePresta" alt="" src={'http://localhost:1337'+presta.attributes.image.data.attributes.url}/>                
                 </div>
-                ) )}                       
+                ) ))}                       
             </div>
         </div>
     </div>
