@@ -10,7 +10,7 @@ const [couverture, setCouverture] = useState(null);
 
 // Appel API IMAGE COUVERTURE -----------------------------------------------
 useEffect(() => {
-    fetch('http://localhost:1337/api/couvertures/1?populate=*',
+    fetch('http://localhost:1337/api/logos/2?populate=*',
     {
         method: 'GET',
         headers: {'Accept': 'Application/json'}
@@ -24,7 +24,7 @@ useEffect(() => {
 // -------------------------------------------------------------------------
 return (
 <Wrapper>
-    {isLoading ? '' : couverture.map(image => (
+    {isLoading ? '...' : couverture.map(image => (
     <div className="containerImage">
         <Image {...image.attributes}/>
     </div> ) )}

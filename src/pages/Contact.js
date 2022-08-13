@@ -9,7 +9,7 @@ export default function Contact() {
 
 // Appel API ---------------------------------------------------------------
 useEffect(() => {
-    fetch('http://localhost:1337/api/couvertures/2?populate=*',
+    fetch('http://localhost:1337/api/logos/3?populate=*',
     {
         method: 'GET',
         headers: {'Accept': 'Application/json'}

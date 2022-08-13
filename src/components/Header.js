@@ -22,7 +22,7 @@
 
 // APPEL API DU LOGO --------------------------------------------------------------
         useEffect(() => {
-            fetch('http://localhost:1337/api/couvertures/3?populate=*',
+            fetch('http://localhost:1337/api/logos/1?populate=*',
             {
                 method: 'GET',
                 headers: {'Accept': 'Application/json'}
@@ -43,7 +43,7 @@
         .then(res => res.json())
         .then(res => {
             var title = Array(res.data.attributes.title);
-            var link = Array(res.data.attributes.lien);
+            var link = Array(res.data.attributes.link);
             setInstaName(title);
             setInstaLink(link);}) }, [])
 // APPEL API DU LIEN 2 --------------------------------------------------------------
@@ -55,15 +55,16 @@
         .then(res => res.json())
         .then(res => {
             var title = Array(res.data.attributes.title);
-            var link = Array(res.data.attributes.lien);
+            var link = Array(res.data.attributes.link);
             setFBName(title);
             setFBLink(link);}) }, [])
 // RENDU ----------------------------------------------------------------------------
+console.log(logos)
 return (
 <HeaderWrapper>
     <div className="left">
-        {isLoading ? '' : logos.map(logo => (
-        <div className="logo"> <Image {...logo.attributes}/> </div> ) )}
+        {isLoading ? '...' : logos.map(image => (
+         <div className="logo"> <Image {...image.attributes}/> </div> ) )}
         {width > mobileSizeWidth & height >= mobileSizeWidth ?(<h1 >Charle Quentin Photographie</h1>) : null}                
     </div>
 
