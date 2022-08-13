@@ -60,7 +60,6 @@
             setFBName(title);
             setFBLink(link);}) }, [])
 // RENDU ----------------------------------------------------------------------------
-console.log(logos)
 return (
 <HeaderWrapper>
     <div className="left">

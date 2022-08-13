@@ -140,9 +140,9 @@ return (
             <div className="Prestation">
                 {!prestation ? (<div>
                     <Link className='links' to ="/Prestations"> 
-                    <button className="link" type="button"><h1> Cliquer ici</h1> <p>pour choisir une préstation.</p><br/>
-                    <p>Afin de préciser le service souhaité.</p>
-                    <p>Ce choix n'est en aucun cas définitif.</p></button>
+                    <button className="link" type="button"><h1> Cliquer ici</h1> <p>et choisissez une préstation.</p><br/>
+                    <p>Pour préciser le service souhaité.</p>
+                    </button>
                     </Link>
                 </div>) 
                 : (prestation.map(presta => (
