@@ -94,7 +94,7 @@ return (
     <p>{confirm}</p>
 </div> ) : null}
 
-<form className="form" method="POST" ref={formRef} onSubmit={handleForm} name='form' data-netlify="true"> 
+<form className="form" method="POST" ref={formRef} onSubmit={handleForm} id='form' name='form' data-netlify="true"> 
     <input type='hidden' name='form-name' value='form'/>
     <div className="containerA">
         <div className="containerB">
