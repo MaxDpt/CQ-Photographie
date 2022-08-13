@@ -5,11 +5,12 @@ import { useEffect, useState }from "react";
 import Card from "./Card";
 export default function Cards() {
 
+const urlApp = 'https://strapi-data-app.herokuapp.com/api'
 const [isLoading, setIsLoading] = useState(true);
 const [cards, setCards] = useState(null);
 // APPEL API DE TOUTES LES PRESTATIONS --------------------------------
 useEffect(() => {
-    fetch('http://localhost:1337/api/prestations?populate=*',
+    fetch(urlApp+'/prestations?populate=*',
     {
         method: 'GET',
         headers: {'Accept': 'Application/json'}

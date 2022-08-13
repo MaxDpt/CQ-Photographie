@@ -7,7 +7,8 @@ import DeleteLogo from "./Icons/DeleteLogo";
 import { Link } from "react-router-dom";
 
 export default function Formulaire() {
-    
+    const urlApp = 'https://strapi-data-app.herokuapp.com/api';
+    const urlAppImage = 'https://strapi-data-app.herokuapp.com';
     var [idPrestation, setIdPrestation] = useState(localStorage.getItem('idPrestation'));
     const [prestation, setPrestation] = useState (null);
     const [emailPerso,setEmailPerso] = useState('');
@@ -45,7 +46,7 @@ const handleForm = async (e) => {
 };
 // Load data email -------------------------------------------------------
 useEffect(() => {
-    fetch('http://localhost:1337/api/email',
+    fetch(urlApp+'/email',
     { method: 'GET',
         headers: {'Accept': 'Application/json'} })
 .then(res => res.json())
@@ -58,7 +59,7 @@ useEffect(() => {
 // Load data prestation --------------------------------------------------
     useEffect(() => {
         if (idPrestation) {
-        fetch('http://localhost:1337/api/prestations/'+idPrestation+'?populate=*',
+        fetch(urlApp+'/prestations/'+idPrestation+'?populate=*',
         { method: 'GET',
             headers: {'Accept': 'Application/json'} })
     .then(res => res.json())
@@ -148,7 +149,7 @@ return (
                     <p className="line"> Préstation :  {presta.attributes.title} </p>
                     <p className="line"> Au prix : {presta.attributes.prix} euro/TTC</p>
                     <button className="Delete" type="button" onClick={DeletePrestation}><DeleteLogo/></button>
-                    <img className="imagePresta" alt="" src={'http://localhost:1337'+presta.attributes.image.data.attributes.url}/>                
+                    <img className="imagePresta" alt="" src={urlAppImage+presta.attributes.image.data.attributes.url}/>                
                 </div>
                 ) ))}                       
             </div>

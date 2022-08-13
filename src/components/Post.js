@@ -10,13 +10,15 @@ const Post = ({
     createdAt = '',
 }) => {
 
+const urlApp = 'https://strapi-data-app.herokuapp.com/api'
+const urlAppImage = 'https://strapi-data-app.herokuapp.com';
 const [isLoading, setIsLoading] = useState(true);
 const [posts, setPosts] = useState(null);
 const [openImage, setOpenImage] = useState (false);
 
 // Conversion URL du post selectionné --------------------------------------------------
     var idNumber = String(id);
-    var urlId = 'http://localhost:1337/api/posts/'+ idNumber +'?populate=*'
+    var urlId = urlApp+'/posts/'+ idNumber +'?populate=*'
 
 // Conversion Date ---------------------------------------------------------------------
     function formatMyDate(value, locale = 'en-GB') {
@@ -46,7 +48,7 @@ return (
         <p className="titre"> {title} </p>
         <p className="createdAt">publié le {date} </p>
         </div>
-        <img className="image" alt="" src={'http://localhost:1337'+image.data.attributes.url} />
+        <img className="image" alt="" src={urlAppImage+image.data.attributes.url} />
     </div>
     {openImage === true ? (
     <>

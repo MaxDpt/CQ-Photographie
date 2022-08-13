@@ -4,13 +4,13 @@ import { useEffect, useState }from "react";
 import Image from "./Image";
 
 export default function HomPage() {
-
+const urlApp = 'https://strapi-data-app.herokuapp.com/api'
 const [isLoading, setIsLoading] = useState(true);
 const [couverture, setCouverture] = useState(null);
 
 // Appel API IMAGE COUVERTURE -----------------------------------------------
 useEffect(() => {
-    fetch('http://localhost:1337/api/logos/2?populate=*',
+    fetch(urlApp+'/logos/2?populate=*',
     {
         method: 'GET',
         headers: {'Accept': 'Application/json'}

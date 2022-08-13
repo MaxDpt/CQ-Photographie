@@ -7,6 +7,7 @@
 
     export default function Header() {
 
+        const urlApp = 'https://strapi-data-app.herokuapp.com/api'
         const [isLoading, setIsLoading] = useState(true);
         const [logos, setLogo] = useState(null);
 
@@ -22,7 +23,7 @@
 
 // APPEL API DU LOGO --------------------------------------------------------------
         useEffect(() => {
-            fetch('http://localhost:1337/api/logos/1?populate=*',
+            fetch(urlApp+'/logos/1?populate=*',
             {
                 method: 'GET',
                 headers: {'Accept': 'Application/json'}
@@ -36,7 +37,7 @@
         }, [])
 // APPEL API DU LIEN 1 --------------------------------------------------------------
         useEffect(() => {
-            fetch('http://localhost:1337/api/socials/1?populate=*',
+            fetch(urlApp+'/socials/1?populate=*',
             {
                 method: 'GET',
                 headers: {'Accept': 'Application/json'}})
@@ -48,7 +49,7 @@
             setInstaLink(link);}) }, [])
 // APPEL API DU LIEN 2 --------------------------------------------------------------
         useEffect(() => {
-            fetch('http://localhost:1337/api/socials/2?populate=*',
+            fetch(urlApp+'/socials/2?populate=*',
             {
                 method: 'GET',
                 headers: {'Accept': 'Application/json'}})
