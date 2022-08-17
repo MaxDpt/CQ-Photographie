@@ -4,12 +4,13 @@ import Formulaire from "components/Formulaire";
 import Image from "components/Image";
 export default function Contact() {
 
+    const urlApp = 'https://strapi-data-app.herokuapp.com/api';
     const [isLoading, setIsLoading] = useState(true);
     const [couverture, setCouverture] = useState(null);
 
 // Appel API ---------------------------------------------------------------
 useEffect(() => {
-    fetch('http://localhost:1337/api/logos/3?populate=*',
+    fetch(urlApp+'/logos/3?populate=*',
     {
         method: 'GET',
         headers: {'Accept': 'Application/json'}

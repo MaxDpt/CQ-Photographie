@@ -11,12 +11,18 @@ export default function Formulaire() {
     var [idPrestation, setIdPrestation] = useState(localStorage.getItem('idPrestation'));
     const [prestation, setPrestation] = useState (null);
     const [emailPerso,setEmailPerso] = useState('');
+    var strEmailPerso = String(emailPerso);
     const [error, setError] = useState('');
     const [confirm, setConfirm] = useState('');
     const [name, setName] = useState('');
     const [ville, setCity] = useState('');
     const [email, setEmail] = useState('');
     const [object, setObject] = useState('');
+    const mobileSizeWidth = 450;
+
+    // CALCUL TAILLE DE L'ECRAN -------------------------------------------------------
+        var width = (window.screen.width);
+        var height = (window.screen.height);
     
 
     const formRef = useRef();
@@ -25,7 +31,7 @@ const handleForm = async (e) => {
     e.preventDefault()
     if (name !== '' & object !== '' & ville !== ''  & email !== '') {       
         setError('')
-        emailjs.sendForm('service_wxfo1z1', 'template_aizkfyt', 'form', 'DOBj7QKzN7GIKHnxR')
+        emailjs.sendForm('service_wxfo1z1', 'template_aizkfyt', 'formulaire', 'DOBj7QKzN7GIKHnxR')
         .then((result) => {
             console.log(result.text);}, 
             (error) => {
@@ -77,7 +83,9 @@ const DeletePrestation = () => {
     setIdPrestation('');
 }   
 // -------------------------------------------------------------------------
+
 // RENDU --------------------------------------------------------------------
+
 return (
 <Wrapper>
 
@@ -93,21 +101,21 @@ return (
     <p>{confirm}</p>
 </div> ) : null}
 
-<form className="form" method="POST" ref={formRef} onSubmit={handleForm} id='form'> 
+<form id="formulaire" className="form" method="POST" ref={formRef} onSubmit={handleForm} > 
     <div className="containerA">
         <div className="containerB">
             <p className="titleText">Transmetez-nous vôtre choix par se formulaire.</p>
             <div className="row">
-                <label className="label">Nom* :</label>
-                <input className={`nom ${name === '' & error !== '' ? 'vide' : 'nom' }`} type='text' name="nom" placeholder='Nom' onChange={input => setName(input.target.value)} />
+                {width > mobileSizeWidth & height >= mobileSizeWidth ?(<label className="label">Nom* :</label>) : null}
+                <input name="nom" className={`nom ${name === '' & error !== '' ? 'vide' : 'nom' }`} type='text'  placeholder='Nom*' onChange={input => setName(input.target.value)} />
             </div>
             <div className="row">
-                <label className="label">Prenom :</label>
+                {width > mobileSizeWidth & height >= mobileSizeWidth ?(<label className="label">Prenom :</label>) : null} 
                 <input className="prenom" type='text' name="prenom" placeholder='Prenom'  />
             </div>
             <div className="row">
-                <label className="label">Ville* :</label>
-                <input className={`ville ${ville === '' & error !== '' ? 'vide' : 'ville' }`} type='text' name="ville" placeholder='ville' onChange={input => setCity(input.target.value)} />
+                {width > mobileSizeWidth & height >= mobileSizeWidth ?(<label className="label">Ville* :</label>) : null} 
+                <input className={`ville ${ville === '' & error !== '' ? 'vide' : 'ville' }`} type='text' name="ville" placeholder='ville*' onChange={input => setCity(input.target.value)} />
             </div>
             <div className="row">
                 <label className="label">Date souhaité :</label>
@@ -120,15 +128,15 @@ return (
         <div className="container1">
             <div className="EmailObject">
                 <div className="row1">
-                    <input className="email" type='email' name="emailPerso" value={emailPerso} />
+                    <input className="email" type='text' name="emailPerso" value={strEmailPerso} />
                 </div>
                 <div className="row">
-                    <label className="label">Email* :</label>
-                    <input className={`email ${ email === '' & error !== '' ? 'vide' : 'email' }`} type='email' name="email" placeholder='email@exemple.com' onChange={input => setEmail(input.target.value)} />
+                    {width > mobileSizeWidth & height >= mobileSizeWidth ?(<label className="label">Email* :</label>) : null} 
+                    <input className={`email ${ email === '' & error !== '' ? 'vide' : 'email' }`} type='email' name="email" placeholder='email@exemple.com*' onChange={input => setEmail(input.target.value)} />
                 </div>
                 <div className="row">
-                    <label className="label">Object* :</label>
-                    <input className={`object ${ object === '' & error !== '' ? 'vide' : 'object' }`} type='text' name="object" placeholder='' defaultValue={object} onChange={input => setObject(input.target.value)} />
+                    {width > mobileSizeWidth & height >= mobileSizeWidth ?(<label className="label">Object* :</label>) : null} 
+                    <input className={`object ${ object === '' & error !== '' ? 'vide' : 'object' }`} type='text' name="object" placeholder='object*' defaultValue={object} onChange={input => setObject(input.target.value)} />
                 </div>
             </div>
             <p className="error"> Les champs portant le sympole *, sont obligatoire.</p>
@@ -218,6 +226,7 @@ const Wrapper = styled.div`
 .nom, .prenom, .date, .ville {
     background-color: white;
     border: 2px solid white;
+    margin: auto;
     font-size: 16px;
     width: 75%;
     border-radius: 0.4rem;
@@ -384,7 +393,8 @@ const Wrapper = styled.div`
     @media screen and (max-height: 850px) {
 // GLOBAL -----------------------------------------------------------
 .form {
-    background-color: #02111f;}
+    background-color: #02111f;
+    margin-bottom: 0rem ;}
 .title {
     margin-top: -2rem;
     font-size: 58px;}
@@ -397,14 +407,15 @@ const Wrapper = styled.div`
     margin: 0 auto;}
 .containerB {
     width: 90%; }
+
 .titleText {
     margin: 1rem auto;
     font-size: 0.9rem;;}
 .nom, .prenom, .date, .ville {
     font-size: 0.9rem;
-    width: 75%;}
+    width: 90%;}
 .date {
-    width: 40%;}
+    width: 60%;}
 // BLOC 2 ------------------------------------------------------------
 .container0 {
     margin: 0 auto;
@@ -416,6 +427,8 @@ const Wrapper = styled.div`
     padding: 0.5 0rem;
     width: 100%;}
 .email, .object {
+    margin: auto;
+    width: 90%;
     font-size: 0.9rem;} 
 .container2 {        
     justify-content: center;
@@ -445,7 +458,8 @@ const Wrapper = styled.div`
 // BLOC 3 -----------------------------------------------------------------
 .containerX {
     margin-top: 0.5rem;
-    border: 1px solid white;
+    border: none;
+    background-color: #323d44;
     border-radius: 0px;}
 .containerY {
     display: flex;
@@ -459,6 +473,7 @@ const Wrapper = styled.div`
     padding-bottom: 6rem;}
 // SEND BUTTON --------------------------------------------------------------
 .Send {
+    background-color: #323d44;
     height: 6rem;}
 .Send p {
     font-size: 1.1rem;} } }
@@ -534,7 +549,7 @@ const Wrapper = styled.div`
 // BLOC 3 -----------------------------------------------------------------
 .containerX {
     margin-top: 0.5rem;
-    border: 1px solid white;
+    border: none;
     border-radius: 0px;}
 .containerY {
     display: flex;
