@@ -111,8 +111,8 @@ justify-content: center;
 .Back {
     display: flex; 
     position: fixed; 
-    left: 5rem;
-    top: 10rem;
+    left: 1%;
+    top: 5%;
     z-index: 4;
     cursor: pointer;}
 .BackIcon {
@@ -130,14 +130,14 @@ justify-content: center;
     width: 6.5rem; 
     height: 6.5rem;}
 .container .image {
-    width: 14rem; 
-    top: -3.5rem;
+    width: 16rem; 
+    top: -4.5rem;
     left: -4.5rem;}
 .row {
     visibility: hidden;}
 .Back {
-    left: 1rem;
-    top: 10%;} }}
+    left: 2%;
+    top: 2%;} }}
 // MOBILE FORMAT HORIZONTAL ----------------------- HORIZONTAL FORMAT MOBILE \\
 @media screen and (max-width: 850px) {
     @media screen and (max-height: 450px) {
@@ -146,14 +146,14 @@ justify-content: center;
     width: 10rem; 
     height: 10rem;}
 .container .image {
-    width: 18rem;  
-    top: -3.5rem;
+    width: 20rem;  
+    top: -4.5rem;
     left: -4.5rem;}
 .row {
     visibility: hidden;}
 .Back {
-    left: 1rem;
-    top: 10%;} }}
+    left: 2%;
+    top: 2%;} }}
 // TABLETTE FORMAT HORIZONTAL ----------------------- HORIZONTAL FORMAT TABLETTE \\
 @media screen and (max-width: 1450px) {
     @media screen and (min-width: 850px) {

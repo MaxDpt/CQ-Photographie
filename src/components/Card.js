@@ -62,11 +62,13 @@ const Wrapper = styled.div`
     position: relative;
     margin-top: -1rem;
     height: 4rem;
-    font-size: 4rem;}
+    font-size: 4rem;
+    text-align: center;}
 .row2 {
     width: 17rem;
     height: 16rem;
-    font-size: 1.6rem;}
+    font-size: 1.6rem;
+    text-align: center;}
 .row3 {
     width: 17rem;
     height: 4rem;

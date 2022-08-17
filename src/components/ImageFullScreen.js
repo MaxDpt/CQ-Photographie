@@ -16,9 +16,10 @@ return (
 
 // CSS STYLE ---------------------------------------------------------
 const Wrapper = styled.div`
-background-color: rgba(0,0,0,0.75);
+background-color: rgba(0,0,0,0.85);
 display: flex; 
 position: fixed;
+justify-content: center;
 width: 100%;
 height: 100%;
 top: 0;
@@ -26,35 +27,28 @@ left: 0;
 .openImage {
     display: flex; 
     position: fixed; 
-    width: 80%;
-    max-height: 90%;
-    right: 10rem;
-    bottom: 2rem;
+    max-width: 100%;
     z-index: 3;}
 .openImage img {
-    width: 100%;}
+    margin: auto;
+    max-width: 90%;}
 // MOBILE FORMAT ----------------------------------- FORMAT MOBILE \\
 @media screen and (max-width: 450px)    {
     @media screen and (max-height: 850px) {
 .openImage {
-    width: 100%;
-    right: 0rem;
-    bottom: 30%;
+    top: 30%;
     z-index: 3;}
 .openImage img {
-    width: 100%;
-    z-index: 3;} }}
+    z-index: 3;
+    width: 100%;} }}
 // MOBILE FORMAT HORIZONTAL ----------------------- HORIZONTAL FORMAT MOBILE \\
 @media screen and (max-width: 850px) { 
     @media screen and (max-height: 450px) {
 .openImage {
-    width: 100%;
-    right: 0rem;
-    bottom: 10%;
     z-index: 3;}
 .openImage img {
     margin: auto;
-    max-width: 80%;
+    max-width: 90%;
     z-index: 3;} }};
     `;
     export default ImageFullScreen;

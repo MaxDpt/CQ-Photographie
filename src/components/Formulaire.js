@@ -45,9 +45,9 @@ const handleForm = async (e) => {
         setConfirm('CONFIRMATION : Votre fortmulaire a bien été transmit. Un email de confirmation vous à également été envoyé. ')
         setTimeout(() => {
             setConfirm('')
-            }, 4000)
+            }, 5000)
         } else {
-            setError('ATTENTION : tous les champs requis ne sont pas remplis.')}
+            setError('ATTENTION : tous les champs requis ne sont pas remplis ou sont incorrectes.')}
 };
 // Load data email -------------------------------------------------------
 useEffect(() => {
@@ -81,6 +81,7 @@ useEffect(() => {
 const DeletePrestation = () => {
     localStorage.clear();
     setIdPrestation('');
+    window.location.assign("/Contact");
 }   
 // -------------------------------------------------------------------------
 
@@ -106,7 +107,7 @@ return (
         <div className="containerB">
             <p className="titleText">Transmetez-nous vôtre choix par se formulaire.</p>
             <div className="row">
-                {width > mobileSizeWidth & height >= mobileSizeWidth ?(<label className="label">Nom* :</label>) : null}
+                {width > mobileSizeWidth & height >= mobileSizeWidth ?(<label className="label">Nom :</label>) : null}
                 <input name="nom" className={`nom ${name === '' & error !== '' ? 'vide' : 'nom' }`} type='text'  placeholder='Nom*' onChange={input => setName(input.target.value)} />
             </div>
             <div className="row">
@@ -114,7 +115,7 @@ return (
                 <input className="prenom" type='text' name="prenom" placeholder='Prenom'  />
             </div>
             <div className="row">
-                {width > mobileSizeWidth & height >= mobileSizeWidth ?(<label className="label">Ville* :</label>) : null} 
+                {width > mobileSizeWidth & height >= mobileSizeWidth ?(<label className="label">Ville :</label>) : null} 
                 <input className={`ville ${ville === '' & error !== '' ? 'vide' : 'ville' }`} type='text' name="ville" placeholder='ville*' onChange={input => setCity(input.target.value)} />
             </div>
             <div className="row">
@@ -128,14 +129,14 @@ return (
         <div className="container1">
             <div className="EmailObject">
                 <div className="row1">
-                    <input className="email" type='text' name="emailPerso" value={strEmailPerso} />
+                    <input className="email" type='email' name="emailPerso" value={strEmailPerso} />
                 </div>
                 <div className="row">
-                    {width > mobileSizeWidth & height >= mobileSizeWidth ?(<label className="label">Email* :</label>) : null} 
+                    {width > mobileSizeWidth & height >= mobileSizeWidth ?(<label className="label">Email :</label>) : null} 
                     <input className={`email ${ email === '' & error !== '' ? 'vide' : 'email' }`} type='email' name="email" placeholder='email@exemple.com*' onChange={input => setEmail(input.target.value)} />
                 </div>
                 <div className="row">
-                    {width > mobileSizeWidth & height >= mobileSizeWidth ?(<label className="label">Object* :</label>) : null} 
+                    {width > mobileSizeWidth & height >= mobileSizeWidth ?(<label className="label">Object :</label>) : null} 
                     <input className={`object ${ object === '' & error !== '' ? 'vide' : 'object' }`} type='text' name="object" placeholder='object*' defaultValue={object} onChange={input => setObject(input.target.value)} />
                 </div>
             </div>
@@ -224,6 +225,7 @@ const Wrapper = styled.div`
     margin: 1rem auto;
     font-size: 1.2rem;;}
 .nom, .prenom, .date, .ville {
+    outline: none;
     background-color: white;
     border: 2px solid white;
     margin: auto;
@@ -262,6 +264,7 @@ const Wrapper = styled.div`
     margin: auto;
 }
 .email, .object {
+    outline: none;
     background-color: white;
     border: 2px solid white;
     font-size: 16px;
@@ -348,6 +351,10 @@ const Wrapper = styled.div`
     padding-bottom: 7rem;
     padding-top: 0.5rem;
     padding-left: 0.5rem;}
+textarea:valid, textarea:invalid  {
+        border: none;
+        outline: none;
+    }
 // SEND BUTON -----------------------------------------------------
 .Send {
     display: flex;

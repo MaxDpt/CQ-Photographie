@@ -37,7 +37,7 @@
         }, [])
 // APPEL API DU LIEN 1 --------------------------------------------------------------
         useEffect(() => {
-            fetch(urlApp+'/socials/1?populate=*',
+            fetch(urlApp+'/socials/2?populate=*',
             {
                 method: 'GET',
                 headers: {'Accept': 'Application/json'}})
@@ -49,7 +49,7 @@
             setInstaLink(link);}) }, [])
 // APPEL API DU LIEN 2 --------------------------------------------------------------
         useEffect(() => {
-            fetch(urlApp+'/socials/2?populate=*',
+            fetch(urlApp+'/socials/1?populate=*',
             {
                 method: 'GET',
                 headers: {'Accept': 'Application/json'}})

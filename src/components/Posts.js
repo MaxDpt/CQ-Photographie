@@ -139,7 +139,7 @@ const handleOnChangeCategorie = (e) => {
                     <button className={`prevPage ${ pageSelect === 1 ? 'prevPageHide' : 'prevPageShow'}`} type='button' onClick={prevPage}>  <p> precedent </p> </button>
 
                     <div className="pageCountNumber">
-                        {pageCount >= 2 ? ( <>
+                        {pageCount >= 3 ? ( <>
                         {pageNext === pageCount + 1 ? (<p className="pageNext">{(pagePrev -1)}</p>) : null}
                         {pageNext === pageCount + 1  ? (<p className="pageNext"><p className="bar">-</p></p>) : null}
 
@@ -149,7 +149,7 @@ const handleOnChangeCategorie = (e) => {
 
                         <p className='pageCurrent'>{pageSelect}</p>
 
-                        {pageCount >= 2 ? ( <>
+                        {pageCount >= 3 ? ( <>
                         {pageNext < pageCount + 1  ? (<p className="pageNext"><p className="bar">-</p></p>) : null}
                         {pageNext < pageCount + 1 ? (<p className="pageNext">{pageNext}</p>) : null}
 
@@ -170,7 +170,7 @@ const handleOnChangeCategorie = (e) => {
                     <label for="select">filtre : </label>
                     <select id="select" value={categorie} onChange={handleOnChangeCategorie} onClick={categorieClicked}>
                     <option value="">--catégories--</option>
-                    {isLoading2 ? 'Loading...' : categories.map(categorie => (
+                    {isLoading2 ? '' : categories.map(categorie => (
                     <option value={categorie.attributes.name}>{categorie.attributes.name}</option> ) )}
                     </select>
                 </div>
@@ -178,26 +178,30 @@ const handleOnChangeCategorie = (e) => {
         </div>
 
     <div className="containerGrille">
-        {isLoading ? 'Loading...' : posts.map(post => (
+        {isLoading ? (<p className="loading">chargement...</p>) : posts.map(post => (
         <div className="post">
             {post.attributes.section === categorie ? (<Post {...post.attributes} {...post}/>) : null }
             {categorie === '' ? (<Post {...post.attributes} {...post}/>) : null }
         </div> ) )}
     </div>
 
-
-                <div className="NavPageBottom">
-                    <button className={`prevPage ${ pageSelect === 1 ? 'prevPageHide' : 'prevPageShow'}`} type='button' onClick={prevPage}>  <p> precedent </p> </button>
-                    <p className="separation"> | </p>
-                    <button className={`nextPage ${pageSelect === pageCount ? 'nextPageHide' : 'nextPageShow'}`} type='button' onClick={nextPage}> <p> suivant </p> </button>
-                </div>
-
+    { isLoading ? null : (
+        <div className="NavPageBottom">
+            <button className={`prevPage ${ pageSelect === 1 ? 'prevPageHide' : 'prevPageShow'}`} type='button' onClick={prevPage}>  <p> precedent </p> </button>
+            <p className="separation"> | </p>
+            <button className={`nextPage ${pageSelect === pageCount ? 'nextPageHide' : 'nextPageShow'}`} type='button' onClick={nextPage}> <p> suivant </p> </button>
+        </div>
+    )}
 
     </Wrapper> );
 };
 // STYLE CSS ---------------------------------------------------------------------
 const Wrapper = styled.div`
 // GRILLE D'IMAGES --------------------------------------------------
+.loading {
+    font-size: 1.5rem;
+    margin-top: 10rem;
+}
 .containerGrille {
     display: flex;
     flex-wrap: wrap;
@@ -292,13 +296,16 @@ const Wrapper = styled.div`
 // MOBILE FORMAT ----------------------------------- FORMAT MOBILE \\
 @media screen and (max-width: 450px) {
     @media screen and (max-height: 850px) {
+// GRILLE D'IMAGES --------------------------------------------------
 .containerGrille {
 margin-top: 1rem; }
+// BLOC NAVIGATION ---------------------------------------------------
 .containerNav {
     margin: 0;
     margin-top: -3rem;
     flex-direction: column;
     width: 100%;}
+// NAVIGATION DES PAGES -----------------------------------------------
 .navPages {
     flex-direction: column;
     border-radius: 0px;
@@ -315,7 +322,7 @@ margin-top: 1rem; }
 .menuList select {
     border-radius: 10px;
     width: 80%;
-    margin: auto 0rem;
+    margin: 0.5rem 0rem;
     font-size: 0.9rem; }
 .menuList label {
     margin: auto;
@@ -350,7 +357,7 @@ margin-top: 1rem; }
 .menuList select {
     border-radius: 10px;
     width: 80%;
-    margin: auto 0rem;
+    margin: 0.5rem 0rem;
     font-size: 0.9rem; }
 .menuList label {
     margin: auto;
