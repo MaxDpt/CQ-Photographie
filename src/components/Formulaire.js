@@ -31,9 +31,9 @@ const handleForm = async (e) => {
     e.preventDefault()
     if (name !== '' & object !== '' & ville !== ''  & email !== '') {       
         setError('')
-        emailjs.sendForm('service_wxfo1z1', 'template_aizkfyt', 'formulaire', 'DOBj7QKzN7GIKHnxR')
+        emailjs.sendForm('service_wxfo1z1', 'template_aizkfyt', formRef.current, 'DOBj7QKzN7GIKHnxR')
         .then((result) => {
-            console.log(result.text);}, 
+            console.log(result.text);},
             (error) => {
             console.log(error.text);});
         formRef.current.reset();
@@ -101,7 +101,7 @@ return (
     <p>{confirm}</p>
 </div> ) : null}
 
-<form id="formulaire" className="form" method="POST" ref={formRef} onSubmit={handleForm} > 
+<form id="formulaire" className="form" method="POST" ref={formRef} onSubmit={handleForm}> 
     <div className="containerA">
         <div className="containerB">
             <p className="titleText">Transmetez-nous vôtre choix par se formulaire.</p>
