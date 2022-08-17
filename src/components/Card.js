@@ -11,7 +11,7 @@ const Card = ({
     prix = '',
     image ='',
 }) => {
-    const urlApp = 'https://strapi-data-app.herokuapp.com';
+
 // CLICK SUR LA PRESTATION ------------------------------------------ 
 const PrestationClicked = () => {
     localStorage.setItem('idPrestation', id) }
@@ -29,7 +29,7 @@ return (
         </div>
     </Link>
         <div className="image">
-            <img className="image" alt="" src={urlApp+image.data.attributes.url}/>
+            <img className="image" alt="" src={image.data.attributes.url}/>
         </div>
     </div>
 </Wrapper>

@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 
 export default function Formulaire() {
     const urlApp = 'https://strapi-data-app.herokuapp.com/api';
-    const urlAppImage = 'https://strapi-data-app.herokuapp.com';
     var [idPrestation, setIdPrestation] = useState(localStorage.getItem('idPrestation'));
     const [prestation, setPrestation] = useState (null);
     const [emailPerso,setEmailPerso] = useState('');
@@ -150,7 +149,7 @@ return (
                     <p className="line"> Préstation :  {presta.attributes.title} </p>
                     <p className="line"> Au prix : {presta.attributes.prix} euro/TTC</p>
                     <button className="Delete" type="button" onClick={DeletePrestation}><DeleteLogo/></button>
-                    <img className="imagePresta" alt="" src={urlAppImage+presta.attributes.image.data.attributes.url}/>                
+                    <img className="imagePresta" alt="" src={presta.attributes.image.data.attributes.url}/>                
                 </div>
                 ) ))}                       
             </div>

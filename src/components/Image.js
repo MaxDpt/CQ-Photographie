@@ -5,11 +5,11 @@
     const Image = ({
         image = '',
     }) => {
-        const urlAppImage = 'https://strapi-data-app.herokuapp.com';
+        
     return (
     <Wrapper>
         <div className="container">
-            <img className="image" alt="" src={urlAppImage+image.data.attributes.url} />
+            <img className="image" alt="" src={image.data.attributes.url} />
         </div>
     </Wrapper>
     );

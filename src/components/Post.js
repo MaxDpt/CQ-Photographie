@@ -11,7 +11,6 @@ const Post = ({
 }) => {
 
 const urlApp = 'https://strapi-data-app.herokuapp.com/api'
-const urlAppImage = 'https://strapi-data-app.herokuapp.com';
 const [isLoading, setIsLoading] = useState(true);
 const [posts, setPosts] = useState(null);
 const [openImage, setOpenImage] = useState (false);
@@ -48,7 +47,7 @@ return (
         <p className="titre"> {title} </p>
         <p className="createdAt">publié le {date} </p>
         </div>
-        <img className="image" alt="" src={urlAppImage+image.data.attributes.url} />
+        <img className="image" alt="" src={image.data.attributes.url} />
     </div>
     {openImage === true ? (
     <>
