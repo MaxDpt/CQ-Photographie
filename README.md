@@ -14,12 +14,10 @@ DEMARAGE EN LOCAL :
 
 UTILISATION : 
 Gestionnaire de contenue Strapi :
-  Pour accéder au gestionnaire de contenue et administrer le site web. Rendez-vous sur le lien ci-dessus et entrez les identifiants suivant:
+  Pour accéder au gestionnaire de contenue et administrer le site web. Rendez-vous sur le lien ci-dessous: 
   
            lien : https://strapi-data-app.herokuapp.com/admin
-           identifiant : alt.z7-1ocjbf7@yopmail.com
-           mot de passe : 123456ABcd
-           
+
   Depuis l'onglet Content Manager, choisiez la collection à modifier. 
         - categorie : liste des categories d'images (doit avoir la même ortographe dans le champ "section" des posts.)
         - logo : images utlisé comme logo et font d'écrans.
