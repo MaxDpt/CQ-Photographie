@@ -1,11 +1,9 @@
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 CHARLE QUENTIN PHOTOGRAPHIE
 Lien site web: https://charlequentin-photographie.netlify.app
 
 PRESENTATION : 
-Charle Quentin photographie, est une application web fictif, dans le cadre de ma formation. Elle propose d'exposer le travaille du photographie par une galerie d'image et invite à choisir parmis diférentes préstations de service. En métant à disposition un formulaire, permettant de le contacter par email et de recevoir une confirmation. Un gestionnaire de contenue y est associé pour pouvoir administrer le site web depuis sont interface.
+Charle Quentin photographie, est une application web fictif, dans le cadre de ma formation. Elle propose d'exposer le travaille du photographe par une galerie d'image et invite à choisir parmis diférentes préstations de service. Un formulaire, permettant de le contacter par email et de recevoir une confirmation et un gestionnaire de contenue y est associé pour pouvoir administrer le site web depuis sont interface.
 
 DEMARAGE EN LOCAL : 
   - Téléchargez les fichiers du code source. Depuis la console de commande, à la racine du dossier source " charlequentin/ " .
