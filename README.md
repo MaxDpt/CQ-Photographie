@@ -16,12 +16,12 @@ Gestionnaire de contenue Strapi :
   
            lien : https://strapi-data-app.herokuapp.com/admin
 
-  Depuis l'onglet Content Manager, choisiez la collection à modifier. 
-        - categorie : liste des categories d'images (doit avoir la même ortographe dans le champ "section" des posts.)
-        - logo : images utlisé comme logo et font d'écrans.
-        - posts : images publié (doit avoir la même ortographe dans le champ "section" que dans categorie.)
-        - prestations : prestations publié.
-        - social : les liens vers les réseaux sociaux.
-        - email : adresse email utilisé pour recevoir les messages formulaires.
+Depuis l'onglet Content Manager, choisiez la collection à modifier. 
+  - categorie : liste des categories d'images (doit avoir la même ortographe dans le champ "section" des posts.)
+  - logo : images utlisé comme logo et font d'écrans.
+  - posts : images publié (doit avoir la même ortographe dans le champ "section" que dans categorie.)
+  - prestations : prestations publié.
+  - social : les liens vers les réseaux sociaux.
+  - email : adresse email utilisé pour recevoir les messages formulaires.
         
-  Pensez à sauvegarder et publier vos modifications. La mise à jours du site ce fera automatiquement. 
+Pensez à sauvegarder et publier vos modifications. La mise à jours du site ce fera automatiquement. 
