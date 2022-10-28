@@ -3,7 +3,7 @@ CHARLES QUENTIN PHOTOGRAPHIE
 Lien site web: https://cq-photographie.netlify.app/
 
 PRESENTATION : 
-Charles Quentin photographie, est une application web fictif, dans le cadre de ma formation. Elle propose d'exposer le travaille du photographe par une galerie d'image et invite à choisir parmis diférentes préstations de service. Un formulaire, permettant de le contacter par email et de recevoir une confirmation et un gestionnaire de contenue y est associé pour pouvoir administrer le site web depuis sont interface.
+  Charles Quentin photographie, est une application web fictif, dans le cadre de ma formation. Elle propose d'exposer le travaille du photographe par une galerie d'image   et invite à choisir parmis diférentes préstations de service. Un formulaire, permettant de le contacter par email et de recevoir une confirmation et un gestionnaire de   contenue y est associé pour pouvoir administrer le site web depuis sont interface.
 
 DEMARAGE EN LOCAL : 
   - Téléchargez les fichiers du code source. Depuis la console de commande, à la racine du dossier source " charlequentin/ " .
@@ -11,7 +11,7 @@ DEMARAGE EN LOCAL :
   ( Mettre à jours le paquet "react-scripts" dans package.json )
 
 UTILISATION : 
-Gestionnaire de contenue Strapi :
+  Gestionnaire de contenue Strapi :
   Pour accéder au gestionnaire de contenue et administrer le site web. Rendez-vous sur le lien ci-dessous: 
   
            lien : https://strapi-data-app.herokuapp.com/admin
