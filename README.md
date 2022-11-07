@@ -16,7 +16,7 @@ UTILISATION :
   
            lien : https://strapi-data-app.herokuapp.com/admin
 
-Depuis l'onglet Content Manager, choisiez la collection à modifier. 
+Depuis l'onglet 'Content Manager', choisiez la collection à modifier. 
   - categorie : liste des categories d'images (doit avoir la même ortographe dans le champ "section" des posts.)
   - logo : images utlisé comme logo et font d'écrans.
   - posts : images publié (doit avoir la même ortographe dans le champ "section" que dans categorie.)
