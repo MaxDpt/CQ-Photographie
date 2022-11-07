@@ -28,7 +28,7 @@ export default function Formulaire() {
     // CALCUL DATE -----------------------------------------------------------
     var now = new Date();
     var jour    = now.getDate();
-    var [send, setSend] = useState(localStorage.getItem('SendDay'));
+    var send = localStorage.getItem('SendDay');
 
     
     
