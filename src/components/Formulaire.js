@@ -25,10 +25,21 @@ export default function Formulaire() {
         var height = (window.screen.height);
     
 
+    // CALCUL DATE -----------------------------------------------------------
+    var now = new Date();
+    var jour    = now.getDate();
+    var [send, setSend] = useState(localStorage.getItem('SendDay'));
+
+    
+    
+
     const formRef = useRef();
 // SUBMIT FORM -------------------------------------------------------------
 const handleForm = async (e) => {
     e.preventDefault()
+
+    if (!send || send !== jour + 1) {
+        localStorage.setItem('SendDay', jour);
     if (name !== '' & object !== '' & ville !== ''  & email !== '') {       
         setError('')
         emailjs.sendForm('service_wxfo1z1', 'template_aizkfyt', formRef.current, 'DOBj7QKzN7GIKHnxR')
@@ -41,14 +52,21 @@ const handleForm = async (e) => {
         setCity('');
         setEmail('');
         setObject('');
-        
-        setConfirm('CONFIRMATION : Votre fortmulaire a bien été transmit. Un email de confirmation vous à également été envoyé. ')
+         
+         setConfirm('CONFIRMATION : Votre fortmulaire a bien été transmit. Un email de confirmation vous à également été envoyé. ')
         setTimeout(() => {
             setConfirm('')
             }, 5000)
-        } else {
+           } else {
             setError('ATTENTION : tous les champs requis ne sont pas remplis ou sont incorrectes.')}
+
+
+    } else {
+        setError('ATTENTION : Un message à déjà été envoyé. Vous pourrez recommencer dans 48H.')
+    }
+
 };
+
 // Load data email -------------------------------------------------------
 useEffect(() => {
     fetch(urlApp+'/email',
